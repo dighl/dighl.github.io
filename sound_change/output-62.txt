@@ -1,0 +1,49 @@
+Categories:
+-----------
+V=aeiou
+L=āēīōū
+C=bcdfghjklmnqprstvw
+A=aeiouāēīōū
+U=äö
+I=āō
+R=lr
+
+Rules:
+------
+io>ie/_ undefined
+A>e/C_[rlnm]# 364
+[ao]>e/C_# 182
+[ia]>e/#(b)_[r]C 15
+[iī]>-/CC_# 27
+I>U/C(C)_(C)Vn# 4
+i>e/#[bg]_C 21
+c>ck/#C(C)(C)V_# undefined
+c>k/#C(C)V[nl]_# 7
+h>ch/V_[#ts] 79
+o>a/_u 24
+o>-/u_ 39
+b>m/m_ 6
+V>e/_n# 262
+hh>ch/_ 12
+sc>sch/_ undefined
+s>sch/#_[lmnw] 11
+ArA>er/_[C#] 9
+AlA>el/_[C#] 10
+L>V/_ undefined
+c>ck/_[st] 1
+->t/n_[f] 1
+a>-/_ne 4
+i>-/VR_C 20
+sk>sch/_ undefined
+re>er/t_# 2
+nc>nk/_ undefined
+iu>eu/_ undefined
+e>-/er_ 3
+
+Rewrites:
+--------
+
+
+Success:
+---------
+62%
