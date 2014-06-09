@@ -1,0 +1,71 @@
+#application {
+  overflow: hidden;
+  display: block;
+}
+#categories {
+  float: left;
+  display: inline;
+}
+#sound_change_rules {
+  float: left;
+  display: inline;
+  padding-left: 10px;
+}
+#input_lexicon {
+  float: left;
+  display: inline;
+  padding-left: 10px;
+}
+#output_lexicon {
+  float: left;
+  display:inline;
+  padding-left: 10px;
+  //height: 500px; 
+  //overflow: auto;
+  //width: 200px;
+}
+#output_attested {
+  float: left;
+  display: inline;
+  padding-left: 10px;
+}
+#output_correct {
+  float: left;
+  display: inline;
+  padding-left: 10px;
+}
+#rewrite_rules {
+  float: left;
+  display: inline;
+  padding-left: 10px;
+}
+label {
+  font-weight: bold;
+  padding-bottom: 200px;
+}
+
+#db {
+  display: none;
+}
+#evalu{display:none;}
+
+div.show ul.hovered {
+  display: none;
+}
+div.show {
+  color: red;
+  display: inline;
+}
+
+div.show:hover ul.hovered{
+  display: block;
+  font-weight: normal;
+  color: white;
+  width: 500px;
+  font-size: 80%;
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  background-color: CornflowerBlue;
+}
+

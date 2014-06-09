@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="js/filesaver.js"></script>
+    <script type="text/javascript" src="js/html2canvas.js"></script>
+    <script src="js/base64.js"></script>
+    <script src="js/canvas2image.js"></script>
+    <script type="text/javascript" src="js/edit.js"></script>
+<style>
+#db{display:none;}
+#alignments{
+  display: none;
+  float: left;
+  background-color: LightGray;
+  margin-left: 30px;
+}
+td.alm{
+  width:50px;
+  padding-left:10px;
+  padding-right:10px;
+  font-weight:bold;
+  text-align:center;
+  background-color:gray;
+  color:white;
+  border: 1px solid white;
+}
+td.dist{
+  background-color: CornflowerBlue;
+}
+td.gap{
+  background-color:black;
+}
+td.match{
+  background-color:gray;
+}
+td.smatch{
+  background-color: LightGray;
+}
+table.almtbl{
+  display: block;
+  float: none;
+  border: 5px solid black;
+}
+td.mismatch{
+  color:white;
+  background-color:red;
+}
+#warning {
+  display: none;
+  color: red;
+  font-weight: bold;
+}
+#stringsA{float:left}
+#stringsB{float:left;margin-left:10px;}
+#buttons{float:left;margin-left:10px;}
+.button1{display:block;margin-bottom:10px;};
+</style>
+
+  </head>
+  <body>  
+  <h3>Alignment of two words in realtime</h3>
+  Just type in arbitrary words in the fields and check out what happens.<br><br>
+  <input type="text" id="stringA" placeholder="first word" onkeyup="editDistSimple();"/>
+  <input type="text" id="stringB" placeholder="second word" onkeyup="editDistSimple();"/>
+
+  <div id="output"></div>
+  <div id="db"></div>
+  <br>
+  <h3>Align multiple word pairs</h3>
+  Insert multiple words in both text fields, align the words and export the alignments to a separate file.<br><br>
+  <textarea id="stringsA" rows="30" cols="30" placeholder="words of one language">hant
+maus
+fūs
+k y k ə n</textarea>
+  <textarea id="stringsB" rows="30" cols="30" placeholder="words of other language">hænd
+mauz
+fut
+tʃ ɪ k ə n</textarea>
+<div id="buttons">
+  <input type="button" class="button1" value="SUBMIT" onclick="editAll();" />
+  <input type="button" class="button1" value="EXPORT HTML" onclick="saveAlms();" />
+  <input type="button" class="button1" value="EXPORT IMAGE" onclick="savePNG();" /></div>
+
+  <div id="alignments"></div>
+
+  
+  <br>
+  <div id="warning"> </div>
+  </body>
+</head>

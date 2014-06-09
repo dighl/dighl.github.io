@@ -1,0 +1,128 @@
+<!-- forked from http://www.zompist.com/sca2.html -->
+<html><head>
+<meta http-equiv="content-type" content="text/html"; charset="utf8">
+<title>SoundChanger</title>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/ohg.js"></script>
+<script type="text/javascript" src="js/deu.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/eligrey/FileSaver.js/master/FileSaver.js"></script>
+<script language="javascript" type="text/javascript" src="SoundChanger.js"></script>
+<link rel="stylesheet" type="text/css" href="SoundChanger.css" />
+</head> 
+<body>
+<h3>SoundChanger (forked from Mark Rosenfelder's <a
+    href="http://www.zompist.com/sounds.htm">SCA²</a>)
+  <div class="show">[?]
+    <ul class="hovered">
+      <li>This is a simple REGEX script that allows to check how good a given set of sound change
+      rules converts a given ancestor language into its descendant language.</li>
+      <li>As a default, 517 word pairs from Old High German and modern Standard German are supplied
+      for testing.</li>
+      <li>You can, however, easily replace the data with your own pair of ancestor and descendant
+      language. </li>
+      <li>The rules should be straightforward, since I tried to design them in such a way that they
+      look almost identical with rules in historical linguistics. </li>
+      <li>For details, you can further check
+      <a href="../documents/papers/sound_change.pdf">this document</a> (originally a part of a lecture)
+      in which some more explanations are given (in German).</li>
+
+    </ul>
+  </div>
+</h3>
+<div id="db"></div>
+<div id="application">
+  <form action="" name="theform">
+  <div id="categories">
+    <label for="cats">Categories:</label>
+    <br>
+    <textarea id="cats" name="cats" rows="30" cols="20">V=aeiou
+L=āēīōū
+C=bcdfghjklmnprstvw
+</textarea>
+  </div>
+  <div id="rewrite_rules">
+    <label for="rewrite">Prepare:</label>
+    <br>
+    <textarea id="rewrite" name="rewrite" rows="30" cols="25">% change bi-prefix
+#bi > be
+  </textarea>
+  </div>
+
+  <div id="sound_change_rules">
+    <label for="rules">Rules:</label>
+    <br>
+    <textarea id="rules" name="rules" rows="30" cols="25">% shorten final long vowels
+L>V/_#
+</textarea>
+  </div>
+  <div id="input_lexicon">
+    <label for="ilex">Input :</label>
+    <br>
+    <textarea id="ilex" name="ilex" rows="30" cols="15">lector
+doc tor
+focus
+jocus
+districtus       
+cīvitatem
+adoptare
+opera
+secundus  
+fōliam
+pōntem</textarea>
+  </div>
+  <div id="output_attested">
+    <label for="alex">Attested output:</label>
+    <br>
+    <textarea id="alex" name="alex" rows="30" cols="30"></textarea>
+  </div>
+  <div id="output_correct">
+    <label for="clex">Correct Output:</label>
+    <br>
+    <textarea id="clex" name="clex" rows="30" cols="30"></textarea>
+  </div>
+
+  <div id="output_lexicon">
+    <label for="olex">Incorrect Output:</label>
+    <br>
+    <textarea id="olex" name="olex" rows="30" cols="30"></textarea>
+  </div>
+</div>
+
+<div style="display:none">
+  <p>Output format:
+  <br><input name="outtype" value="text" checked="checked" type="radio">output
+  <br><input name="outtype" value="arro" type="radio">input &#8594; output
+  <br><input name="outtype" value="dict" type="radio">output [input]
+
+  <br><input name="showdiff" type="checkbox">Show differences from last run
+  <br><input name="report" type="checkbox">Report which rules apply
+  <br><input name="rewout" checked="checked" type="checkbox">Rewrite on output
+
+  </p>
+</div>
+
+<input value="Apply" onclick="process();" type="button">
+<input value="Export" onclick="saveFile();" type="button">
+<h3 id="evalu">Evaluation</h3>
+<div id="mytext"> </div>
+
+</form>
+
+<h3>
+
+<script type="text/javascript">
+var ilex = document.getElementById('ilex');
+var alex = document.getElementById('alex');
+var text = '';
+var text2 = '';
+for(var i=0, txt;txt=ohg[i];i++)
+{
+  text += txt+'\n';
+  text2 += txt+' > '+deu[i]+'\n';
+}
+ilex.value = text;
+alex.value = text2;
+</script>
+</body>
+</html>
