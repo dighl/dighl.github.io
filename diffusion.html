@@ -1,0 +1,140 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Buttons Model</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="diffusion/agentscript.js"></script>
+    <script src="diffusion/coffee-script.js"></script>
+    <script>
+      function getRandomColor() {
+        var a1 = Math.floor((Math.random() * 250)+1);
+        var a2 = Math.floor((Math.random() * 250)+1);
+        var a3 = Math.floor((Math.random() * 250)+1);
+        return [a1,a2,a3];
+      }
+
+    </script>
+    <script type="text/coffeescript">
+    
+    distance = (a,b) -> Math.sqrt( (a.x - b.x)**2 + (a.y - b.y)** 2 )
+    
+    u = ABM.util # ABM.util alias, u.s is also ABM.shape accessor.
+    class MyModel extends ABM.Model
+      setup: ->
+        @refreshPatches = false # for static patches
+        @refreshLinks = false # for static links .. drown as created
+        
+        # globals
+        @buttons = 100
+        @cluster = 0
+        
+        # defaults
+        @agents.setDefault "shape", "circle"
+        @agents.setDefault "size", 1
+        @agents.setDefault "color", [100,100,100]
+        @agents.setDefault "heading", 0 # override promotion to random angle
+        @links.setDefault "thickness", 0.2
+        @links.setDefault "color", [250,250,30]
+        
+        
+        @agents.create @buttons, (a) => # fat arrow for @patches etc
+          a.setXY @patches.randomPt()...
+
+        for ag1 in @agents
+          
+
+          # connect with closest neighbors in radius 5
+          for ag2 in @agents.other(ag1)
+            dst = distance(ag1,ag2)
+            if dst <= 5
+              @links.create ag1, ag2, (l) -> l.draw ABM.contexts.links
+
+        @colored = {}
+        for node in @agents
+          @colored[node.id] = []
+
+              
+      gens = 0
+
+
+      step: ->
+
+        b1 = @agents.oneOf()
+        orcol = b1.color
+
+        if @colored[b1.id].length == 0
+          b1.color = `getRandomColor();`
+        
+        b2 = @agents.other(b1).oneOf()
+        
+        if distance(b1,b2) < 5
+          
+          if @colored[b1.id].length >= @colored[b2.id].length
+            
+            b2.color = b1.color
+            gens += 1
+            @colored[b1.id].push(b2.id)
+            @colored[b2.id] = [b1.id]
+            for col in @colored[b1.id]
+              @colored[b2.id].push(col)
+          else
+            b1.color = b2.color
+            gens += 1
+            @colored[b2.id].push(b1.id)
+            @colored[b1.id] = [b2.id]
+            for col in @colored[b2.id]
+              @colored[b1.id].push(col)
+          
+        else
+          b1.color = orcol
+          gens += 1
+
+          
+        if gens > 5000
+          @stop()
+          `$('#log').html("stopped");`
+        else
+          `$('#log').html("Generations: "+gens);`
+        
+      graphOf: (node) ->
+        a.marked = false for a in @agents
+        @markNeighbors node
+        a for a in @agents when a.marked
+      markNeighbors: (node) ->
+        node.marked = true
+        unMarked = (n for n in node.linkNeighbors() when not n.marked)
+        @markNeighbors n for n in unMarked
+
+
+    # div, patchSize, minX, maxX, minY, maxY, isTorus, hasNeighbors
+    #   Defaults: 13, -16, 16, -16, 16, false, true
+    model = new MyModel {
+      div: "layers",
+      size: 20,
+      minX: -16,
+      maxX: 16,
+      minY: -16,
+      maxY: 16,
+      hasNeighbors: false,
+      rate: 1
+    }
+    model.debug() # Debug: Put Model vars in global name space
+    model.start() # Run model immediately after startup initialization
+
+    </script>
+  </head>
+  <body>
+  <div style="position:relative; width:429px; height:429px;background-color:Gray" id="layers">
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 10; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 20; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 30; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 40; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 50; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+  </div>
+  <div id="log">bla</div>
+  
+</body></html>
