@@ -12,8 +12,6 @@
         return [a1,a2,a3];
       }
 
-
-
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
@@ -23,170 +21,368 @@ function sleep(milliseconds) {
   }
 }
 
-      
+/* http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
       var maxgens = 1000;
 
 
     </script>
-    <script type="text/coffeescript">
+<script type="text/coffeescript">
+
+distance = (a,b) -> Math.sqrt( (a.x - b.x)**2 + (a.y - b.y)** 2 )
+choose = (a) -> a[Math.floor((Math.random() * a.length)+1) - 1]
+percy = (x,u) -> Math.round(100 * x / u)
+
+u = ABM.util # ABM.util alias, u.s is also ABM.shape accessor.
+class MyModel extends ABM.Model
+  setup: -> 
+    @refreshPathes = true
+    @refreshLinks = true
     
-    distance = (a,b) -> Math.sqrt( (a.x - b.x)**2 + (a.y - b.y)** 2 )
+  initialize: -> 
+    @refreshPatches = true # for static patches
+    @refreshLinks = true # for static links .. drown as created
     
-    u = ABM.util # ABM.util alias, u.s is also ABM.shape accessor.
-    class MyModel extends ABM.Model
-      setup: ->
-        @refreshPatches = false # for static patches
-        @refreshLinks = false # for static links .. drown as created
-        
-        # globals
-        @buttons = 100
-        @cluster = 0
-        @gens = 0
-        @delay = 200
-        
-        # defaults
-        @agents.setDefault "shape", "circle"
-        @agents.setDefault "size", 1
-        @agents.setDefault "color", [100,100,100]
-        @agents.setDefault "heading", 0 # override promotion to random angle
-        @links.setDefault "thickness", 0.2
-        @links.setDefault "color", [250,250,30]
-        @agents.create @buttons, (a) => a.setXY @patches.randomPt()...
+    # globals
+    @buttons = 100
+    @cluster = 0
+    @gens = 0
+    @delay = 200
+    @prevagent = 0
+    @prevlink = 0
+    @prevlinks = []
+    @clogs = {}
+    @utterances = 0
+
+    # set up the new colors
+    ncolors = [
+      [ 255, 0, 255],
+      [ 255, 255, 255],
+      [192,  192, 192],
+      [0, 128, 0],
+      [30,  144, 255],
+      [255, 255,  0],
+      [0,255,0]
+      ]
+
+    # fill clogs with basic colors
+    for col in ncolors
+      @clogs[rgbToHex(col[0],col[1],col[2])] = 0
+    @clogs[rgbToHex(255,0,0)] = 0
+
+    # simple array for all colors
+    @allcolors = []
+    for col in ncolors
+      @allcolors.push(rgbToHex(col[0],col[1],col[2]))
+    @allcolors.push(rgbToHex(255,0,0))
+    
+    # defaults
+    @agents.setDefault "shape", "person"
+    @agents.setDefault "size", 1
+    @agents.setDefault "color", [100,100,100]
+    @agents.setDefault "heading", 0 # override promotion to random angle
+    @links.setDefault "thickness", 0.2
+    @links.setDefault "color", [255,255,255]
+    
+    # set up the agents
+    @agents.create @buttons, (a) => a.setXY @patches.randomPt()...
+
+    # assign a specific color set to every agent
+    @colset = {}
+    for agent in @agents
+      @colset[agent.id] = []
+
+      for i in [0,1,2,3]
+        @colset[agent.id].push(choose(ncolors))
+
+        # set up the main dialect
+        @colset[agent.id].push([255,0,0])
+      
+      # assign random first color to agent
+      tmpc = choose(@colset[agent.id])
+      agent.color = tmpc
+
+      # attach first variant to clogs
+      @clogs[rgbToHex(tmpc[0],tmpc[1],tmpc[2])] += 1
+      @utterances += 1
+
+    @neighbors = {}
+    for ag1 in @agents
+      @neighbors[ag1.id] = []
+      # connect with closest neighbors in radius 5
+      for ag2 in @agents.other(ag1)
+        dst = distance(ag1,ag2)
+        if dst <= window.conny
+          @links.create ag1, ag2, (l) -> l.draw ABM.contexts.links
+          @neighbors[ag1.id].push(ag2)
+
+    # manipulate key players by choosing the most connective agents
+    agid = []
+    id2ag = {}
+    for agent in @agents
+      agid.push(agent.id)
+      id2ag[agent.id] = agent
+
+    neighbors = @neighbors
+    agid.sort((x,y) -> neighbors[y].length - neighbors[x].length)
+
+    for i in [0..10]
+      @colset[agid[i]] = []
+      for j in [0..10]
+        @colset[agid[i]].push([0,255,0])
+      id2ag[agid[i]].size = 1.5
+      #id2ag[agid[i]].label = '!'
+
+    # calculate initial variation
+    @iniset = {}
+    for col in @allcolors
+      @iniset[col] = 0
+    count = 0
+
+    for i in [0..1000]
+      for agent in @agents
+        col = choose(@colset[agent.id])
+        @iniset[rgbToHex(col[0],col[1],col[2])] += 1
+        count += 1
+
+    for col in @allcolors
+      num = @iniset[col]
+      @iniset[col] = percy(num,count)
   
-        @colored = {}
-        @neighbors = {}
-        for ag1 in @agents
-          @neighbors[ag1.id] = []
-          @colored[ag1.id] = []
-          # connect with closest neighbors in radius 5
-          for ag2 in @agents.other(ag1)
-            dst = distance(ag1,ag2)
-            if dst <= 5
-              @links.create ag1, ag2, (l) -> l.draw ABM.contexts.links
-              @neighbors[ag1.id].push(ag2)
-  
+  pause: ->
+    @stop()
 
-      step: ->
+    # calculate which words are the most preferred ones on average (percent)
+    
+    #clogs = @clogs
+    #utterances = @utterances
+    ilogs = @iniset  
+    @allcolors.sort( (x,y) -> ilogs[y] - ilogs[x] )
+
+    # re-calculate the current logs
+    clogs = {}
+    for col in @allcolors
+      clogs[col] = 0
+    count = 0
+    for i in [0..1000]
+      for agent in @agents
+        word = choose(@colset[agent.id])
+        clogs[rgbToHex(word[0],word[1],word[2])] += 1
+        count += 1
+
+    for col in @allcolors
+      num = clogs[col]
+      clogs[col] = percy(num,count)
+
+    outlog = '<table><tr><th>Initial Setting</th><th>Current Setting </th></tr>'
+    for leader in @allcolors #.sort((x,y) -> @clogs[y] - @clogs[x])
+      num = @clogs[leader]
+      outlog += '<tr>'
+      outlog += '<td style="text-align:left;border:2px solid black;background-color:'
+      outlog += leader+';">'+@iniset[leader]+'</td>'
+      outlog += '<td style="text-align:left;border: 2px solid black;background-color:'
+      outlog += leader+';">'+clogs[leader]+'</td></tr>'
+    outlog += '</table>'
+    window.outlog = outlog
+
+    # count the different variants
+    `$('#log').html("Stopped Simulation.<br><br>"+window.outlog);`
+
+  step: ->
+    
+    failed = false
+    for i in [1]
+      b1 = @agents.oneOf()
+
+      # get the neighbors of the given agent
+      nbors = @neighbors[b1.id]
+
+      # get the subset of agents
+      ABM.AgentSet.asSet(nbors)
+
+      `$("#log").html('step1');`
+      
+      if nbors.length > 0
         
-        failed = false
-        b1 = @agents.oneOf()
-        orcol = b1.color
+        if @prevlinks != []
+          for prevl in @prevlinks
+            prevl.thickness = 0.2
+            prevl.draw ABM.contexts.links
+        @prevlinks = []
 
-        # get the neighbors of the given agent
-        nbors = @neighbors[b1.id]
+        for b2 in nbors
+          #b2 = nbors.oneOf()
 
-        # get the subset of agents
-        ABM.AgentSet.asSet(nbors)
+          # now we select a variant of the word which agent b1 will utter
+          # this word will be passed on to agent b2 and stored additionally
+          # in the specific array
 
-        if @colored[b1.id].length == 0
-          b1.color = `getRandomColor();`
-          b1.size = 2
-        
-        if nbors.length > 0
-          b2 = nbors.oneOf()
-          
-          if b2.color != b1.color
-            if @colored[b1.id].length >= @colored[b2.id].length
-              
-              b2.color = b1.color
-              b2.size = 1
-              @gens += 1
-              @colored[b1.id].push(b2.id)
-              @colored[b2.id] = [b1.id]
-              for col in @colored[b1.id]
-                @colored[b2.id].push(col)
-            else
-              b1.color = b2.color
-              b1.size = 1
-              @gens += 1
-              @colored[b2.id].push(b1.id)
-              @colored[b1.id] = [b2.id]
-              for col in @colored[b2.id]
-                @colored[b1.id].push(col)
+          # select the word to utter
+          word = choose(@colset[b1.id])
+
+          #`$("#log").html('step3');`
+
+          # mark that b1 is speaking
+          b1.size = b1.size + 1
+
+          # append the color to b2
+          @colset[b2.id].push(word)
+          @colset[b1.id].push(word)
+
+          # change the color of b1
+          b1.color = word
+
+          #`$("#log").html('step4');`
+
+          # store that b1 was the last agent to speak in order to change its
+          # size later
+          if @prevagent != 0
+            @prevagent.size = @prevagent.size - 1
+          @prevagent = b1
+
+          #`$("#log").html('step4');`
+
+          for link in @links
+            if (link.end1 == b1 && link.end2 == b2) || (link.end1 == b2 && link.end2 == b1) 
+              link.thickness = 1
+              link.draw ABM.contexts.links
+              @prevlinks.push(link)
+              break
+
+        # now we have all speakers utter their word, after they had their conversation
+        for agent in @agents
+          if agent != b1
             
-            for link in @links
-              if link.end1 == b1 && link.end2 == b2
-                link.thickness = 1
-                link.draw ABM.contexts.links
+            word = choose(@colset[agent.id])
+            if @gens % 20 == 0
+              agent.color = word
+            @clogs[rgbToHex(word[0],word[1],word[2])] += 1
+            @utterances += 1
 
-              if link.end2 == b1 && link.end1 == b2
-                link.thickness = 1
-                link.draw ABM.contexts.links
-          
-          else
-            @gens += 1
-        else
-          b1.size = 1
-          failed = true
+        @gens += 1
+      
+      else
+        failed = true
+    
+    if not failed
+      `sleep(window.model.delay);`
         
-        if not failed
+      if @gens >= maxgens
+        @pause()
+      else
+        `$('#log').html("Generations: "+window.model.gens);`
 
-          `sleep(window.model.delay);`
+# div, patchSize, minX, maxX, minY, maxY, isTorus, hasNeighbors
+#   Defaults: 13, -16, 16, -16, 16, false, true
+model = new MyModel {
+  div: "layers",
+  size: 20,
+  minX: -16,
+  maxX: 16,
+  minY: -16,
+  maxY: 16,
+  hasNeighbors: false,
+  delay: 100
 
-            
-          if @gens >= maxgens
-            @stop()
-            #x = ""
-            #for key in @links
-            #  x += key.color
-            #window.x = x
-            `$('#log').html("Stopped Simulation.");`
-          else
-            `$('#log').html("Generations: "+window.model.gens);`
-        
-      #graphOf: (node) ->
-      #  a.marked = false for a in @agents
-      #  @markNeighbors node
-      #  a for a in @agents when a.marked
-      #markNeighbors: (node) ->
-      #  node.marked = true
-      #  unMarked = (n for n in node.linkNeighbors() when not n.marked)
-      #  @markNeighbors n for n in unMarked
+}
+model.debug() # Debug: Put Model vars in global name space
 
+# attach model to window
+window.model = model
 
-    # div, patchSize, minX, maxX, minY, maxY, isTorus, hasNeighbors
-    #   Defaults: 13, -16, 16, -16, 16, false, true
-    model = new MyModel {
-      div: "layers",
-      size: 20,
-      minX: -16,
-      maxX: 16,
-      minY: -16,
-      maxY: 16,
-      hasNeighbors: false,
-      #rate: 0.5,
-      delay: 100
-    }
-    model.debug() # Debug: Put Model vars in global name space
-
-    # attach model to window
-    window.model = model
-
-    </script>
+</script>
     <script type="text/javascript">
+started = false;
+
 function startModel()
 {
+  
   var gens = document.getElementById('generations');
   gens = parseInt(gens.value);
   maxgens = gens;
 
-  var delay = document.getElementById('speed');
-  spd = 1000 - parseInt(delay.value) * 100;
-  if(spd > 0)
+  if(started == false)
   {
-    window.model.delay = spd;
-  }
-  else
-  {
-    window.model.delay = 0;
+    var conny = document.getElementById('conny');
+    dst = parseInt(conny.value);
+    window.conny = dst;
+
+    window.model.initialize();
+
+    var delay = document.getElementById('speed');
+    spd = 1000 - parseInt(delay.value) * 100;
+    if(spd > 0)
+    {
+      window.model.delay = spd;
+    }
+    else
+    {
+      window.model.delay = 0;
+    }
+    started = true;
   }
 
   window.model.start();
 }
     </script>
+    <style>
+.visible {
+  display: none;
+}
+    </style>
   </head>
   <body>
-  <h3>Simple Test of Diffusion Models based on <a href="http://agentscript.org">Agentscript</a></h3>
+  <h3>Simple Test of Diffusion Models based on <a href="http://agentscript.org">Agentscript</a>
+    <span onclick='$("#description").toggle("visible");'; style="color:red;cursor:pointer">[?]</span></h3>
+
+<div style="text-align:justify" class="visible" id="description">
+  <h4>Kurzbeschreibung der Simulation</h4>
+  <p>
+Dies ist ein sehr einfacher Versuch, die Entwicklung verschiedener Sprachvarianten in einem sozialen
+Netzwerk zu modellieren. Das Vorgehen gliedert sich dabei in eine <em>Präparations-</em> und eine
+<em>Aktionsphase</em>. In der Präparationsphase werden zunächst 100 Agenten zufällig auf dem quadratischen
+Spielfeld verteilt. Dann wir berechnet, wie nahe sich die Agenten einander stehen, wobei angenommen
+wird, dass Kommunikation zwischen Agenten nur möglich ist, wenn die Distanz einen bestimmten Radius
+nicht übersteigt. Gesteuert wird dies über das Parameter <em>connectivity</em>, wobei der Wert
+dieses Parameters den maximalen Radius darstellt. Erhöht man also die <em>connectivity</em>, erhöht
+sich auch die Kommunikationsdichte. Agenten, die miteinander kommunizieren können, werden mit Hilfe
+von Kanten verbunden, wodurch ein Kommunikationsnetzwerk entsteht. In der Präparationsphase wird
+jedem Agenten eine zufällige Liste von Wortvarianten (symbolisiert durch die unterschiedlichen
+Farben) zugeteilt. Diese kann man sich vorstellen, wie einen Urne voller Murmeln unterschiedlicher
+Farben. Immer, wenn ein Agent mit einem anderen Agenten redet, wird eine Farbe zufällig aus der
+Urne ausgewählt. Je mehr Kugeln einer Farbe in der Urne vorhanden sind, desto wahrscheinlicher ist
+es, dass diese Farbe gewählt wird. Den Agenten werden zwar zufällig unterschiedliche Wörter
+(unterschiedliche Farben) zugewiesen,
+jedoch wird allen ein Hauptdialekt (Farbe <span style="background-color:red">rot</span>) gegeben,
+welcher überproportional häufig auftaucht (50%). Um für ein bisschen mehr Dynamik zu sorgen, werden
+bestimmte Agenten ausgewählt, welche einen anderen &quot;Dialekt&quot; sprechen. Die Auswahl
+geschieht dabei nach dem Kriterion des <em>Grads</em> (Anzahl direkter Nachbarn). Die ersten zehn
+Agenten mit der größten Anzahl direkter Nachbarn (also Agenten, mit denen sie verbunden sind),
+sprechen einen abweichenden Dialekt (Farbe <span style="background-color:#00ff00">grün</span>). Sie
+sind daran zu erkennen, dass sie ein wenig größer sind als die anderen Agenten.</p>
+<p>In der Aktionsphase wird in jedem Schritt (hier als <em>generation</em> bezeichnet) ein Agent
+zufällig ausgewählt. Der Agent spricht dann ein Wort aus, wobei dieses zufällig aus seiner Urne mit
+Wörtern gezogen wird. Dieses Wort tauscht der Agent mit allen seinen Nachbarn aus. Das heißt, die
+Farbe wird allen direkten Nachbarn des Agenten in die Urne gelegt. Somit erhöht sich für die
+Nachbarn die Wahrscheinlichkeit, dieses Wort auszusprechen. Das Wort, welches der Agent dabei
+spricht, ist natürlich ebenfalls zufällig gewählt. Den sprechenden Agenten und seine Nachbarn
+erkennt man daran, dass der Sprecher in dem Moment des Sprechens vergrößert wird, und daran, dass
+die Kanten, die den Sprecher mit seinen Zuhörern verbinden, dicker dargestellt werden.
+</p>
+<p>Um die Dynamik der Simulation und eventuelle Veränderungen im Sprechverhalten zu ermitteln,
+werden am Anfang und am Ende der Simulation Durchschnittswerte ermittelt. Dafür werden alle Sprecher
+zu Beginn und am Ende jeweils 1000 Mal &quot;befragt&quot; und es wird gezählt, wie häufig welche
+Wortvariante verwendet wird. Die Ergebnisse werden in einer Tabelle als Prozentzahlen dargestellt.
+</p>
+</div>
+
   <table>
     <tr>
       <td>
@@ -205,25 +401,24 @@ function startModel()
       </td>
     </tr>
     <tr>
+      <td>
+        <label style="width:150px;" for="conny">Connectivity: </label>
+      </td>
+      <td>
+        <input type="text" style="width:100px" id="conny" value=5 />
+      </td>
+    </tr>
+
+    <tr>
       <td colspan=2>
         <input type="button" onclick="startModel();" value="START" />
-        <input type="button" onclick="window.model.stop();" value="PAUSE" />
+        <input type="button" onclick="window.model.pause();" value="PAUSE" />
         <input type="button" onclick="location.reload();" value="RELOAD" />
         </td>
       </tr>
     </table>
-    <div style="position:relative; width:429px; height:429px;background-color:Gray" id="layers">
-    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 10; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
-    </canvas>
-    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 20; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
-    </canvas>
-    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 30; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
-    </canvas>
-    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 40; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
-    </canvas>
-    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 50; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
-    </canvas>
-  </div>
-  <div id="log">bla</div>
-  
+  <div style="float:right;display:inline;" id="log"></div>
+
+<div style="position:relative; display: none; float: left;background-color:Gray" id="layers"> </div>
+
 </body></html>
