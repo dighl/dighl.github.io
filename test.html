@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/coffee-script.js"></script>
+  <script src="javascripts/dighl.js"></script>
+</head>
+<body>
+<h3>Test JavaScript Operations for DIGHL's Name Space</h3>
+<p>Just type in your code here and separate blocks with an extra newline containing the "=" symbol.</p>
+<textarea id="area" style="float:left;" cols=80 rows=30 placeholder="type code here">sampa2ipa('tEst TE kO)Ud');
+=
+sum([1,2,3,4,5]);
+</textarea>
+<input type="button" style="float:left" onclick="evaluateCode()" value="SUBMIT" />
+<div id="output" style="padding-left:20px;float:left;display:inline;"></div>
+<script>
+function echo(data)
+{
+  return data;
+}
+function evaluateCode()
+{
+  var area = document.getElementById('area');
+  var lines = area.value.split('\n=\n');
+  output = ''
+  for(var i=0,line;line=lines[i];i++)
+  {
+    var num = i+1;
+    var tmp = eval(line);
+    if(typeof tmp != 'undefined')
+    {
+      output += '['+num+'] ';
+      output += tmp+'<br>';
+    }
+  }
+  $('#output').html(output);
+}
+</script>
+</body>
+</head>
