@@ -2,6 +2,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="js/filesaver.js"></script>
+    <script src="js/sampa2ipa.js"></script>
     <script type="text/javascript" src="js/html2canvas.js"></script>
     <script src="js/base64.js"></script>
     <script src="js/canvas2image.js"></script>
@@ -60,8 +61,8 @@ td.mismatch{
   <body>  
   <h3>Alignment of two words in realtime</h3>
   Just type in arbitrary words in the fields and check out what happens.<br><br>
-  <input type="text" id="stringA" placeholder="first word" onkeyup="editDistSimple();"/>
-  <input type="text" id="stringB" placeholder="second word" onkeyup="editDistSimple();"/>
+  <input type="text" id="stringA" placeholder="first word" onkeyup="if(event.keyCode==32){this.value=sampa2ipa(document.getElementById('stringA').value)}; editDistSimple();"/>
+  <input type="text" id="stringB" placeholder="second word" onkeyup="if(event.keyCode==32){this.value=sampa2ipa(document.getElementById('stringB').value)}; editDistSimple();"/>
 
   <div id="output"></div>
   <div id="db"></div>
