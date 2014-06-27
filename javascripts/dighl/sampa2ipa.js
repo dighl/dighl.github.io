@@ -1,6 +1,12 @@
 /* code forked from PhonVerter by */
 /* code forked from PhonVerter by */
 var equiv = [
+  '¹', '^1',
+  '²', '^2',   
+  '³', '^3', 
+  '⁴', '^4', 
+  '⁵', '^5', 
+  '⁶', '^6',  
   'p͡f', 'p_f',
   'b͡v', 'b_v',
   'ʧ', 't_S',
