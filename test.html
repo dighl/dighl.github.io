@@ -1,8 +1,6 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/coffee-script.js"></script>
   <script src="javascripts/dighl.js"></script>
 </head>
 <body>
@@ -11,7 +9,12 @@
 <textarea id="area" style="float:left;" cols=80 rows=30 placeholder="type code here">sampa2ipa('tEst TE kO)Ud');
 =
 sum([1,2,3,4,5]);
-</textarea>
+=
+outs = editDist('Levenshtein','Livingstone');
+a = outs[0];
+b = outs[1];
+c = outs[2];
+echo('<pre><code>'+a.join(' ')+'<br>'+b.join(' ')+'<br>'+c+'</pre></code>');</textarea>
 <input type="button" style="float:left" onclick="evaluateCode()" value="SUBMIT" />
 <div id="output" style="padding-left:20px;float:left;display:inline;"></div>
 <script>

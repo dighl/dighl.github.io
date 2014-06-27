@@ -1,0 +1,229 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Simple Test of Diffusion Models</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="diffusion/agentscript.js"></script>
+    <script src="diffusion/coffee-script.js"></script>
+    <script>
+      function getRandomColor() {
+        var a1 = Math.floor((Math.random() * 250)+1);
+        var a2 = Math.floor((Math.random() * 250)+1);
+        var a3 = Math.floor((Math.random() * 250)+1);
+        return [a1,a2,a3];
+      }
+
+
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+      
+      var maxgens = 1000;
+
+
+    </script>
+    <script type="text/coffeescript">
+    
+    distance = (a,b) -> Math.sqrt( (a.x - b.x)**2 + (a.y - b.y)** 2 )
+    
+    u = ABM.util # ABM.util alias, u.s is also ABM.shape accessor.
+    class MyModel extends ABM.Model
+      setup: ->
+        @refreshPatches = false # for static patches
+        @refreshLinks = false # for static links .. drown as created
+        
+        # globals
+        @buttons = 100
+        @cluster = 0
+        @gens = 0
+        @delay = 200
+        
+        # defaults
+        @agents.setDefault "shape", "circle"
+        @agents.setDefault "size", 1
+        @agents.setDefault "color", [100,100,100]
+        @agents.setDefault "heading", 0 # override promotion to random angle
+        @links.setDefault "thickness", 0.2
+        @links.setDefault "color", [250,250,30]
+        @agents.create @buttons, (a) => a.setXY @patches.randomPt()...
+  
+        @colored = {}
+        @neighbors = {}
+        for ag1 in @agents
+          @neighbors[ag1.id] = []
+          @colored[ag1.id] = []
+          # connect with closest neighbors in radius 5
+          for ag2 in @agents.other(ag1)
+            dst = distance(ag1,ag2)
+            if dst <= 5
+              @links.create ag1, ag2, (l) -> l.draw ABM.contexts.links
+              @neighbors[ag1.id].push(ag2)
+  
+
+      step: ->
+        
+        failed = false
+        b1 = @agents.oneOf()
+        orcol = b1.color
+
+        # get the neighbors of the given agent
+        nbors = @neighbors[b1.id]
+
+        # get the subset of agents
+        ABM.AgentSet.asSet(nbors)
+
+        if @colored[b1.id].length == 0
+          b1.color = `getRandomColor();`
+          b1.size = 2
+        
+        if nbors.length > 0
+          b2 = nbors.oneOf()
+          
+          if b2.color != b1.color
+            if @colored[b1.id].length >= @colored[b2.id].length
+              
+              b2.color = b1.color
+              b2.size = 1
+              @gens += 1
+              @colored[b1.id].push(b2.id)
+              @colored[b2.id] = [b1.id]
+              for col in @colored[b1.id]
+                @colored[b2.id].push(col)
+            else
+              b1.color = b2.color
+              b1.size = 1
+              @gens += 1
+              @colored[b2.id].push(b1.id)
+              @colored[b1.id] = [b2.id]
+              for col in @colored[b2.id]
+                @colored[b1.id].push(col)
+            
+            for link in @links
+              if link.end1 == b1 && link.end2 == b2
+                link.thickness = 1
+                link.draw ABM.contexts.links
+
+              if link.end2 == b1 && link.end1 == b2
+                link.thickness = 1
+                link.draw ABM.contexts.links
+          
+          else
+            @gens += 1
+        else
+          b1.size = 1
+          failed = true
+        
+        if not failed
+
+          `sleep(window.model.delay);`
+
+            
+          if @gens >= maxgens
+            @stop()
+            #x = ""
+            #for key in @links
+            #  x += key.color
+            #window.x = x
+            `$('#log').html("Stopped Simulation.");`
+          else
+            `$('#log').html("Generations: "+window.model.gens);`
+        
+      #graphOf: (node) ->
+      #  a.marked = false for a in @agents
+      #  @markNeighbors node
+      #  a for a in @agents when a.marked
+      #markNeighbors: (node) ->
+      #  node.marked = true
+      #  unMarked = (n for n in node.linkNeighbors() when not n.marked)
+      #  @markNeighbors n for n in unMarked
+
+
+    # div, patchSize, minX, maxX, minY, maxY, isTorus, hasNeighbors
+    #   Defaults: 13, -16, 16, -16, 16, false, true
+    model = new MyModel {
+      div: "layers",
+      size: 20,
+      minX: -16,
+      maxX: 16,
+      minY: -16,
+      maxY: 16,
+      hasNeighbors: false,
+      #rate: 0.5,
+      delay: 100
+    }
+    model.debug() # Debug: Put Model vars in global name space
+
+    # attach model to window
+    window.model = model
+
+    </script>
+    <script type="text/javascript">
+function startModel()
+{
+  var gens = document.getElementById('generations');
+  gens = parseInt(gens.value);
+  maxgens = gens;
+
+  var delay = document.getElementById('speed');
+  spd = 1000 - parseInt(delay.value) * 100;
+  if(spd > 0)
+  {
+    window.model.delay = spd;
+  }
+  else
+  {
+    window.model.delay = 0;
+  }
+
+  window.model.start();
+}
+    </script>
+  </head>
+  <body>
+  <h3>Simple Test of Diffusion Models based on <a href="http://agentscript.org">Agentscript</a></h3>
+  <table>
+    <tr>
+      <td>
+        <label style="width:150px;" for="generations">Generations: </label>
+      </td>
+      <td>
+        <input type="text" style="width:100px" id="generations" value="500" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label style="width:150px;" for="speed">Speed: </label>
+      </td>
+      <td>
+        <input type="text" style="width:100px" id="speed" value=10 />
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <input type="button" onclick="startModel();" value="START" />
+        <input type="button" onclick="window.model.stop();" value="PAUSE" />
+        <input type="button" onclick="location.reload();" value="RELOAD" />
+        </td>
+      </tr>
+    </table>
+    <div style="position:relative; width:429px; height:429px;background-color:Gray" id="layers">
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 10; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 20; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 30; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 40; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+    <canvas style="position: absolute; top: 0px; left: 0px; width: 429px; height: 429px; z-index: 50; pointer-events: none; font: 10px sans-serif; text-align: center;" height="429" width="429">
+    </canvas>
+  </div>
+  <div id="log">bla</div>
+  
+</body></html>
