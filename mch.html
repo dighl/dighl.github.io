@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="dighl/main.js"></script>
+<style>
+  label {
+    font-weight: bold;
+    width: 200px;
+    margin-top: 10px;
+  }
+  .myframe {
+    width: 500px;
+    height: 300px;
+    border: 2px solid black;
+    float: left;
+    margin-left: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+</style>
+</head>
+<body>
+<script>
+loadModule('data/chinese.js');
+
+function searchMCH(event,value)
+{
+  if(event.keyCode != 13)
+  {
+    return;
+  }
+  var b5 = gbk2big5(value);
+  var mch = char2MCH(b5);
+
+  $("#mch").html(mch);
+  $("#big5").html(b5);
+
+  var codes = char2hex(b5);
+  var b5s = b5.split('');
+  var text = '';
+  for(var i=0,c;c=codes[i];i++)
+  {
+    text += '<a target="zdic" href="http://www.zdic.net/z/xz/?u='+c+'">U+'+c+' </a>';
+
+    //text += '<a target="zdic" href="http://www.zdic.net/search/?q='+b5s[i]+'">U+'+c+' </a>';
+  }
+  $('#hex').html(text);
+
+}
+
+</script>
+<h3>Search for Chinese Characters </h3>
+
+<div style="float:left">
+<input type="text" placeholder="type in the character here" onkeyup="searchMCH(event,this.value);" />
+<br><p></p><br>
+<label for="big5">Long Character: </label>
+<div id="big5" style="display:inline"></div><br>
+<label for="mch">Middle Chinese: </label>
+<div id="mch" style="display:inline"></div>
+<br>
+<label for="links">HEX-Codes: </label>
+<div id="hex" style="display:inline"></div><br></div>
+
+<iframe id="zdic" class="myframe" name="zdic" src="">alternative text</iframe>
+</body></html>
