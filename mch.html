@@ -43,11 +43,15 @@ function searchMCH(event,value)
   var text = '';
   for(var i=0,c;c=codes[i];i++)
   {
-    text += '<a target="zdic" href="http://www.zdic.net/z/xz/?u='+c+'">U+'+c+' </a>';
-    links += '<a target="tls" href="http://tls.uni-hd.de/procSearch/procSearchChar.lasso?actiontype=search&SearchOP2=eq&SearchField2=tCharacter&searchTerm2='+b5s[i]+'">'+b5s[i]+' </a>';
 
-    //text += '<a target="zdic" href="http://www.zdic.net/search/?q='+b5s[i]+'">U+'+c+' </a>';
+    text += '<a target="zdic" href="http://www.zdic.net/z/xz/?u='+c+'">U+'+c+' </a>';
+    links += '<a target="tls" href="http://tls.uni-hd.de/procSearch/procSearchChar.lasso?actiontype=search&SearchOP2=eq&SearchField2=tCharacter&searchTerm2='+b5s[i]+'#recordDetail">'+b5s[i]+' </a>';
+
+     
   }
+  document.getElementById('tlsf').src = 'http://tls.uni-hd.de/procSearch/procSearchChar.lasso?actiontype=search&SearchOP2=eq&SearchField2=tCharacter&searchTerm2='+b5.split('')[0]+'#recordDetail';
+
+  document.getElementById('zdic').src = 'http://www.zdic.net/z/xz/?u='+codes[0];
   $('#hex').html(text);
   $('#tls').html(links);
 
@@ -71,6 +75,6 @@ function searchMCH(event,value)
 </div>
 
 <iframe id="zdic" class="myframe" name="zdic" width="500px" src="">alternative text</iframe>
-<iframe id="tls" class="myframe" name="tls" width="700px" src="">alternative text</iframe>
+<iframe id="tlsf" class="myframe" name="tls" width="700px" src="">alternative text</iframe>
 
 </body></html>
