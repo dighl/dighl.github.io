@@ -18,18 +18,49 @@
   a {
     text-decoration: none;
   }
+  #suggest {
+    position: fixed;
+    background-color: lightgray;
+    font-weight: bold;
+    cursor: pointer;
+  }
   
 </style>
 </head>
 <body>
 <script>
 loadModule('data/chinese.js');
+loadModule('data/pinyin.js');
 
+function insertPinyin(value)
+{
+  document.getElementById('pins').value = value;
+  document.getElementById('suggest').innerHTML = '';
+}
+
+function acomp(event,value)
+{
+  var pins = document.getElementById('suggest');
+  pins.innerHTML = '';
+  var text = '';
+  if(value in pinyin)
+  {
+    for(var i=0,v;v=pinyin[value][i];i++)
+    {
+      text += '<span class="pins" onclick="insertPinyin(this.innerHTML)">'+v+'</span><br>';
+    }
+    pins.innerHTML += text;
+  }
+  else
+  {
+    return;
+  }
+}
 function searchMCH(event,value)
 {
   if(event.keyCode != 13)
   {
-    return;
+    acomp(event,value);
   }
   var b5 = gbk2big5(value);
   var mch = char2MCH(b5);
@@ -61,7 +92,9 @@ function searchMCH(event,value)
 <h3>Search for Chinese Characters </h3>
 
 <div style="float:left">
-<input type="text" placeholder="type in the character here" onkeyup="searchMCH(event,this.value);" />
+<input id="pins" type="text" placeholder="type in the character here" onkeyup="searchMCH(event,this.value);" />
+<div id="suggest"></div>
+
 <br><p></p><br>
 <label for="big5">Long Character: </label>
 <div id="big5" style="display:inline"></div><br>
