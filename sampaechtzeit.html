@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="stylesheets/no-theme/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+<script type="text/javascript" src="dighl/main.js"></script>
+</head>
+<body>
+<script>
+function getSampa(value)
+{
+  $("#sampa").autocomplete({
+      source: function (request, response)
+      {
+        var ipa = sampa2ipa(value);
+        response([ipa]);
+      }
+    });
+}
+</script>
+
+<input type="text" id="sampa" onkeyup="getSampa(this.value);" placeholder="insert sampa here" />
+
+</body>
+</html>
