@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="stylesheets/no-theme/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 <script type="text/javascript" src="dighl/main.js"></script>
 <style>
   label {
@@ -32,12 +33,6 @@
 loadModule('data/chinese.js');
 loadModule('data/pinyin.js');
 
-function insertPinyin(value)
-{
-  document.getElementById('pins').value = value;
-  document.getElementById('suggest').innerHTML = '';
-}
-
 function acomp(event,value)
 {
   var pins = document.getElementById('suggest');
@@ -45,12 +40,16 @@ function acomp(event,value)
   var text = '';
   if(value in pinyin)
   {
-    for(var i=0,v;v=pinyin[value][i];i++)
-    {
-      text += '<span class="pins" onclick="insertPinyin(this.innerHTML)">'+v+'</span><br>';
+    $('#pins').autocomplete({
+        source: function (request, response){
+        var responses = [];
+        for(var i=0,v;v=pinyin[value][i];i++)
+        {
+          responses.push(v);
+        }
+        response(responses);
+        }});
     }
-    pins.innerHTML += text;
-  }
   else
   {
     return;
@@ -60,7 +59,15 @@ function searchMCH(event,value)
 {
   if(event.keyCode != 13)
   {
-    acomp(event,value);
+    if(value.charCodeAt(0) < 500)
+    {
+      acomp(event,value);
+      return;
+    }
+    else
+    {
+      return;
+    }
   }
   var b5 = gbk2big5(value);
   var mch = char2MCH(b5);
@@ -106,7 +113,7 @@ function searchMCH(event,value)
 <label for="tls">Link to TLS: </label>
 <div id="tls" style="display:inline"></div><br>
 </div>
-
+<div id="db"></div>
 <iframe id="zdic" class="myframe" name="zdic" width="500px" src="">alternative text</iframe>
 <iframe id="tlsf" class="myframe" name="tls" width="700px" src="">alternative text</iframe>
 
