@@ -6,19 +6,29 @@
 </head>
 <body>
 <script>
-function getSampa(value)
+function getSampa(event,value)
 {
+  if(event.keyCode == 13)
+  {
+    return;
+  }
   $("#sampa").autocomplete({
       source: function (request, response)
       {
         var ipa = sampa2ipa(value);
         response([ipa]);
-      }
+      },
+    selectFirst: true,
+    autoFocus: true,
+    //focus: function(event, ui) {
+    //  ui.item.option.selected = true;
+    //  $('#sampa').value(ui.item.value+' xxx');
+    //  return;
+    //  }
     });
 }
 </script>
 
-<input type="text" id="sampa" onkeyup="getSampa(this.value);" placeholder="insert sampa here" />
-
+<input type="text" id="sampa" onkeyup="getSampa(event,this.value);" placeholder="insert sampa here" />
 </body>
 </html>
