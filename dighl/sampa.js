@@ -124,7 +124,7 @@ var myar = [
   ["_\\$z`","ᶼ"],
   ["\\+","˖"],
   ["_\\+"," ̟"],
-  ["-","˗"],
+  ["-`","˗"],
   ["_-"," ̠"],
   ["_0"," ̊"],
   ["0"," ̥"],
@@ -296,14 +296,14 @@ myar = myar.sort(function(x,y){return y[0].length - x[0].length;});
 function sampa2ipa(ipa_string)
 {		
   var ipa = ipa_string;
-  ipa = ipa.replace(')','&#41;','g');
-  ipa = ipa.replace('(','&#40;','g');
-  ipa = ipa.replace(/\\/,'&#abc;','g');
+  ipa = ipa.replace(new RegExp('\\)','gi'),'&#41;');
+  ipa = ipa.replace(new RegExp('\\(','gi'),'&#40;');
+  ipa = ipa.replace(new RegExp('\\\\','gi'),'&#abc;');
   var reg = '';
   	
   for(var i=0;i<myar.length;i++)
   {
-    reg = new RegExp(myar[i][0], 'g');
+    reg = new RegExp(myar[i][0], 'gi');
     ipa = ipa.replace(reg,myar[i][1]);
   }
 		
