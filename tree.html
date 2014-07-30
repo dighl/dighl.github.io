@@ -1,0 +1,33 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="stylesheets/wordlist.css" />
+  <script src="dighl/main.js"></script>
+</head>
+<body>
+  <h3>Test a JS Tree-Viewer based on <a href="https://github.com/rdmpage/treelib-js">Treelib-JS</a> </h3>
+<input onkeyup="checkTree(event,this.value);" style="width:500px;" type="text" placeholder="paste tree in newick format and press enter" />
+<script>
+function checkTree(event,newick)
+{
+  if(event.keyCode == 13)
+  {
+    if(newick != '')
+    {
+      showTree(newick,'radial');
+    }
+    else
+    {
+      showTree('(((a,b),c),((d,e),f));','radial');
+    }
+  }
+  else
+  {
+    return;
+  }
+}
+
+</script>
+</body>
+</head>
+
