@@ -30,7 +30,7 @@ function showTree(newick, drawing_type)
   /* set default params for drawing_type as radial */
   if(typeof drawing_type == 'undefined')
   {
-    drawing_type = 'radial';
+    drawing_type = 'circle';
   }
 
   /* append message to the body */
@@ -42,10 +42,10 @@ function showTree(newick, drawing_type)
   $('body').append('<div id="popup" ><p onclick="'+"reset_newick();"+'" class="close"> × </p><br><br>'+svg_popup+'<br><br>'+controls+'</div>');
 
   $('#svgcontainer').resizable({aspectRatio: true});
-  
+
   /* initialize the tree */
   draw_tree(newick, drawing_type);
-
+  $('text').dblclick(function (event){alert("Do you want to edit the node «"+event.target.textContent+"»?")}).css('cursor','pointer');
 }
 
 function downloadSVG()
