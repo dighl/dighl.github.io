@@ -48,6 +48,16 @@ function showTree(newick, drawing_type)
   $('text').dblclick(function (event){alert("Do you want to edit the node «"+event.target.textContent+"»?")}).css('cursor','pointer');
 }
 
+function placeTree(newick, where, drawing_type)
+{
+  if(typeof drawing_type == 'undefined')
+  {
+    drawing_type = 'circle';
+  }
+  /* append message to specified div */
+  $('#'+where).append(svg_popup+'<br>'+controls);
+}
+
 function downloadSVG()
 {
   var svg = document.getElementById('svg');

@@ -6,7 +6,7 @@
 </head>
 <body>
   <h3>Test a JS Tree-Viewer based on <a href="https://github.com/rdmpage/treelib-js">Treelib-JS</a> </h3>
-<input onkeyup="checkTree(event,this.value);" style="width:500px;" type="text" placeholder="paste tree in newick format and press enter" />
+<input onkeyup="checkTree(event,this.value);this.blur();" style="width:500px;" type="text" placeholder="paste tree in newick format and press enter" />
 <script>
 function checkTree(event,newick)
 {
@@ -18,7 +18,7 @@ function checkTree(event,newick)
     }
     else
     {
-      showTree('(((a,b),c),((d,e),f));','radial');
+      showTree('(((a,b),c),((d,e),f));','circle');
     }
   }
   else
