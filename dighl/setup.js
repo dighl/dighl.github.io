@@ -7,6 +7,7 @@ loadModule('dighl/lib/highlight.js');
 loadModule('dighl/lib/vendor/jquery-svgpan.js');
 loadModule('dighl/lib/vendor/treelib.js');
 loadModule('dighl/lib/newick.js');
+loadModule('dighl/lib/concepticon.js');
 loadModule('dighl/lib/vendor/FileSaver.js');
 loadModule('dighl/lib/vendor/jquery.editable.min.js');
 
