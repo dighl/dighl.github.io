@@ -46,3 +46,36 @@ svg.newick {
   overflow: hidden;
 }
 
+#concepticon_popup
+{
+  border: 2px solid black;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  overflow: hidden;
+  max-width:400px;
+  max-height: 400px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+#ifr
+{
+  border: none;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.concepticon
+{
+  color: DarkBlue;
+  cursor: pointer;
+}
+.concepticon:hover
+{
+  text-decoration: underline;
+  font-weight: bold;
+}
