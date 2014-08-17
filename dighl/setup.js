@@ -10,7 +10,7 @@ loadModule('dighl/lib/newick.js');
 loadModule('dighl/lib/concepticon.js');
 loadModule('dighl/lib/vendor/FileSaver.js');
 loadModule('dighl/lib/vendor/jquery.editable.min.js');
-
+loadModule('dighl/lib/jsonp.js');
 
 loadStyle('dighl/style/treelib.css');
 loadStyle('dighl/style/jquery-ui.css');

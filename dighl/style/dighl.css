@@ -48,14 +48,16 @@ svg.newick {
 
 #concepticon_popup
 {
-  border: 2px solid black;
-  position: relative;
+  border: 2px solid Crimson;
+  position: absolute;
   top: 10px;
   left: 20px;
   overflow: hidden;
-  max-width:400px;
-  max-height: 400px;
-  background-color: lightgray;
+  width:400px;
+  height:400px;
+  max-width:500px;
+  max-height: 500px;
+  background-color: LightGray;
   border-radius: 5px;
 }
 #ifr

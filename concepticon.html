@@ -1,20 +1,66 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <style>
+table {
+  border: 2px solid black;
+}
+th {
+  border: 2px solid gray;
+}
+td {
+  border: 1px solid lightgray;
+}
+    </style>
     <script src="dighl/main.js"></script>
+    <script type="text/javascript">
+function responsator (response)
+{
+  var text = '<table>';
+  var rows = response['contents'].split(/\n/);
+  var header = rows[0].split('\t');
+  text += '<tr><th>'+header.slice(0,(header.length-1)).join('</th><th>')+'<th>'+header.pop()+'</th></tr>';
+  for(var i=1,row;row=rows[i];i++)
+  {
+    text += '<tr>';
+    var cells = row.split('\t');
+    for(var j=0,cell;cell = cells[j];j++)
+    {
+      text += '<td>'+cell+'</td>';
+    }
+    text += '</tr>';
+  }
+  document.getElementById('concepticon').innerHTML = text;
+}
+function assignIt()
+{
+  loadResource('http://concepticon.github.io/concepticon.tsv', function(response) { responsator(response);}  );
+}
+
+    </script>
+
   </head>
   <body>
     <h3> Demonstrating popups for concept data </h3>
+    <p style="width:50%;text-align:justify;">If we have a closer look at a simple concept like, for example, 
+    <span class="concepticon" id="myconcept1" data-index="992946">ADMIT</span>, we will easily see, that ...
+    lorem ipsum bla bla bla
     If we have a closer look at a simple concept like, for example, 
-    <span class="concepticon" id="myconcept" data-index="992946">ADMIT</span>, we will easily see, that ...
+    <span class="concepticon" id="myconcept2" data-index="7714">BUILD</span>, we will easily see, that ...
     lorem ipsum bla bla bla
     lorem ipsum bla bla bla
     lorem ipsum bla bla bla
     lorem ipsum bla bla bla
     lorem ipsum bla bla bla
     lorem ipsum bla bla bla
+    If we have a closer look at a simple concept like, for example, 
+    <span class="concepticon" id="myconcept3" data-index="5615">AUTUMN</span>, we will easily see, that ...
     lorem ipsum bla bla bla
-    lorem ipsum bla bla bla
-    lorem ipsum bla bla bla
+    lorem ipsum bla bla bla</p>
+    <h3>But the following is even cooler!</h3>
+<p style="width:50%;text-align:justify;">
+    With help of jsonp and a php-proxy, you can load the whole data cross-domain onto this site. Just try it by pressing
+    <span id="starter" onclick="assignIt();" style="font-weight:bold;color:Crimson;cursor:pointer">HERE</span>.</p>
+  <div id="concepticon"></div>
   </body>
 </html>
