@@ -1,0 +1,28 @@
+
+.display th {
+  border: 2px solid DarkBlue;
+  text-align: left;
+  margin: 2px;
+  border-spacing: 2px;
+  padding: 3px;
+  font-weight: bold;
+}
+
+.display td {
+  border: 2px solid DarkBlue;
+  text-align: left;
+  margin: 2px;
+  border-spacing: 2px;
+  padding: 3px;
+}
+
+.canton {
+  fill: #bbb;
+}
+
+.canton-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
