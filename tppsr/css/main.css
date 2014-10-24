@@ -17,7 +17,7 @@
 }
 
 .canton {
-  fill: #bbb;
+  fill: #f0f0f0;
 }
 
 .canton-boundary {
@@ -26,3 +26,11 @@
   stroke-linejoin: round;
 }
 
+#map {
+  border: 2px solid black;
+}
+
+.textonmap {
+  color: black;
+  cursor: pointer;
+}

@@ -1,12 +1,15 @@
 function createTopoJson (url) {
-
-  var width = 960,
-  height = 600;
+  
+  if (typeof url == 'undefined') {
+    url = 'json/aucou.json';
+  }
+  var width = 600,
+  height = 750;
 
   var projection = d3.geo.albers()
     .rotate([0, 0])
-    .center([8.3, 46.8])
-    .scale(16000)
+    .center([6.9, 46.7])
+    .scale(26500)
     .translate([width / 2, height / 2])
     .precision(.1);
 
@@ -82,7 +85,7 @@ function createTopoJson (url) {
       .attr("cy", function(d) {
         return projection ([d.lon, d.lat])[1];
       })
-      .attr("r",5)
+      .attr("r",2)
         .style('fill','red')
         .attr('title',function(d){return d.word})
         ;
@@ -91,7 +94,18 @@ function createTopoJson (url) {
         .data(points)
         .enter().append('text')
         .attr('transform', function(d) {return "translate(" + d.x+','+d.y+')';})
-        .text(function(d) {return d.word;});
+        .attr('id',function(d){return d.id;})
+        .attr('class','textonmap')
+        .text(function(d) {return d.word;})
+        .on('mouseover', function(d){
+          svg.selectAll("text").sort(function(a,b) {
+            if (a.id != d.id) { return -1;}
+            else {return 1;}
+          });
+          $('#'+d.id).css('font-size','40px').css('fill','Crimson');
+        })
+        .on('mouseout',function(d){$('#'+d.id).css('font-size','15px').css('fill','black');})
+      ;
 
       console.log(points);
     });
