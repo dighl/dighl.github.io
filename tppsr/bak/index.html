@@ -1,0 +1,97 @@
+<html>
+<head>
+  <title>TPPSR</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script src="js/jquery.dataTables.js" type="text/javascript"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="js/tppsr.topo.js"></script>
+  <script src="js/tppsr.data.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+  <h2>Testing the Display of Linguistic and Topological Data using D3 and TopoJson</h2>
+  <div style="display: inline;" id="selector"></div>
+  <input id="ipt" onclick="showData()" value="OK" type="button" />
+  <input id="map_start" value="Show Map" onclick="showMap()" type="button" />
+  
+  <span id="check"></span>
+  <br>
+  <span id="header">No data selected...</span><br>
+  <table>
+    <tr>
+      <td style="vertical-align:top">
+        <div id="display_table"></div>
+      </td>
+      <td style="vertical-align:top">
+        <div id="map"></div>
+      </td>
+    </tr>
+  </table>
+  <script>
+TPPSR = {};
+KEYS = [];
+
+function loadTPPSR(url) {
+  $.getJSON(
+      url, 
+      function (json) {
+        tmp = {};
+        keys = [];
+        for(key in json) {
+          if (key.slice(0,2) != '__') { 
+            tmp[key] = json[key];
+            if (key != 'latin' && key != 'french') {
+              keys.push(key);
+            }
+          }
+        }
+        TPPSR = tmp;
+        TPPSR['url'] = url;
+        KEYS = keys;
+      });
+  KEYS.sort();
+}
+
+function showData(){
+  var heads = ['taxon', 'canton', 'lat', 'lon', 'tppsr', 'ipa'];
+  var table = '<table id="display" class="display">';
+  table += '<tr>';
+  for (var i=0,head; head=heads[i]; i++) {
+    table += '<th>'+head.toUpperCase();+'</th>';
+  }
+  table += '</tr>';
+  for (var j=0,key; key=KEYS[j]; j++) {//in TPPSR) {
+    console.log(key);
+    table += '<tr>';
+    for (var i=0,head; head=heads[i]; i++) {
+      table += '<td>'+TPPSR[key][head]+'</td>';
+    }
+    table += '</tr>';
+  }
+
+  document.getElementById('display_table').innerHTML = table;
+  document.getElementById('check').innerHTML = "Loaded file: "+TPPSR['url'];
+  document.getElementById('header').innerHTML = 'Showing reflexes of Latin '+TPPSR['latin']+' (French '+TPPSR['french']+')';
+}
+
+var txt = '<select id="seltppsr">';
+for (var i=0;i<FILES.length; i++) {
+  var f = FILES[i];
+  txt += '<option onclick="loadTPPSR(this.value)" value="json/'+f+'.json">'+f+'</option>';
+}
+txt += '</select>';
+document.getElementById('selector').innerHTML = txt;
+
+
+function showMap() {
+  
+  document.getElementById('map').innerHTML = '';
+  var url = TPPSR['url'];
+  createTopoJson(url);
+}
+
+  </script>
+</body>
+</html>

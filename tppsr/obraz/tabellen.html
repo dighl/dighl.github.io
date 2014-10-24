@@ -1,0 +1,106 @@
+---
+layout: default
+title: Tabellen
+status: toplevelnc
+---
+<div style="display:none">t2</div>
+
+<script src="media/jquery.js" type="text/javascript"></script>
+<script src="media/jquery.dataTables.js" type="text/javascript"></script>
+<script src="media/bootstrap-multiselect.js"></script>
+<script src="media/tppsr.topo.js"></script>
+<script src="media/tppsr.data.js"></script>
+ 
+
+<h2>Dialektdaten im TPPSR</h2>
+
+<div style="display: inline;" id="selector"></div>
+<input id="map_start" value="Tabelle Öffnen" onclick="showData()" class="btn btn-default" type="button" />
+<span id="check"></span>
+<br>
+<span id="header">Keine Daten ausgewählt...</span><br>
+<br>
+<div id="display_table">
+ </div>
+
+<script>
+TPPSR = {};
+KEYS = [];
+
+function loadTPPSR(url) {
+  $.getJSON(
+      url, 
+      function (json) {
+        tmp = {};
+        keys = [];
+        for(key in json) {
+          if (key.slice(0,2) != '__') { 
+            tmp[key] = json[key];
+            if (key != 'latin' && key != 'french') {
+              keys.push(key);
+            }
+          }
+        }
+        TPPSR = tmp;
+        TPPSR['url'] = url;
+        KEYS = keys;
+      });
+  KEYS.sort();
+}
+
+function showData(){
+  var heads = ['taxon', 'canton', 'tppsr', 'ipa', 'classes'];
+  var rows = [];
+  for (var i=0,key; key=KEYS[i]; i++) {
+    var row = [];
+    for (var j=0,head; head=heads[j]; j++) {
+      row.push(TPPSR[key][head]);
+    }
+    rows.push(row);
+  }
+  var cols = [];
+  for (var i=0,head; head=heads[i]; i++) {
+    cols.push({"title":head.toUpperCase()})
+  }
+  
+  document.getElementById('display_table').innerHTML = '<table id="display" class="datatable display"></table>';
+
+  $('#display').dataTable({"data":rows,"columns":cols});
+
+  document.getElementById('check').innerHTML = 'Datei «'+TPPSR['url']+'» wurde geladen.';
+  document.getElementById('header').innerHTML = 'Reflexe von Latein <em>'+TPPSR['latin']+'</em> (Französisch <em>'+TPPSR['french']+'</em>) im TPPSR:';
+}
+
+var txt = '<select id="seltppsr">';
+for (var i=0;i<FILES.length; i++) {
+  var f = FILES[i];
+  txt += '<option value="json/'+f+'.json">'+CONCEPTS[i]+'</option>';
+}
+txt += '</select>';
+
+document.getElementById('selector').innerHTML = txt;
+
+var first_select = true;
+
+$('#seltppsr').multiselect({
+    disableIfEmpty: true,
+    includeSelectAllOption : false,
+    enableFiltering: true,
+    buttonClass : 'btn btn-primary',
+    enableCaseInsensitiveFiltering: true,
+    maxHeight: window.innerHeight-100,
+    onChange: function (option, checked, select) {
+      loadTPPSR($(option).val());
+      console.log('option.value',$(option).val());
+    },
+    buttonText: function (options, select) {
+      if (first_select) {
+        first_select = false;
+        return 'Wählen Sie eine Tabelle <b class="caret"></b>';
+      }
+    }, 
+    nonSelectedText: "Wählen Sie eine Tabelle"
+});
+
+</script>
+
