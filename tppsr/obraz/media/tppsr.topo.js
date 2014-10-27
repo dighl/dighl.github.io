@@ -1,5 +1,5 @@
 function createTopoJson (url,datatype, fontsize) {
-  
+
   if (typeof url == 'undefined') {
     url = 'json/aucou.json';
   }
@@ -27,10 +27,9 @@ function createTopoJson (url,datatype, fontsize) {
     .attr("width", width)
     .attr("height", height);
 
+  var DATA = {};
 
   d3.json("json/readme-swiss.json", function(error, swiss) {
-
-
 
     var tcantons = topojson.feature(swiss, swiss.objects.cantons);
     
@@ -43,25 +42,25 @@ function createTopoJson (url,datatype, fontsize) {
 
     console.log(cantons);
 
-    svg.append("path")
+    var p1 = svg.append("path")
       .datum(cantons)
       .attr("class", "canton")
       .attr("d", path);
 
-    svg.append("path")
+    var p2 = svg.append("path")
       .datum(topojson.mesh(swiss, swiss.objects.cantons, function(a, b) { return a !== b; }))
       .attr("class", "canton-boundary")
       .attr("d", path);
 
     svg.selectAll("text")
       .data(cantons.features);
-    initiate();
+    initiate(p1,p2);
   });
 
   /* put stuff in external function to avoid that it gets loaded
      before the topojson data has been initialized */
 
-  function initiate() {
+  function initiate(p1,p2) {
     var g = svg.append('g');
 
     d3.json(url, function(error, fra) {
@@ -116,6 +115,21 @@ function createTopoJson (url,datatype, fontsize) {
       ;
 
       console.log(points);
+var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 20]) /* added deeper scaling @lingulist */
+    .on("zoom",function() {
+        g.attr("transform","translate("+
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        p1.attr("transform","translate("+
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        p2.attr("transform","translate("+
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+
+
+});
+svg.call(zoom);
+
     });
   }
+
 }
