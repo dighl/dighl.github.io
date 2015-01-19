@@ -1,0 +1,407 @@
+<html>
+<head>
+  <title>Sino-Tibetan Lexical Homology Database</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="vendor/jquery-1.10.2.js"></script>
+  <script src="vendor/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/main.css" />
+</head>
+<body>
+  <div style="margin:10px">
+  <h1>Select your settings for the database</h1>
+  <div>
+    <label>Select Doculects:   <select class="selex" id="doculects" multiple>
+<option value="Achang_Lianghe">Achang Lianghe</option>
+<option value="Achang_Longchuan">Achang Longchuan</option>
+<option value="Achang_Luxi">Achang Luxi</option>
+<option value="Atsi">Atsi</option>
+<option value="Beijing">Beijing</option>
+<option value="Bola">Bola</option>
+<option value="Burmese">Burmese</option>
+<option value="Caijia">Caijia</option>
+<option value="Changsha">Changsha</option>
+<option value="Cone_Tibetan">Cone Tibetan</option>
+<option value="Dulong">Dulong</option>
+<option value="Dumi">Dumi</option>
+<option value="Eryuan">Eryuan</option>
+<option value="Ganzhou">Ganzhou</option>
+<option value="Guangzhou">Guangzhou</option>
+<option value="Guiqiong">Guiqiong</option>
+<option value="Hpun">Hpun</option>
+<option value="Japhug">Japhug</option>
+<option value="Jianchuan">Jianchuan</option>
+<option value="Jingpo">Jingpo</option>
+<option value="Khaling">Khaling</option>
+<option value="Khroskyabs_Wobzi">Khroskyabs Wobzi</option>
+<option value="Lashi">Lashi</option>
+<option value="Lhasa_Tibetan">Lhasa Tibetan</option>
+<option value="Limbu">Limbu</option>
+<option value="Luobenzhuo">Luobenzhuo</option>
+<option value="Maru">Maru</option>
+<option value="Meixian">Meixian</option>
+<option value="Muya">Muya</option>
+<option value="Old_Burmese">Old Burmese</option>
+<option value="Old_Chinese">Old Chinese</option>
+<option value="Old_Tibetan">Old Tibetan</option>
+<option value="Stau">Stau</option>
+<option value="Tangut">Tangut</option>
+<option value="Wambule">Wambule</option>
+<option value="Xiamen">Xiamen</option>
+<option value="Xiandau">Xiandau</option>
+<option value="Yakkha">Yakkha</option>
+<option value="Yamphu">Yamphu</option>
+<option value="Zbu">Zbu</option>
+</select>
+</label>
+    <br>
+    <label>Select Concepts: <select class="selex" id="concepts" multiple>
+  <option value="ABOVE" selected>ABOVE</option>
+  <option value="ALL" selected>ALL</option>
+  <option value="AND" selected>AND</option>
+  <option value="ASH" selected>ASH</option>
+  <option value="BACK" selected>BACK</option>
+  <option value="BAD" selected>BAD</option>
+  <option value="BARK" selected>BARK</option>
+  <option value="BE ALIVE" selected>BE ALIVE</option>
+  <option value="BELLY" selected>BELLY</option>
+  <option value="BELOW, UNDER" selected>BELOW, UNDER</option>
+  <option value="BIG" selected>BIG</option>
+  <option value="BIRD" selected>BIRD</option>
+  <option value="BITE" selected>BITE</option>
+  <option value="BLACK" selected>BLACK</option>
+  <option value="BLOOD" selected>BLOOD</option>
+  <option value="BLOW" selected>BLOW</option>
+  <option value="BLUNT" selected>BLUNT</option>
+  <option value="BONE" selected>BONE</option>
+  <option value="BRANCH" selected>BRANCH</option>
+  <option value="BREAST" selected>BREAST</option>
+  <option value="BREATHE" selected>BREATHE</option>
+  <option value="BURN SOMETHING" selected>BURN SOMETHING</option>
+  <option value="BUY" selected>BUY</option>
+  <option value="CHEW" selected>CHEW</option>
+  <option value="CHILD DESCENDANT" selected>CHILD DESCENDANT</option>
+  <option value="CHOOSE" selected>CHOOSE</option>
+  <option value="CLIMB" selected>CLIMB</option>
+  <option value="CLOUD" selected>CLOUD</option>
+  <option value="COLD OF TEMPERATURE" selected>COLD OF TEMPERATURE</option>
+  <option value="COME" selected>COME</option>
+  <option value="COOK" selected>COOK</option>
+  <option value="CORRECT, RIGHT" selected>CORRECT, RIGHT</option>
+  <option value="COUNT" selected>COUNT</option>
+  <option value="CRY" selected>CRY</option>
+  <option value="CUT" selected>CUT</option>
+  <option value="DAY OF LIGHT" selected>DAY OF LIGHT</option>
+  <option value="DIE" selected>DIE</option>
+  <option value="DIG" selected>DIG</option>
+  <option value="DIRTY" selected>DIRTY</option>
+  <option value="DOG" selected>DOG</option>
+  <option value="DREAM" selected>DREAM</option>
+  <option value="DRINK ACTION" selected>DRINK ACTION</option>
+  <option value="DRY" selected>DRY</option>
+  <option value="DUST" selected>DUST</option>
+  <option value="EAR" selected>EAR</option>
+  <option value="EARTH, SOIL" selected>EARTH, SOIL</option>
+  <option value="EAT" selected>EAT</option>
+  <option value="EGG" selected>EGG</option>
+  <option value="EIGHT" selected>EIGHT</option>
+  <option value="EYE" selected>EYE</option>
+  <option value="FALL" selected>FALL</option>
+  <option value="FAR" selected>FAR</option>
+  <option value="FAT, SUBSTANCE" selected>FAT, SUBSTANCE</option>
+  <option value="FATHER" selected>FATHER</option>
+  <option value="FEAR, BE AFRAID" selected>FEAR, BE AFRAID</option>
+  <option value="FEATHER" selected>FEATHER</option>
+  <option value="FEMALE" selected>FEMALE</option>
+  <option value="FEW" selected>FEW</option>
+  <option value="FIGHT" selected>FIGHT</option>
+  <option value="FIRE" selected>FIRE</option>
+  <option value="FISH" selected>FISH</option>
+  <option value="FIVE" selected>FIVE</option>
+  <option value="FLOAT" selected>FLOAT</option>
+  <option value="FLOW" selected>FLOW</option>
+  <option value="FLOWER" selected>FLOWER</option>
+  <option value="FLY, MOVE THROUGH AIR" selected>FLY, MOVE THROUGH AIR</option>
+  <option value="FOG" selected>FOG</option>
+  <option value="FOOT" selected>FOOT</option>
+  <option value="FOREST" selected>FOREST</option>
+  <option value="FOUR" selected>FOUR</option>
+  <option value="FREEZE" selected>FREEZE</option>
+  <option value="FRUIT" selected>FRUIT</option>
+  <option value="FULL" selected>FULL</option>
+  <option value="GIVE" selected>GIVE</option>
+  <option value="GOOD" selected>GOOD</option>
+  <option value="GRASS" selected>GRASS</option>
+  <option value="GREEN" selected>GREEN</option>
+  <option value="GROW" selected>GROW</option>
+  <option value="HAIR" selected>HAIR</option>
+  <option value="HAND" selected>HAND</option>
+  <option value="HE" selected>HE</option>
+  <option value="HEAD" selected>HEAD</option>
+  <option value="HEAR" selected>HEAR</option>
+  <option value="HEART" selected>HEART</option>
+  <option value="HEAVY" selected>HEAVY</option>
+  <option value="HERE" selected>HERE</option>
+  <option value="HIDE, CONCEAL" selected>HIDE, CONCEAL</option>
+  <option value="HIT" selected>HIT</option>
+  <option value="HOLD" selected>HOLD</option>
+  <option value="HORN, KERATINIZED SKIN" selected>HORN, KERATINIZED SKIN</option>
+  <option value="HOUSE" selected>HOUSE</option>
+  <option value="HOW" selected>HOW</option>
+  <option value="HUNDRED" selected>HUNDRED</option>
+  <option value="HUNT" selected>HUNT</option>
+  <option value="HUSBAND" selected>HUSBAND</option>
+  <option value="I" selected>I</option>
+  <option value="ICE" selected>ICE</option>
+  <option value="INTESTINES" selected>INTESTINES</option>
+  <option value="KILL" selected>KILL</option>
+  <option value="KNEE" selected>KNEE</option>
+  <option value="KNOW" selected>KNOW</option>
+  <option value="LAKE" selected>LAKE</option>
+  <option value="LAUGH" selected>LAUGH</option>
+  <option value="LEAF" selected>LEAF</option>
+  <option value="LEFT" selected>LEFT</option>
+  <option value="LEG" selected>LEG</option>
+  <option value="LIE DOWN" selected>LIE DOWN</option>
+  <option value="LIE, REST" selected>LIE, REST</option>
+  <option value="LIGHTNING" selected>LIGHTNING</option>
+  <option value="LIVER" selected>LIVER</option>
+  <option value="LONG" selected>LONG</option>
+  <option value="LOUSE" selected>LOUSE</option>
+  <option value="MALE" selected>MALE</option>
+  <option value="MAN" selected>MAN</option>
+  <option value="MANY" selected>MANY</option>
+  <option value="MEAT" selected>MEAT</option>
+  <option value="MOON" selected>MOON</option>
+  <option value="MOSQUITO" selected>MOSQUITO</option>
+  <option value="MOTHER" selected>MOTHER</option>
+  <option value="MOUNTAIN" selected>MOUNTAIN</option>
+  <option value="MOUTH" selected>MOUTH</option>
+  <option value="NAIL, KERATIN" selected>NAIL, KERATIN</option>
+  <option value="NAME" selected>NAME</option>
+  <option value="NARROW" selected>NARROW</option>
+  <option value="NEAR" selected>NEAR</option>
+  <option value="NECK" selected>NECK</option>
+  <option value="NEEDLE FOR SEWING" selected>NEEDLE FOR SEWING</option>
+  <option value="NEW" selected>NEW</option>
+  <option value="NIGHT" selected>NIGHT</option>
+  <option value="NINE" selected>NINE</option>
+  <option value="NOSE" selected>NOSE</option>
+  <option value="NOT" selected>NOT</option>
+  <option value="OLD" selected>OLD</option>
+  <option value="ONE" selected>ONE</option>
+  <option value="OPEN" selected>OPEN</option>
+  <option value="OTHER" selected>OTHER</option>
+  <option value="PAINFUL" selected>PAINFUL</option>
+  <option value="PERSON" selected>PERSON</option>
+  <option value="PLANT, GROW" selected>PLANT, GROW</option>
+  <option value="PLAY" selected>PLAY</option>
+  <option value="PULL" selected>PULL</option>
+  <option value="PUSH" selected>PUSH</option>
+  <option value="RAIN, PRECIPATION" selected>RAIN, PRECIPATION</option>
+  <option value="RAT" selected>RAT</option>
+  <option value="RED" selected>RED</option>
+  <option value="RESIDE" selected>RESIDE</option>
+  <option value="RIGHT" selected>RIGHT</option>
+  <option value="RIVER" selected>RIVER</option>
+  <option value="ROAD" selected>ROAD</option>
+  <option value="ROOF" selected>ROOF</option>
+  <option value="ROOT" selected>ROOT</option>
+  <option value="ROPE" selected>ROPE</option>
+  <option value="ROTTEN" selected>ROTTEN</option>
+  <option value="ROUND" selected>ROUND</option>
+  <option value="RUB" selected>RUB</option>
+  <option value="SALT" selected>SALT</option>
+  <option value="SAND" selected>SAND</option>
+  <option value="SAY" selected>SAY</option>
+  <option value="SCRATCH" selected>SCRATCH</option>
+  <option value="SEE" selected>SEE</option>
+  <option value="SEED" selected>SEED</option>
+  <option value="SEVEN" selected>SEVEN</option>
+  <option value="SEW" selected>SEW</option>
+  <option value="SHARP" selected>SHARP</option>
+  <option value="SHOOT" selected>SHOOT</option>
+  <option value="SHORT" selected>SHORT</option>
+  <option value="SHOULDER" selected>SHOULDER</option>
+  <option value="SHY" selected>SHY</option>
+  <option value="SICK" selected>SICK</option>
+  <option value="SING" selected>SING</option>
+  <option value="SIT" selected>SIT</option>
+  <option value="SIX" selected>SIX</option>
+  <option value="SKIN" selected>SKIN</option>
+  <option value="SKY" selected>SKY</option>
+  <option value="SLEEP" selected>SLEEP</option>
+  <option value="SMALL" selected>SMALL</option>
+  <option value="SMELL, PERCEIVE" selected>SMELL, PERCEIVE</option>
+  <option value="SMOKE, EXHAUST" selected>SMOKE, EXHAUST</option>
+  <option value="SMOOTH" selected>SMOOTH</option>
+  <option value="SNAKE" selected>SNAKE</option>
+  <option value="SNOW" selected>SNOW</option>
+  <option value="SOME" selected>SOME</option>
+  <option value="SPIDER" selected>SPIDER</option>
+  <option value="SPIT" selected>SPIT</option>
+  <option value="SPLIT" selected>SPLIT</option>
+  <option value="SQUEEZE" selected>SQUEEZE</option>
+  <option value="STAB" selected>STAB</option>
+  <option value="STAND" selected>STAND</option>
+  <option value="STAR" selected>STAR</option>
+  <option value="STEAL" selected>STEAL</option>
+  <option value="STICK" selected>STICK</option>
+  <option value="STONE" selected>STONE</option>
+  <option value="STRAIGHT" selected>STRAIGHT</option>
+  <option value="SUCK" selected>SUCK</option>
+  <option value="SUN" selected>SUN</option>
+  <option value="SWELL" selected>SWELL</option>
+  <option value="SWIM" selected>SWIM</option>
+  <option value="TAIL" selected>TAIL</option>
+  <option value="TEN" selected>TEN</option>
+  <option value="THAT" selected>THAT</option>
+  <option value="THERE" selected>THERE</option>
+  <option value="THEY" selected>THEY</option>
+  <option value="THICK" selected>THICK</option>
+  <option value="THIN" selected>THIN</option>
+  <option value="THINK, REFLECT" selected>THINK, REFLECT</option>
+  <option value="THIS" selected>THIS</option>
+  <option value="THOU" selected>THOU</option>
+  <option value="THREE" selected>THREE</option>
+  <option value="THROW" selected>THROW</option>
+  <option value="THUNDER" selected>THUNDER</option>
+  <option value="TIE" selected>TIE</option>
+  <option value="TONGUE" selected>TONGUE</option>
+  <option value="TOOTH" selected>TOOTH</option>
+  <option value="TREE" selected>TREE</option>
+  <option value="TURN AROUND" selected>TURN AROUND</option>
+  <option value="TWENTY" selected>TWENTY</option>
+  <option value="TWO" selected>TWO</option>
+  <option value="VOMIT" selected>VOMIT</option>
+  <option value="WALK" selected>WALK</option>
+  <option value="WARM" selected>WARM</option>
+  <option value="WASH" selected>WASH</option>
+  <option value="WATER" selected>WATER</option>
+  <option value="WE" selected>WE</option>
+  <option value="WET" selected>WET</option>
+  <option value="WHAT" selected>WHAT</option>
+  <option value="WHEN" selected>WHEN</option>
+  <option value="WHERE" selected>WHERE</option>
+  <option value="WHITE" selected>WHITE</option>
+  <option value="WHO" selected>WHO</option>
+  <option value="WIDE" selected>WIDE</option>
+  <option value="WIFE" selected>WIFE</option>
+  <option value="WIND" selected>WIND</option>
+  <option value="WING" selected>WING</option>
+  <option value="WOMAN" selected>WOMAN</option>
+  <option value="WOOD" selected>WOOD</option>
+  <option value="WORK, ACTIVITY" selected>WORK, ACTIVITY</option>
+  <option value="WORM" selected>WORM</option>
+  <option value="YAWN" selected>YAWN</option>
+  <option value="YEAR" selected>YEAR</option>
+  <option value="YELLOW" selected>YELLOW</option>
+  <option value="YOU" selected>YOU</option>
+</select>
+</label>
+    <br>
+    <label>Select Columns: <select class="selex" id="columns" multiple>
+  <option value="ABVD">abvd</option>
+  <option value="ALIGNMENT">alignment</option>
+  <option value="BORROWING">borrowing</option>
+  <option value="CHINESE">chinese</option>
+  <option value="COGID">cogid</option>
+  <option value="COGID_">cogid_</option>
+  <option value="COMMENT">comment</option>
+  <option value="CONCEPT" selected>concept</option>
+  <option value="DOCULECT" selected>doculect</option>
+  <option value="GLOSS_IN_SOURCE">gloss_in_source</option>
+  <option value="HANZI">hanzi</option>
+  <option value="IELEX">ielex</option>
+  <option value="IPA" selected>ipa</option>
+  <option value="OMEGAWIKI">omegawiki</option>
+  <option value="ORIGLOSS">origloss</option>
+  <option value="POS">pos</option>
+  <option value="SUBGROUP">subgroup</option>
+  <option value="SWADESH_1952">swadesh_1952</option>
+  <option value="SWADESH_1955">swadesh_1955</option>
+  <option value="TOKENS" selected>tokens</option>
+  <option value="TOWEROFBABEL">towerofbabel</option>
+  <option value="WOLD">wold</option>
+</select>
+</label>
+  </div>
+  <button onclick="makeURL();">SUBMIT</button>
+  
+  <div id="output"></div></div>
+  <script>$('#concepts').multiselect({
+      disableIfEmtpy: true,
+      includeSelectAllOption : true,
+      enableFiltering: true,
+      enableCaseInsensitiveFiltering: true,
+ }
+    );
+
+$('#doculects').multiselect({
+      disableIfEmtpy: true,
+      includeSelectAllOption : true,
+      enableFiltering: true,
+      enableCaseInsensitiveFiltering: true,
+}
+    );
+
+$('#columns').multiselect({
+      disableIfEmtpy: true,
+      includeSelectAllOption : true,
+      enableFiltering: true,
+      enableCaseInsensitiveFiltering: true,
+}
+    );
+
+function makeURL() {
+  
+  url = 'http://tsv.lingpy.org?remote_dbase=sinotibetan.sqlite3' 
+    + '&file=sinotibetan'
+    + '&basics=DOCULECT,CONCEPT,IPA,TOKENS,BORROWING,COMMENT'
+    ;
+
+  /* get selected doculects */
+  var docs = document.getElementById('doculects');
+  var doculects = [];
+  for (var i=0,doc; doc=docs.options[i]; i++) {
+    if (doc.selected) {doculects.push(doc.value);
+    }
+  }
+
+  if (doculects.length != docs.options.length && doculects.length > 0) {
+    url += '&doculects='+doculects.join(',');
+  }
+
+
+  /* get selected doculects */
+  var docs = document.getElementById('concepts');
+  var concepts = [];
+  for (var i=0,doc; doc=docs.options[i]; i++) {
+    if (doc.selected) {concepts.push(doc.value);
+    }
+  }
+  if (concepts.length != docs.options.length && concepts.length > 0) {
+    url += '&concepts='+concepts.join(',');
+  }
+
+  /* get selected doculects */
+  var docs = document.getElementById('columns');
+  var columns = [];
+  for (var i=0,doc; doc=docs.options[i]; i++) {
+    if (doc.selected) {columns.push(doc.value);
+    }
+  }
+  if (columns.length != docs.options.length && columns.length > 0) {
+    url += '&columns='+columns.join(',');
+  }
+
+  /* output the url */
+  var output = document.getElementById('output');
+  output.innerHTML = '<br><br><p style="margin-top:30px;width:60%;font-size:16px">Press <a style="color:red;font-weight:bold;" href="'+url+'" target="_blank">here</a> to open the database '
+    + 'with your specified settings, or paste the link below in your browser.</p>';
+  output.innerHTML += '<pre style="width:60%"><code>'+url+'</code></pre>';
+
+}
+</script>
+</body>
+</html>
