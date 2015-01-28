@@ -36,8 +36,8 @@ var sortprefs = {
 function makeURL() {
   
   url = 'http://tsv.lingpy.org?remote_dbase=sinotibetan.sqlite3' 
-    + '&file=sinotibetan'
-    + '&basics=DOCULECT|CONCEPT|IPA|TOKENS|BORROWING|COMMENT|COGID|ALIGNMENT'
+    + '&file=sinotibetan&preview=1000'
+    + '&basics=DOCULECT|CONCEPT|IPA|TOKENS|BORROWING|NOTE|COGID|ALIGNMENT'
     ;
 
   /* get selected doculects */
