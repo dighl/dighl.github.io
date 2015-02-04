@@ -1,0 +1,176 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link href="stylesheets/no-theme/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+<script type="text/javascript" src="dighl/main.js"></script>
+<style>
+  label {
+    font-weight: bold;
+    width: 200px;
+    margin-top: 10px;
+  }
+  .myframe {
+    //width: 500px;
+    height: 300px;
+    border: 2px solid black;
+    float: left;
+    margin-left: 20px;
+  }
+  a {
+    text-decoration: none;
+  }
+  #suggest {
+    position: fixed;
+    background-color: lightgray;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .datatable {
+    border: 1px solid Crimson;
+  }
+  .datatable th,td {
+    text-align: justify;
+    border: 1px solid Green;
+  }
+</style>
+</head>
+<body>
+<script>
+loadModule('data/chinese.js');
+loadModule('data/pinyin.js');
+loadModule('data/tls.js')
+
+function acomp(event,value)
+{
+  var pins = document.getElementById('suggest');
+  pins.innerHTML = '';
+  var text = '';
+  if(value in pinyin)
+  {
+    $('#pins').autocomplete({
+        source: function (request, response){
+        var responses = [];
+        for(var i=0,v;v=pinyin[value][i];i++)
+        {
+          responses.push(v);
+        }
+        response(responses);
+        }});
+    }
+  else
+  {
+    return;
+  }
+}
+
+function searchTLS(event, value) {
+  if(event.keyCode != 13)
+  {
+    if(value.charCodeAt(0) < 500)
+    {
+      acomp(event,value);
+      return;
+    }
+    else
+    {
+      return;
+    }
+  }
+  var b5 = gbk2big5(value);
+  
+  var chars = b5.split('');
+  console.log(chars);
+  var baxter = '<th>BAXTER</th>';
+  var pinyin = '<th>PINYIN</th>';
+  var fanqie = '<th>FANQIE</th>';
+  var shengdiao = '<th>SHENGDIAO</th>';
+  var kaihe = '<th>KAIHE</th>';
+  var yunbu = '<th>YUNBU</th>';
+  var shengmu = '<th>SHENGMU</th>';
+  var hanzi = '<th>HANZI</th>';
+  var deng = '<th>DENG</th>';
+  var tls = '<th>TLS</th>';
+  var txt = '';
+  
+  for (var i=0,chr; chr=chars[i]; i++) {
+    var data = TLS[chr];
+    console.log(data);
+    for (idx in data) {
+      baxter += '<td>'+data[idx]['BAXTER'] + '</td>';
+      pinyin += '<td>'+data[idx]['PINYIN'] + '</td>';
+      yunbu += '<td>'+data[idx]['YUNBU'] + '</td>';
+      shengmu += '<td>'+data[idx]['SHENGMU'] + '</td>';
+      hanzi += '<td>'+chr+ '</td>';
+      kaihe += '<td>'+data[idx]['KAIHE'] + '</td>';
+      shengdiao += '<td>'+data[idx]['SHENGDIAO'] + '</td>';
+      shengdiao += '<td>'+data[idx]['SHENGDIAO'] + '</td>';
+      deng += '<td>'+data[idx]['SHENGDIAO'] + '</td>';
+      tls += '<td><a href="http://tls.uni-hd.de/procSearch/procSearchPhon.lasso?-MaxRecords=1&-SkipRecords='+data[idx]['TLS_HREF']+'">'+data[idx]['TLS_HREF']+'</a></td>';
+      fanqie += '<td>'+data[idx]['FANQIE_SHANG']+data[idx]['FANQIE_XIA'] + '</td>';
+    }
+  }
+  txt += '<table class="datatable">' 
+    + '<tr>'+hanzi+'</tr>'
+    + '<tr>'+pinyin+'</tr>'
+    + '<tr>'+baxter+'</tr>'
+    + '<tr>'+shengmu+'</tr>'
+    + '<tr>'+kaihe+'</tr>'
+    + '<tr>'+deng+'</tr>'
+    + '<tr>'+yunbu+'</tr>'
+    + '<tr>'+fanqie+'</tr>'
+    + '<tr>'+tls+'</tr>'
+    + '</table>';
+
+  document.getElementById('tls_output').innerHTML = txt;
+
+}
+
+function searchMCH(event,value)
+{
+  if(event.keyCode != 13)
+  {
+    if(value.charCodeAt(0) < 500)
+    {
+      acomp(event,value);
+      return;
+    }
+    else
+    {
+      return;
+    }
+  }
+  var b5 = gbk2big5(value);
+  var mch = char2MCH(b5);
+
+  $("#mch").html(mch);
+  $("#big5").html(b5);
+  var links = '';
+
+  var codes = char2hex(b5);
+  var b5s = b5.split('');
+  var text = '';
+  for(var i=0,c;c=codes[i];i++)
+  {
+
+    text += '<a target="zdic" href="http://www.zdic.net/z/xz/?u='+c+'">U+'+c+' </a>';
+    links += '<a target="tls" href="http://tls.uni-hd.de/procSearch/procSearchChar.lasso?actiontype=search&SearchOP2=eq&SearchField2=tCharacter&searchTerm2='+b5s[i]+'#recordDetail">'+b5s[i]+' </a>';
+
+     
+  }
+
+  $('#hex').html(text);
+  $('#tls').html(links);
+
+}
+
+</script>
+<h3>Search for Chinese Characters </h3>
+<br>
+<div style="float:left">
+<input id="pins" type="text" placeholder="type in the character here" onkeyup="searchTLS(event,this.value);" />
+<div id="suggest"></div>
+<br><br>
+<div id="tls_output"></div>
+
+</body></html>
