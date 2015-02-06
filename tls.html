@@ -91,6 +91,9 @@ function searchTLS(event, value) {
   var hanzi = '<th>HANZI</th>';
   var deng = '<th>DENG</th>';
   var tls = '<th>TLS</th>';
+  var ocbs = '<th>OCBS</th>';
+  var gloss = '<th>Gloss (OCBS)</th>';
+  var pwy = '<th>Pan Wuyun</th>';
   var txt = '';
   
   for (var i=0,chr; chr=chars[i]; i++) {
@@ -105,8 +108,12 @@ function searchTLS(event, value) {
 	kaihe += '<td>'+data[idx]['KAIHE'] + '</td>';
 	shengdiao += '<td>'+data[idx]['SHENGDIAO'] + '</td>';
 	deng += '<td>'+data[idx]['DENG'] + '</td>';
-	tls += '<td><a href="http://tls.uni-hd.de/procSearch/procSearchPhon.lasso?-MaxRecords=1&-SkipRecords='+data[idx]['TLS_HREF']+'">'+data[idx]['TLS_HREF']+'</a></td>';
-	fanqie += '<td>'+data[idx]['FANQIE_SHANG']+data[idx]['FANQIE_XIA'] + '</td>';
+	tls += '<td><a target="_blank" href="http://tls.uni-hd.de/procSearch/procSearchPhon.lasso?-MaxRecords=1&-SkipRecords='+data[idx]['TLS_LINK']+'">'+ data[idx]['TLS_LINK']+'</a></td>';
+	fanqie += '<td>'+data[idx]['FANQIE'] + '</td>';
+	ocbs += '<td>'+data[idx]['OCBS'] + '</td>';
+	gloss += '<td>'+data[idx]['BS_GLOSS']+'</td>';
+	pwy += '<td>'+data[idx]['OCH_PAN_WUYUN'] + '</td>';
+
       }
     }
     else {
@@ -120,6 +127,10 @@ function searchTLS(event, value) {
 	deng      += '<td>' + "?" + '</td>';
 	tls       += '<td>' + "?" + '</td>';
 	fanqie    += '<td>' + "?" + '</td>';
+	ocbs    += '<td>' + "?" + '</td>';
+	gloss    += '<td>' + "?" + '</td>';
+	pwy += '<td>'+"?"+'</td>';
+
     }
   }
   txt += '<table class="datatable">' 
@@ -133,6 +144,9 @@ function searchTLS(event, value) {
     + '<tr>'+shengdiao+'</tr>'
     + '<tr>'+fanqie+'</tr>'
     + '<tr>'+tls+'</tr>'
+    + '<tr>'+ocbs+'</tr>'
+    + '<tr>'+pwy+'</tr>'
+    + '<tr>'+gloss+'</tr>'
     + '</table>';
 
   document.getElementById('tls_output').innerHTML = txt;
