@@ -17,6 +17,12 @@
     be displayed, which concepts the selection should contain, and which columns (the main fields of
     data) the resulting wordlist should contain. The result is a specific URL that communicates all
     necessary parameters to the database application and can also be bookmarked for convenience.</p>
+    <p>Click the button below to show the current coverage of the data (according to collected
+    meta-data):<br>
+  <button id="coverage_button" onclick="MakeTable();">Show Current Data Status</button>
+    <div id="coverage"></div>
+    </p>
+
     <label>Select Doculects:
       <select id="doculects" class="selex" multiple="" style="display: none;">
 	{DOCULECTS}
@@ -36,6 +42,7 @@
   <button onclick="makeURL();">SUBMIT</button>
   
   <div id="output"></div></div>
+  <script>{META}</script>
   <script>{JS}</script>
 </body>
 </html>
