@@ -1,0 +1,941 @@
+{
+  "edge.3": {
+    "taxa": [
+      [
+        "CheqWong"
+      ],
+      [
+        "JahHut",
+        "MahMeri",
+        "Semelai"
+      ]
+    ],
+    "children": [
+      "edge.2",
+      "CheqWong"
+    ],
+    "colors": [
+      "#0000ad",
+      "#800000"
+    ],
+    "retention": [
+      "1",
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "\u0251",
+        "n"
+      ],
+      [
+        "j",
+        "\u0254",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1307:43",
+      "1311:43"
+    ],
+    "parent": [
+      "edge.6",
+      "edge.6"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "\u0251",
+          "n"
+        ]
+      ],
+      [
+        [
+          "j",
+          "\u0254",
+          "\u014b"
+        ],
+        [
+          "j",
+          "\u0254\u0324",
+          "k"
+        ],
+        [
+          "\u025f",
+          "\u0254",
+          "\u014b"
+        ]
+      ]
+    ]
+  },
+  "Temiar": {
+    "taxa": [
+      [
+        "Temiar"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u025f",
+        "\u028a",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.4"
+    ],
+    "alignments": [
+      [
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ]
+      ]
+    ]
+  },
+  "CheqWong": {
+    "taxa": [
+      [
+        "CheqWong"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "\u0251",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      "edge.3"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "\u0251",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "edge.0": {
+    "taxa": [
+      [
+        "MahMeri"
+      ]
+    ],
+    "children": [
+      "Alak",
+      "MahMeri"
+    ],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "j",
+        "\u0254\u0324",
+        "k"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.1"
+    ],
+    "alignments": [
+      [
+        [
+          "j",
+          "\u0254\u0324",
+          "k"
+        ]
+      ]
+    ]
+  },
+  "root": {
+    "taxa": [
+      [
+        "CheqWong",
+        "Jahai",
+        "Kensiw",
+        "Maniq"
+      ]
+    ],
+    "children": [
+      "edge.6",
+      "edge.8"
+    ],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "c",
+        "a",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      ""
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "\u0251",
+          "n"
+        ],
+        [
+          "c",
+          "a",
+          "n"
+        ],
+        [
+          "c",
+          "a",
+          "n"
+        ],
+        [
+          "c",
+          "a",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "edge.4": {
+    "taxa": [
+      [
+        "Semai",
+        "Temiar"
+      ]
+    ],
+    "children": [
+      "Semai",
+      "Temiar"
+    ],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u025f",
+        "\u028a",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.5"
+    ],
+    "alignments": [
+      [
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ],
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ]
+      ]
+    ]
+  },
+  "MahMeri": {
+    "taxa": [
+      [
+        "MahMeri"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "j",
+        "\u0254\u0324",
+        "k"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.0"
+    ],
+    "alignments": [
+      [
+        [
+          "j",
+          "\u0254\u0324",
+          "k"
+        ]
+      ]
+    ]
+  },
+  "edge.6": {
+    "taxa": [
+      [
+        "CheqWong"
+      ],
+      [
+        "JahHut",
+        "MahMeri",
+        "Semai",
+        "Semelai",
+        "Semnam",
+        "Temiar"
+      ]
+    ],
+    "children": [
+      "edge.3",
+      "edge.5"
+    ],
+    "colors": [
+      "#0000ad",
+      "#800000"
+    ],
+    "retention": [
+      "1",
+      "0"
+    ],
+    "consensus": [
+      [
+        "c",
+        "\u0251",
+        "n"
+      ],
+      [
+        "\u025f",
+        "\u0254",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1307:43",
+      "1311:43"
+    ],
+    "parent": [
+      "root",
+      "root"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "\u0251",
+          "n"
+        ]
+      ],
+      [
+        [
+          "j",
+          "\u0254",
+          "\u014b"
+        ],
+        [
+          "j",
+          "\u0254\u0324",
+          "k"
+        ],
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ],
+        [
+          "\u025f",
+          "\u0254",
+          "\u014b"
+        ],
+        [
+          "\u025f",
+          "u",
+          "\u014b"
+        ],
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ]
+      ]
+    ]
+  },
+  "edge.7": {
+    "taxa": [
+      [
+        "Kensiw",
+        "Maniq"
+      ]
+    ],
+    "children": [
+      "Kensiw",
+      "Maniq"
+    ],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "a",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      "edge.8"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "a",
+          "n"
+        ],
+        [
+          "c",
+          "a",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "order": [
+    "root",
+    "edge.6",
+    "edge.3",
+    "edge.2",
+    "edge.1",
+    "edge.0",
+    "Alak",
+    "MahMeri",
+    "Semelai",
+    "JahHut",
+    "CheqWong",
+    "edge.5",
+    "edge.4",
+    "Semai",
+    "Temiar",
+    "Semnam",
+    "edge.8",
+    "Jahai",
+    "edge.7",
+    "Kensiw",
+    "Maniq"
+  ],
+  "Semai": {
+    "taxa": [
+      [
+        "Semai"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u025f",
+        "\u028a",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.4"
+    ],
+    "alignments": [
+      [
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ]
+      ]
+    ]
+  },
+  "edge.5": {
+    "taxa": [
+      [
+        "Semai",
+        "Semnam",
+        "Temiar"
+      ]
+    ],
+    "children": [
+      "edge.4",
+      "Semnam"
+    ],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u025f",
+        "\u028a",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.6"
+    ],
+    "alignments": [
+      [
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ],
+        [
+          "\u025f",
+          "u",
+          "\u014b"
+        ],
+        [
+          "\u025f",
+          "\u028a",
+          "\u0294"
+        ]
+      ]
+    ]
+  },
+  "edge.8": {
+    "taxa": [
+      [
+        "Jahai",
+        "Kensiw",
+        "Maniq"
+      ]
+    ],
+    "children": [
+      "Jahai",
+      "edge.7"
+    ],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "a",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      "root"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "a",
+          "n"
+        ],
+        [
+          "c",
+          "a",
+          "n"
+        ],
+        [
+          "c",
+          "a",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "Maniq": {
+    "taxa": [
+      [
+        "Maniq"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "a",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      "edge.7"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "a",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "Semelai": {
+    "taxa": [
+      [
+        "Semelai"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u025f",
+        "\u0254",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.1"
+    ],
+    "alignments": [
+      [
+        [
+          "\u025f",
+          "\u0254",
+          "\u014b"
+        ]
+      ]
+    ]
+  },
+  "Alak": {
+    "taxa": [],
+    "children": [],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "JahHut": {
+    "taxa": [
+      [
+        "JahHut"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "j",
+        "\u0254",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.2"
+    ],
+    "alignments": [
+      [
+        [
+          "j",
+          "\u0254",
+          "\u014b"
+        ]
+      ]
+    ]
+  },
+  "Kensiw": {
+    "taxa": [
+      [
+        "Kensiw"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "a",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      "edge.7"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "a",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "Jahai": {
+    "taxa": [
+      [
+        "Jahai"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ad"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "c",
+        "a",
+        "n"
+      ]
+    ],
+    "paps": [
+      "1307:43"
+    ],
+    "parent": [
+      "edge.8"
+    ],
+    "alignments": [
+      [
+        [
+          "c",
+          "a",
+          "n"
+        ]
+      ]
+    ]
+  },
+  "Semnam": {
+    "taxa": [
+      [
+        "Semnam"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u025f",
+        "u",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.5"
+    ],
+    "alignments": [
+      [
+        [
+          "\u025f",
+          "u",
+          "\u014b"
+        ]
+      ]
+    ]
+  },
+  "colors": {
+    "1311:43": "#800000",
+    "1307:43": "#0000ad"
+  },
+  "edge.2": {
+    "taxa": [
+      [
+        "JahHut",
+        "MahMeri",
+        "Semelai"
+      ]
+    ],
+    "children": [
+      "edge.1",
+      "JahHut"
+    ],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "j",
+        "\u0254",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.3"
+    ],
+    "alignments": [
+      [
+        [
+          "j",
+          "\u0254",
+          "\u014b"
+        ],
+        [
+          "j",
+          "\u0254\u0324",
+          "k"
+        ],
+        [
+          "\u025f",
+          "\u0254",
+          "\u014b"
+        ]
+      ]
+    ]
+  },
+  "edge.1": {
+    "taxa": [
+      [
+        "MahMeri",
+        "Semelai"
+      ]
+    ],
+    "children": [
+      "edge.0",
+      "Semelai"
+    ],
+    "colors": [
+      "#800000"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "j",
+        "\u0254\u0324",
+        "k"
+      ]
+    ],
+    "paps": [
+      "1311:43"
+    ],
+    "parent": [
+      "edge.2"
+    ],
+    "alignments": [
+      [
+        [
+          "j",
+          "\u0254\u0324",
+          "k"
+        ],
+        [
+          "\u025f",
+          "\u0254",
+          "\u014b"
+        ]
+      ]
+    ]
+  }
+}

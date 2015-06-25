@@ -1,0 +1,3581 @@
+{
+  "edge.6": {
+    "taxa": [],
+    "children": [
+      "edge.4",
+      "edge.5"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "edge.0": {
+    "taxa": [
+      [
+        "Jinan",
+        "Tianjin"
+      ],
+      [
+        "Qingdao",
+        "Tianjin"
+      ]
+    ],
+    "children": [
+      "Beifang",
+      "Qingdao"
+    ],
+    "colors": [
+      "#001cff",
+      "#1cffdb"
+    ],
+    "retention": [
+      "1",
+      "0"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0259",
+        "\u2074\u00b2\u207b\u2075\u2075",
+        "\u02a6",
+        "\u027f",
+        "\u00b3"
+      ],
+      [
+        "p",
+        "\u0259",
+        "\u2074\u00b2\u207b\u00b3\u00b9",
+        "k",
+        "\u0259",
+        "\u014b",
+        "\u2075\u2075\u207b\u2074\u2075",
+        "\u02a6",
+        "\u0259",
+        "\u00b3"
+      ]
+    ],
+    "paps": [
+      "1786:92",
+      "1792:92"
+    ],
+    "parent": [
+      "Northern_Mandarin",
+      "Northern_Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2074\u00b2\u207b\u2075\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ]
+      ],
+      [
+        [
+          "p",
+          "\u0259",
+          "\u2074\u00b2\u207b\u00b3\u00b9",
+          "k",
+          "\u0259",
+          "\u014b",
+          "\u2075\u2075\u207b\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "\u2074\u2075",
+          "k",
+          "\u0259",
+          "\u014b",
+          "\u00b9\u00b3",
+          "\u02a6",
+          "\u0259",
+          "\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Xinan": {
+    "taxa": [
+      [
+        "Chengdu",
+        "Wuhan"
+      ],
+      [
+        "Kunming"
+      ]
+    ],
+    "children": [
+      "Kungui",
+      "Chengdu",
+      "Wuhan"
+    ],
+    "colors": [
+      "#0000ff",
+      "#001cff"
+    ],
+    "retention": [
+      "0",
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "i",
+        "n",
+        "\u2074\u00b2",
+        "\u02a6",
+        "\u027f",
+        "\u2075\u00b3"
+      ],
+      [
+        "p",
+        "o",
+        "\u00b3\u00b9",
+        "\u02a6",
+        "\u027f",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1785:92",
+      "1786:92"
+    ],
+    "parent": [
+      "Mandarin",
+      "Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "i",
+          "n",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "\u2075\u00b3"
+        ],
+        [
+          "\u02a8",
+          "i",
+          "n",
+          "\u2074\u00b2",
+          "\u02a6",
+          "\u027f",
+          "-"
+        ]
+      ],
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Zhengzhou": {
+    "taxa": [
+      [
+        "Zhengzhou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u2074\u00b2"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Zhongyuan"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u00b2",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Yinchuan": {
+    "taxa": [
+      [
+        "Yinchuan"
+      ],
+      [
+        "Yinchuan"
+      ],
+      [
+        "Yinchuan"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff",
+      "#fbf100",
+      "#ff1600"
+    ],
+    "retention": [
+      "1",
+      "0",
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "u\u0259",
+        "\u00b9\u00b3\u207b\u00b9\u00b9",
+        "\u02a6",
+        "\u027f"
+      ],
+      [
+        "p",
+        "u\u0259",
+        "\u00b9\u00b3\u207b\u00b9\u00b9",
+        "x",
+        "\u0251",
+        "\u014b"
+      ],
+      [
+        "p",
+        "a",
+        "n",
+        "\u2075\u00b3",
+        "\u02a8",
+        "i",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1786:92",
+      "1799:92",
+      "1805:92"
+    ],
+    "parent": [
+      "Lanyin",
+      "Lanyin",
+      "Lanyin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "u\u0259",
+          "-",
+          "\u00b9\u00b3\u207b\u00b9\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        [
+          "p",
+          "u\u0259",
+          "\u00b9\u00b3\u207b\u00b9\u00b9",
+          "x",
+          "\u0251",
+          "\u014b"
+        ]
+      ],
+      [
+        [
+          "p",
+          "a",
+          "n",
+          "\u2075\u00b3",
+          "\u02a8",
+          "i",
+          "\u014b",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Meixian": {
+    "taxa": [
+      [
+        "Meixian"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#00e0fb"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "k",
+        "ia",
+        "\u014b",
+        "\u00b3\u00b9",
+        "k",
+        "i",
+        "n",
+        "\u2074\u2074"
+      ]
+    ],
+    "paps": [
+      "1791:92"
+    ],
+    "parent": [
+      "Kejia"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "ia",
+          "\u014b",
+          "\u00b3\u00b9",
+          "k",
+          "i",
+          "n",
+          "\u2074\u2074"
+        ]
+      ]
+    ]
+  },
+  "Hui": {
+    "taxa": [],
+    "children": [
+      "Shexian",
+      "Tunxi"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Jian\u2019ou": {
+    "taxa": [
+      [
+        "Jian\u2019ou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#ff6000"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "t",
+        "e",
+        "\u00b2\u2074"
+      ]
+    ],
+    "paps": [
+      "1803:92"
+    ],
+    "parent": [
+      "Min"
+    ],
+    "alignments": [
+      [
+        [
+          "-",
+          "t",
+          "e",
+          "\u00b2\u2074"
+        ]
+      ]
+    ]
+  },
+  "Taichao": {
+    "taxa": [
+      [
+        "Shanghai",
+        "Suzhou"
+      ]
+    ],
+    "children": [
+      "Suhujia",
+      "Hangzhou"
+    ],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "d",
+        "\u0264",
+        "\u00b9\u00b3\u207b\u00b2\u00b2",
+        "\u02a8",
+        "i",
+        "\u014b",
+        "\u2075\u00b9\u207b\u00b3\u00b3"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "Wu"
+    ],
+    "alignments": [
+      [
+        [
+          "d",
+          "\u0264",
+          "\u00b9\u00b3\u207b\u00b2\u00b2",
+          "\u02a8",
+          "i",
+          "\u014b",
+          "\u00b3\u2075\u207b\u2074\u2074"
+        ],
+        [
+          "d",
+          "\u028f",
+          "\u00b9\u00b3",
+          "\u02a8",
+          "i",
+          "n",
+          "\u2075\u00b9\u207b\u00b3\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Xi\u2019an": {
+    "taxa": [
+      [
+        "Xi\u2019an"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#fbf100"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u00b2\u2074",
+        "x",
+        "a",
+        "\u014b"
+      ]
+    ],
+    "paps": [
+      "1799:92"
+    ],
+    "parent": [
+      "Zhongyuan"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "\u00b2\u2074",
+          "x",
+          "a",
+          "\u014b"
+        ]
+      ]
+    ]
+  },
+  "Haerbin": {
+    "taxa": [
+      [
+        "Haerbin"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0264",
+        "\u00b2\u2074",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Northern_Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b2\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "order": [
+    "root",
+    "edge.8",
+    "edge.6",
+    "edge.4",
+    "edge.3",
+    "edge.2",
+    "edge.1",
+    "Jin",
+    "Taiyuan",
+    "Pingyao",
+    "Huhehaote",
+    "Mandarin",
+    "Northwestern_Mandarin",
+    "Zhongyuan",
+    "Xi\u2019an",
+    "Xining",
+    "Zhengzhou",
+    "Lanyin",
+    "Lanzhou",
+    "Yinchuan",
+    "Wulumuqi",
+    "Northern_Mandarin",
+    "edge.0",
+    "Beifang",
+    "Tianjin",
+    "Jinan",
+    "Qingdao",
+    "Beijing",
+    "Haerbin",
+    "Xinan",
+    "Kungui",
+    "Guiyang",
+    "Kunming",
+    "Chengdu",
+    "Wuhan",
+    "Jianghuai",
+    "Nanjing",
+    "Hefei",
+    "Hui",
+    "Shexian",
+    "Tunxi",
+    "Xiang",
+    "Xiangtan",
+    "Changsha",
+    "Wu",
+    "Taichao",
+    "Suhujia",
+    "Shanghai",
+    "Suzhou",
+    "Hangzhou",
+    "Wenzhou",
+    "edge.5",
+    "Nanchang",
+    "Kejia",
+    "Meixian",
+    "Taoyuan",
+    "edge.7",
+    "Yue",
+    "Xianggang",
+    "Guangzhou",
+    "Nanning",
+    "Min",
+    "Coastal_Min",
+    "Minnan",
+    "edge.9",
+    "Xiamen",
+    "Taibei",
+    "Shantou",
+    "Haikou",
+    "Fuzhou",
+    "Jian\u2019ou"
+  ],
+  "Yue": {
+    "taxa": [
+      [
+        "Guangzhou",
+        "Xianggang"
+      ]
+    ],
+    "children": [
+      "Xianggang",
+      "Guangzhou"
+    ],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "k",
+        "\u025b",
+        "\u014b",
+        "\u00b3\u2075"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "edge.7"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "edge.5": {
+    "taxa": [],
+    "children": [
+      "Nanchang",
+      "Kejia"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Xiang": {
+    "taxa": [],
+    "children": [
+      "Xiangtan",
+      "Changsha"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "edge.8": {
+    "taxa": [],
+    "children": [
+      "edge.6",
+      "edge.7"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Northern_Mandarin": {
+    "taxa": [
+      [
+        "Beijing",
+        "Haerbin",
+        "Jinan",
+        "Tianjin"
+      ]
+    ],
+    "children": [
+      "edge.0",
+      "Beijing",
+      "Haerbin"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u2074\u00b2\u207b\u2075\u2075",
+        "\u02a6",
+        "\u027f",
+        "\u00b3"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b2\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2074\u00b2\u207b\u2075\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Northwestern_Mandarin": {
+    "taxa": [
+      [
+        "Lanzhou",
+        "Wulumuqi",
+        "Yinchuan",
+        "Zhengzhou"
+      ]
+    ],
+    "children": [
+      "Zhongyuan",
+      "Lanyin"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "u\u0259",
+        "\u2075\u00b9\u207b\u2074\u2074",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b9\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u2075\u00b9\u207b\u2074\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "u\u0259",
+          "-",
+          "\u00b9\u00b3\u207b\u00b9\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u00b2",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Qingdao": {
+    "taxa": [
+      [
+        "Qingdao"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#1cffdb"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0259",
+        "\u2074\u00b2\u207b\u00b3\u00b9",
+        "k",
+        "\u0259",
+        "\u014b",
+        "\u2075\u2075\u207b\u2074\u2075",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1792:92"
+    ],
+    "parent": [
+      "edge.0"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "\u2074\u00b2\u207b\u00b3\u00b9",
+          "k",
+          "\u0259",
+          "\u014b",
+          "\u2075\u2075\u207b\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Wu": {
+    "taxa": [
+      [
+        "Shanghai",
+        "Suzhou",
+        "Wenzhou"
+      ]
+    ],
+    "children": [
+      "Taichao",
+      "Wenzhou"
+    ],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "d",
+        "\u0264u",
+        "\u00b3\u00b9\u207b\u2074\u00b2",
+        "\u02a8",
+        "i",
+        "\u014b",
+        "\u2075\u00b9\u207b\u00b3\u00b3"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "edge.4"
+    ],
+    "alignments": [
+      [
+        [
+          "d",
+          "\u0264",
+          "\u00b9\u00b3\u207b\u00b2\u00b2",
+          "\u02a8",
+          "i",
+          "\u014b",
+          "\u00b3\u2075\u207b\u2074\u2074"
+        ],
+        [
+          "d",
+          "\u028f",
+          "\u00b9\u00b3",
+          "\u02a8",
+          "i",
+          "n",
+          "\u2075\u00b9\u207b\u00b3\u00b3"
+        ],
+        [
+          "d",
+          "\u0264u",
+          "\u00b3\u00b9\u207b\u2074\u00b2",
+          "\u02a8",
+          "a",
+          "\u014b",
+          "\u00b3\u2075"
+        ]
+      ]
+    ]
+  },
+  "Wenzhou": {
+    "taxa": [
+      [
+        "Wenzhou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "d",
+        "\u0264u",
+        "\u00b3\u00b9\u207b\u2074\u00b2",
+        "\u02a8",
+        "a",
+        "\u014b",
+        "\u00b3\u2075"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "Wu"
+    ],
+    "alignments": [
+      [
+        [
+          "d",
+          "\u0264u",
+          "\u00b3\u00b9\u207b\u2074\u00b2",
+          "\u02a8",
+          "a",
+          "\u014b",
+          "\u00b3\u2075"
+        ]
+      ]
+    ]
+  },
+  "Shanghai": {
+    "taxa": [
+      [
+        "Shanghai"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "d",
+        "\u0264",
+        "\u00b9\u00b3\u207b\u00b2\u00b2",
+        "\u02a8",
+        "i",
+        "\u014b",
+        "\u00b3\u2075\u207b\u2074\u2074"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "Suhujia"
+    ],
+    "alignments": [
+      [
+        [
+          "d",
+          "\u0264",
+          "\u00b9\u00b3\u207b\u00b2\u00b2",
+          "\u02a8",
+          "i",
+          "\u014b",
+          "\u00b3\u2075\u207b\u2074\u2074"
+        ]
+      ]
+    ]
+  },
+  "Lanzhou": {
+    "taxa": [
+      [
+        "Lanzhou"
+      ],
+      [
+        "Lanzhou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff",
+      "#ff1600"
+    ],
+    "retention": [
+      "1",
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0259",
+        "\u2075\u00b3",
+        "\u02a6",
+        "\u027f",
+        "\u00b9\u00b3"
+      ],
+      [
+        "p",
+        "\u025b\u0303",
+        "n",
+        "\u2074\u2074\u00b2",
+        "\u02a8",
+        "\u0129",
+        "n",
+        "\u00b2\u00b9"
+      ]
+    ],
+    "paps": [
+      "1786:92",
+      "1805:92"
+    ],
+    "parent": [
+      "Lanyin",
+      "Lanyin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b9\u00b3"
+        ]
+      ],
+      [
+        [
+          "p",
+          "\u025b\u0303",
+          "n",
+          "\u2074\u2074\u00b2",
+          "\u02a8",
+          "\u0129",
+          "n",
+          "\u00b2\u00b9"
+        ]
+      ]
+    ]
+  },
+  "colors": {
+    "1808:92": "#800000",
+    "1798:92": "#dbff1c",
+    "1784:92": "#0000d6",
+    "1793:92": "#3cffba",
+    "1786:92": "#001cff",
+    "1790:92": "#00b8ff",
+    "1795:92": "#7dff7a",
+    "1796:92": "#9aff5d",
+    "1807:92": "#a80000",
+    "1799:92": "#fbf100",
+    "1801:92": "#ffa700",
+    "1803:92": "#ff6000",
+    "1783:92": "#0000ad",
+    "1791:92": "#00e0fb",
+    "1806:92": "#d60000",
+    "1792:92": "#1cffdb",
+    "1787:92": "#0044ff",
+    "1789:92": "#0094ff",
+    "1794:92": "#5dff9a",
+    "1785:92": "#0000ff",
+    "1800:92": "#ffcc00",
+    "1805:92": "#ff1600",
+    "1804:92": "#ff3b00",
+    "1797:92": "#baff3c",
+    "1802:92": "#ff8600",
+    "1788:92": "#006cff"
+  },
+  "Taibei": {
+    "taxa": [
+      [
+        "Taibei"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#9aff5d"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "a",
+        "m",
+        "\u00b3\u00b3\u207b\u00b9\u00b9",
+        "k",
+        "u",
+        "n",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1796:92"
+    ],
+    "parent": [
+      "edge.9"
+    ],
+    "alignments": [
+      [
+        [
+          "a",
+          "m",
+          "\u00b3\u00b3\u207b\u00b9\u00b9",
+          "k",
+          "u",
+          "n",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Shantou": {
+    "taxa": [
+      "Shantou"
+    ],
+    "children": [],
+    "colors": [
+      "#5dff9a"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      null
+    ],
+    "paps": [
+      "1794:92"
+    ],
+    "parent": [
+      "Minnan"
+    ],
+    "alignments": [
+      null
+    ]
+  },
+  "Wulumuqi": {
+    "taxa": [
+      [
+        "Wulumuqi"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0264",
+        "\u2075\u00b9\u207b\u2074\u2074",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Lanyin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u2075\u00b9\u207b\u2074\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Xiamen": {
+    "taxa": [
+      [
+        "Xiamen"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#9aff5d"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "a",
+        "m",
+        "\u00b2\u00b2\u207b\u00b2\u00b9",
+        "k",
+        "u",
+        "n",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1796:92"
+    ],
+    "parent": [
+      "edge.9"
+    ],
+    "alignments": [
+      [
+        [
+          "a",
+          "m",
+          "\u00b2\u00b2\u207b\u00b2\u00b9",
+          "k",
+          "u",
+          "n",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Tunxi": {
+    "taxa": [
+      [
+        "Tunxi"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "t\u02b0",
+        "iu",
+        "\u2074\u2074\u207b\u2074\u00b2",
+        "\u02a8",
+        "i\u025b",
+        "\u00b3\u00b9"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "Hui"
+    ],
+    "alignments": [
+      [
+        [
+          "t\u02b0",
+          "iu",
+          "\u2074\u2074\u207b\u2074\u00b2",
+          "\u02a8",
+          "i\u025b",
+          "-",
+          "\u00b3\u00b9"
+        ]
+      ]
+    ]
+  },
+  "Suzhou": {
+    "taxa": [
+      [
+        "Suzhou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "d",
+        "\u028f",
+        "\u00b9\u00b3",
+        "\u02a8",
+        "i",
+        "n",
+        "\u2075\u00b9\u207b\u00b3\u00b3"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "Suhujia"
+    ],
+    "alignments": [
+      [
+        [
+          "d",
+          "\u028f",
+          "\u00b9\u00b3",
+          "\u02a8",
+          "i",
+          "n",
+          "\u2075\u00b9\u207b\u00b3\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Jinan": {
+    "taxa": [
+      [
+        "Jinan"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0259",
+        "\u2074\u00b2\u207b\u2075\u2075",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Beifang"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2074\u00b2\u207b\u2075\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Kungui": {
+    "taxa": [
+      [
+        "Kunming"
+      ]
+    ],
+    "children": [
+      "Guiyang",
+      "Kunming"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u00b3\u00b9",
+        "\u02a6",
+        "\u027f",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Xinan"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Taoyuan": {
+    "taxa": [
+      [
+        "Taoyuan"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#00e0fb"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "k",
+        "i\u0251",
+        "\u014b",
+        "\u00b3\u00b9",
+        "k",
+        "i",
+        "n",
+        "\u00b2\u2074"
+      ]
+    ],
+    "paps": [
+      "1791:92"
+    ],
+    "parent": [
+      "Kejia"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "i\u0251",
+          "\u014b",
+          "\u00b3\u00b9",
+          "k",
+          "i",
+          "n",
+          "\u00b2\u2074"
+        ]
+      ]
+    ]
+  },
+  "Xiangtan": {
+    "taxa": [
+      "Xiangtan",
+      "Xiangtan"
+    ],
+    "children": [],
+    "colors": [
+      "#ffcc00",
+      "#d60000"
+    ],
+    "retention": [
+      "0",
+      "0"
+    ],
+    "consensus": [
+      null,
+      null
+    ],
+    "paps": [
+      "1800:92",
+      "1806:92"
+    ],
+    "parent": [
+      "Xiang",
+      "Xiang"
+    ],
+    "alignments": [
+      null,
+      null
+    ]
+  },
+  "Kejia": {
+    "taxa": [
+      [
+        "Meixian",
+        "Taoyuan"
+      ]
+    ],
+    "children": [
+      "Meixian",
+      "Taoyuan"
+    ],
+    "colors": [
+      "#00e0fb"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "k",
+        "ia",
+        "\u014b",
+        "\u00b3\u00b9",
+        "k",
+        "i",
+        "n",
+        "\u00b2\u2074"
+      ]
+    ],
+    "paps": [
+      "1791:92"
+    ],
+    "parent": [
+      "edge.5"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "ia",
+          "\u014b",
+          "\u00b3\u00b9",
+          "k",
+          "i",
+          "n",
+          "\u2074\u2074"
+        ],
+        [
+          "k",
+          "i\u0251",
+          "\u014b",
+          "\u00b3\u00b9",
+          "k",
+          "i",
+          "n",
+          "\u00b2\u2074"
+        ]
+      ]
+    ]
+  },
+  "edge.3": {
+    "taxa": [],
+    "children": [
+      "edge.2",
+      "Xiang"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Jin": {
+    "taxa": [
+      [
+        "Huhehaote",
+        "Pingyao",
+        "Taiyuan"
+      ]
+    ],
+    "children": [
+      "Taiyuan",
+      "Pingyao",
+      "Huhehaote"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u028c",
+        "\u0294",
+        "\u2075\u2074",
+        "\u02a6",
+        "\u0259",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "edge.1"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u0259",
+          "\u0294",
+          "-"
+        ],
+        [
+          "p",
+          "\u028c",
+          "\u0294",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u028c",
+          "\u0294",
+          "\u00b9\u00b3"
+        ],
+        [
+          "p",
+          "a",
+          "\u0294",
+          "\u2075\u2074",
+          "\u02a6",
+          "\u0259",
+          "\u0294",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "root": {
+    "taxa": [],
+    "children": [
+      "edge.8",
+      "Min"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "edge.4": {
+    "taxa": [],
+    "children": [
+      "edge.3",
+      "Wu"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Mandarin": {
+    "taxa": [
+      [
+        "Beijing",
+        "Haerbin",
+        "Jinan",
+        "Kunming",
+        "Lanzhou",
+        "Nanjing",
+        "Tianjin",
+        "Wulumuqi",
+        "Yinchuan",
+        "Zhengzhou"
+      ]
+    ],
+    "children": [
+      "Northwestern_Mandarin",
+      "Northern_Mandarin",
+      "Xinan",
+      "Jianghuai"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u2074\u00b2\u207b\u2075\u2075",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "edge.1"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b2\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2074\u00b2\u207b\u2075\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u2075\u00b3"
+        ],
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b9\u00b3"
+        ],
+        [
+          "p",
+          "o",
+          "\u0294",
+          "\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u2075\u00b9\u207b\u2074\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "u\u0259",
+          "-",
+          "\u00b9\u00b3\u207b\u00b9\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u00b2",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Tianjin": {
+    "taxa": [
+      [
+        "Tianjin"
+      ],
+      [
+        "Tianjin"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#1cffdb",
+      "#001cff"
+    ],
+    "retention": [
+      "1",
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u2074\u2075",
+        "k",
+        "\u0259",
+        "\u014b",
+        "\u00b9\u00b3",
+        "\u02a6",
+        "\u0259",
+        "\u00b3"
+      ],
+      [
+        "p",
+        "o",
+        "\u2074\u2075",
+        "\u02a6",
+        "\u027f",
+        "\u00b3"
+      ]
+    ],
+    "paps": [
+      "1792:92",
+      "1786:92"
+    ],
+    "parent": [
+      "Beifang",
+      "Beifang"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "\u2074\u2075",
+          "k",
+          "\u0259",
+          "\u014b",
+          "\u00b9\u00b3",
+          "\u02a6",
+          "\u0259",
+          "\u00b3"
+        ]
+      ],
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Guangzhou": {
+    "taxa": [
+      [
+        "Guangzhou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "k",
+        "\u025b",
+        "\u014b",
+        "\u00b3\u2075"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "Yue"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Jianghuai": {
+    "taxa": [
+      [
+        "Nanjing"
+      ]
+    ],
+    "children": [
+      "Nanjing",
+      "Hefei"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u0294",
+        "\u2075",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "\u0294",
+          "\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Beijing": {
+    "taxa": [
+      [
+        "Beijing"
+      ],
+      [
+        "Beijing"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ad",
+      "#001cff"
+    ],
+    "retention": [
+      "0",
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u00b3\u2075",
+        "k",
+        "\u0259\u0303",
+        "r",
+        "\u00b2\u00b9\u2074"
+      ],
+      [
+        "p",
+        "o",
+        "\u00b3\u2075",
+        "\u02a6",
+        "\u027f",
+        "\u00b3"
+      ]
+    ],
+    "paps": [
+      "1783:92",
+      "1786:92"
+    ],
+    "parent": [
+      "Northern_Mandarin",
+      "Northern_Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "\u00b3\u2075",
+          "k",
+          "\u0259\u0303",
+          "r",
+          "\u00b2\u00b9\u2074"
+        ]
+      ],
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Changsha": {
+    "taxa": [
+      [
+        "Changsha"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000d6"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "i",
+        "n",
+        "\u2074\u00b9",
+        "k",
+        "\u0259",
+        "n",
+        "\u00b3\u00b3"
+      ]
+    ],
+    "paps": [
+      "1784:92"
+    ],
+    "parent": [
+      "Xiang"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "i",
+          "n",
+          "\u2074\u00b9",
+          "k",
+          "\u0259",
+          "n",
+          "\u00b3\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Hefei": {
+    "taxa": [
+      "Hefei"
+    ],
+    "children": [],
+    "colors": [
+      "#0094ff"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      null
+    ],
+    "paps": [
+      "1789:92"
+    ],
+    "parent": [
+      "Jianghuai"
+    ],
+    "alignments": [
+      null
+    ]
+  },
+  "edge.7": {
+    "taxa": [
+      [
+        "Guangzhou",
+        "Nanning",
+        "Xianggang"
+      ]
+    ],
+    "children": [
+      "Yue",
+      "Nanning"
+    ],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "k",
+        "\u025b",
+        "\u014b",
+        "\u00b3\u2075"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "edge.8"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Nanning": {
+    "taxa": [
+      [
+        "Nanning"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "k",
+        "\u025b",
+        "\u014b",
+        "\u00b3\u2075"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "edge.7"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Shexian": {
+    "taxa": [
+      "Shexian"
+    ],
+    "children": [],
+    "colors": [
+      "#7dff7a"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      null
+    ],
+    "paps": [
+      "1795:92"
+    ],
+    "parent": [
+      "Hui"
+    ],
+    "alignments": [
+      null
+    ]
+  },
+  "Zhongyuan": {
+    "taxa": [
+      [
+        "Zhengzhou"
+      ]
+    ],
+    "children": [
+      "Xi\u2019an",
+      "Xining",
+      "Zhengzhou"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u2074\u00b2"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Northwestern_Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u00b2",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Pingyao": {
+    "taxa": [
+      [
+        "Pingyao"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u028c",
+        "\u0294",
+        "\u2075\u00b3",
+        "\u02a6",
+        "\u028c",
+        "\u0294",
+        "\u00b9\u00b3"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Jin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u028c",
+          "\u0294",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u028c",
+          "\u0294",
+          "\u00b9\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Min": {
+    "taxa": [],
+    "children": [
+      "Coastal_Min",
+      "Jian\u2019ou"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Guiyang": {
+    "taxa": [
+      [
+        "Guiyang"
+      ],
+      [
+        "Guiyang"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000d6",
+      "#0000ad"
+    ],
+    "retention": [
+      "0",
+      "0"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "ia",
+        "\u014b",
+        "\u2074\u00b2",
+        "k",
+        "e",
+        "n"
+      ],
+      [
+        "p",
+        "o",
+        "\u00b2\u00b9",
+        "\u02a8",
+        "ia",
+        "\u014b",
+        "\u2074\u00b2"
+      ]
+    ],
+    "paps": [
+      "1784:92",
+      "1783:92"
+    ],
+    "parent": [
+      "Kungui",
+      "Kungui"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "ia",
+          "\u014b",
+          "\u2074\u00b2",
+          "k",
+          "e",
+          "n",
+          "-"
+        ]
+      ],
+      [
+        [
+          "p",
+          "o",
+          "\u00b2\u00b9",
+          "\u02a8",
+          "ia",
+          "\u014b",
+          "\u2074\u00b2"
+        ]
+      ]
+    ]
+  },
+  "Wuhan": {
+    "taxa": [
+      [
+        "Wuhan"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "i",
+        "n",
+        "\u2074\u00b2",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "Xinan"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "i",
+          "n",
+          "\u2074\u00b2",
+          "\u02a6",
+          "\u027f",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Lanyin": {
+    "taxa": [
+      [
+        "Lanzhou",
+        "Wulumuqi",
+        "Yinchuan"
+      ],
+      [
+        "Lanzhou",
+        "Yinchuan"
+      ]
+    ],
+    "children": [
+      "Lanzhou",
+      "Yinchuan",
+      "Wulumuqi"
+    ],
+    "colors": [
+      "#001cff",
+      "#ff1600"
+    ],
+    "retention": [
+      "1",
+      "0"
+    ],
+    "consensus": [
+      [
+        "p",
+        "u\u0259",
+        "\u2075\u00b9\u207b\u2074\u2074",
+        "\u02a6",
+        "\u027f"
+      ],
+      [
+        "p",
+        "\u025b\u0303",
+        "n",
+        "\u2074\u2074\u00b2",
+        "\u02a8",
+        "\u0129",
+        "\u014b",
+        "\u00b2\u00b9"
+      ]
+    ],
+    "paps": [
+      "1786:92",
+      "1805:92"
+    ],
+    "parent": [
+      "Northwestern_Mandarin",
+      "Northwestern_Mandarin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b9\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u2075\u00b9\u207b\u2074\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "u\u0259",
+          "-",
+          "\u00b9\u00b3\u207b\u00b9\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ],
+      [
+        [
+          "p",
+          "\u025b\u0303",
+          "n",
+          "\u2074\u2074\u00b2",
+          "\u02a8",
+          "\u0129",
+          "n",
+          "\u00b2\u00b9"
+        ],
+        [
+          "p",
+          "a",
+          "n",
+          "\u2075\u00b3",
+          "\u02a8",
+          "i",
+          "\u014b",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Beifang": {
+    "taxa": [
+      [
+        "Jinan",
+        "Tianjin"
+      ],
+      [
+        "Tianjin"
+      ]
+    ],
+    "children": [
+      "Tianjin",
+      "Jinan"
+    ],
+    "colors": [
+      "#001cff",
+      "#1cffdb"
+    ],
+    "retention": [
+      "1",
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0259",
+        "\u2074\u00b2\u207b\u2075\u2075",
+        "\u02a6",
+        "\u027f",
+        "\u00b3"
+      ],
+      [
+        "p",
+        "o",
+        "\u2074\u2075",
+        "k",
+        "\u0259",
+        "\u014b",
+        "\u00b9\u00b3",
+        "\u02a6",
+        "\u0259",
+        "\u00b3"
+      ]
+    ],
+    "paps": [
+      "1786:92",
+      "1792:92"
+    ],
+    "parent": [
+      "edge.0",
+      "edge.0"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2074\u00b2\u207b\u2075\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ]
+      ],
+      [
+        [
+          "p",
+          "o",
+          "\u2074\u2075",
+          "k",
+          "\u0259",
+          "\u014b",
+          "\u00b9\u00b3",
+          "\u02a6",
+          "\u0259",
+          "\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Minnan": {
+    "taxa": [],
+    "children": [
+      "edge.9",
+      "Shantou",
+      "Haikou"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Hangzhou": {
+    "taxa": [
+      "Hangzhou"
+    ],
+    "children": [],
+    "colors": [
+      "#006cff"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      null
+    ],
+    "paps": [
+      "1788:92"
+    ],
+    "parent": [
+      "Taichao"
+    ],
+    "alignments": [
+      null
+    ]
+  },
+  "Haikou": {
+    "taxa": [
+      [
+        "Haikou"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#ff6000"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "\u0294",
+        "d",
+        "au",
+        "\u00b2\u00b3"
+      ]
+    ],
+    "paps": [
+      "1803:92"
+    ],
+    "parent": [
+      "Minnan"
+    ],
+    "alignments": [
+      [
+        [
+          "\u0294",
+          "d",
+          "au",
+          "\u00b2\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Nanchang": {
+    "taxa": [
+      [
+        "Nanchang"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "i\u0251",
+        "\u014b",
+        "\u00b2\u00b9\u00b3"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "edge.5"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "i\u0251",
+          "\u014b",
+          "\u00b2\u00b9\u00b3",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Xining": {
+    "taxa": [
+      "Xining",
+      "Xining"
+    ],
+    "children": [],
+    "colors": [
+      "#ffa700",
+      "#a80000"
+    ],
+    "retention": [
+      "0",
+      "0"
+    ],
+    "consensus": [
+      null,
+      null
+    ],
+    "paps": [
+      "1801:92",
+      "1807:92"
+    ],
+    "parent": [
+      "Zhongyuan",
+      "Zhongyuan"
+    ],
+    "alignments": [
+      null,
+      null
+    ]
+  },
+  "edge.2": {
+    "taxa": [],
+    "children": [
+      "edge.1",
+      "Hui"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Taiyuan": {
+    "taxa": [
+      [
+        "Taiyuan"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "a",
+        "\u0294",
+        "\u2075\u2074",
+        "\u02a6",
+        "\u0259",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Jin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "a",
+          "\u0294",
+          "\u2075\u2074",
+          "\u02a6",
+          "\u0259",
+          "\u0294",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Suhujia": {
+    "taxa": [
+      [
+        "Shanghai",
+        "Suzhou"
+      ]
+    ],
+    "children": [
+      "Shanghai",
+      "Suzhou"
+    ],
+    "colors": [
+      "#3cffba"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "d",
+        "\u0264",
+        "\u00b9\u00b3\u207b\u00b2\u00b2",
+        "\u02a8",
+        "i",
+        "\u014b",
+        "\u2075\u00b9\u207b\u00b3\u00b3"
+      ]
+    ],
+    "paps": [
+      "1793:92"
+    ],
+    "parent": [
+      "Taichao"
+    ],
+    "alignments": [
+      [
+        [
+          "d",
+          "\u0264",
+          "\u00b9\u00b3\u207b\u00b2\u00b2",
+          "\u02a8",
+          "i",
+          "\u014b",
+          "\u00b3\u2075\u207b\u2074\u2074"
+        ],
+        [
+          "d",
+          "\u028f",
+          "\u00b9\u00b3",
+          "\u02a8",
+          "i",
+          "n",
+          "\u2075\u00b9\u207b\u00b3\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Nanjing": {
+    "taxa": [
+      [
+        "Nanjing"
+      ],
+      [
+        "Nanjing"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff",
+      "#001cff"
+    ],
+    "retention": [
+      "0",
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "i",
+        "n",
+        "\u00b2\u00b9\u00b2\u207b\u00b9\u00b9",
+        "\u02a6",
+        "\u027f"
+      ],
+      [
+        "p",
+        "o",
+        "\u0294",
+        "\u2075",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1785:92",
+      "1786:92"
+    ],
+    "parent": [
+      "Jianghuai",
+      "Jianghuai"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "i",
+          "n",
+          "\u00b2\u00b9\u00b2\u207b\u00b9\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-"
+        ]
+      ],
+      [
+        [
+          "p",
+          "o",
+          "\u0294",
+          "\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "edge.1": {
+    "taxa": [
+      [
+        "Beijing",
+        "Haerbin",
+        "Huhehaote",
+        "Jinan",
+        "Kunming",
+        "Lanzhou",
+        "Nanjing",
+        "Pingyao",
+        "Taiyuan",
+        "Tianjin",
+        "Wulumuqi",
+        "Yinchuan",
+        "Zhengzhou"
+      ]
+    ],
+    "children": [
+      "Jin",
+      "Mandarin"
+    ],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u00b3\u00b9",
+        "\u02a6",
+        "\u027f"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "edge.2"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b2\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u0259",
+          "\u0294",
+          "-"
+        ],
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2074\u00b2\u207b\u2075\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u2075\u00b3"
+        ],
+        [
+          "p",
+          "\u0259",
+          "-",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b9\u00b3"
+        ],
+        [
+          "p",
+          "o",
+          "\u0294",
+          "\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "\u028c",
+          "\u0294",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u028c",
+          "\u0294",
+          "\u00b9\u00b3"
+        ],
+        [
+          "p",
+          "a",
+          "\u0294",
+          "\u2075\u2074",
+          "\u02a6",
+          "\u0259",
+          "\u0294",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u2075",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u00b3"
+        ],
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u2075\u00b9\u207b\u2074\u2074",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "u\u0259",
+          "-",
+          "\u00b9\u00b3\u207b\u00b9\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "-"
+        ],
+        [
+          "p",
+          "o",
+          "-",
+          "\u2074\u00b2",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "edge.9": {
+    "taxa": [
+      [
+        "Taibei",
+        "Xiamen"
+      ]
+    ],
+    "children": [
+      "Xiamen",
+      "Taibei"
+    ],
+    "colors": [
+      "#9aff5d"
+    ],
+    "retention": [
+      "0"
+    ],
+    "consensus": [
+      [
+        "a",
+        "m",
+        "\u00b3\u00b3\u207b\u00b9\u00b9",
+        "k",
+        "u",
+        "n",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1796:92"
+    ],
+    "parent": [
+      "Minnan"
+    ],
+    "alignments": [
+      [
+        [
+          "a",
+          "m",
+          "\u00b3\u00b3\u207b\u00b9\u00b9",
+          "k",
+          "u",
+          "n",
+          "\u2075\u00b3"
+        ],
+        [
+          "a",
+          "m",
+          "\u00b2\u00b2\u207b\u00b2\u00b9",
+          "k",
+          "u",
+          "n",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Chengdu": {
+    "taxa": [
+      [
+        "Chengdu"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "\u02a8",
+        "i",
+        "n",
+        "\u2075\u00b3",
+        "\u02a6",
+        "\u027f",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "Xinan"
+    ],
+    "alignments": [
+      [
+        [
+          "\u02a8",
+          "i",
+          "n",
+          "\u2075\u00b3",
+          "\u02a6",
+          "\u027f",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  },
+  "Xianggang": {
+    "taxa": [
+      [
+        "Xianggang"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "k",
+        "\u025b",
+        "\u014b",
+        "\u00b3\u2075"
+      ]
+    ],
+    "paps": [
+      "1785:92"
+    ],
+    "parent": [
+      "Yue"
+    ],
+    "alignments": [
+      [
+        [
+          "k",
+          "\u025b",
+          "\u014b",
+          "\u00b3\u2075",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Fuzhou": {
+    "taxa": [],
+    "children": [],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Huhehaote": {
+    "taxa": [
+      [
+        "Huhehaote"
+      ],
+      [
+        "Huhehaote"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#0000ad",
+      "#001cff"
+    ],
+    "retention": [
+      "0",
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "\u0264",
+        "\u00b3\u00b9\u207b\u00b3\u00b3",
+        "\u02a8",
+        "\u0129",
+        "\u014b",
+        "\u00b3\u00b9"
+      ],
+      [
+        "p",
+        "\u0264",
+        "\u00b3\u00b9",
+        "\u02a6",
+        "\u0259",
+        "\u0294"
+      ]
+    ],
+    "paps": [
+      "1783:92",
+      "1786:92"
+    ],
+    "parent": [
+      "Jin",
+      "Jin"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "\u0264",
+          "\u00b3\u00b9\u207b\u00b3\u00b3",
+          "\u02a8",
+          "\u0129",
+          "\u014b",
+          "\u00b3\u00b9"
+        ]
+      ],
+      [
+        [
+          "p",
+          "\u0264",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u0259",
+          "\u0294",
+          "-"
+        ]
+      ]
+    ]
+  },
+  "Coastal_Min": {
+    "taxa": [],
+    "children": [
+      "Minnan",
+      "Fuzhou"
+    ],
+    "colors": [],
+    "retention": [],
+    "consensus": [],
+    "paps": [],
+    "parent": [],
+    "alignments": []
+  },
+  "Kunming": {
+    "taxa": [
+      [
+        "Kunming"
+      ]
+    ],
+    "children": [],
+    "colors": [
+      "#001cff"
+    ],
+    "retention": [
+      "1"
+    ],
+    "consensus": [
+      [
+        "p",
+        "o",
+        "\u00b3\u00b9",
+        "\u02a6",
+        "\u027f",
+        "\u2075\u00b3"
+      ]
+    ],
+    "paps": [
+      "1786:92"
+    ],
+    "parent": [
+      "Kungui"
+    ],
+    "alignments": [
+      [
+        [
+          "p",
+          "o",
+          "-",
+          "\u00b3\u00b9",
+          "\u02a6",
+          "\u027f",
+          "-",
+          "\u2075\u00b3"
+        ]
+      ]
+    ]
+  }
+}
