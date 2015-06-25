@@ -3,30 +3,18 @@
   <title>Lexical Change Viewer</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <script src="main.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
   <style>
-li.node:before {
-	content: "\25B6 ";
-	margin-right: 20px;
-
-}
-
-li.node {
-	list-style: none;
-	margin-right: 20px;
-	margin-left: 20px;
-	list-style-position: outside;
-	float: none;
-	display: inline;
-	cursor: pointer;
-
-}
 .leaf-wrap {
-	border: 1px dashed red;
-	display: table-cell;
+	border: 1px dashed Crimson;
+	display: inline-block;
+	margin-left: 47px;
+	position: relative;
+	margin-top: 2px;
+	margin-bottom: 2px;
 	border-radius: 25px;
-	padding: 10px;
-	margin-left: 100px;
-
+	padding: 5px;
+	background-color: lightblue;
 }
 .leaf-element {
 	display: table-row;
@@ -36,16 +24,18 @@ li.node {
 }
 .leaf-name {
 	display: table-cell;
-	width: 150px;
+	min-width: 150px;
 	border: 1px dotted lightgray;
 
 }
 .node-wrap {
 	border: 1px dashed gray;
-	display: table-cell;
-	margin-left: 100px;
+	display: inline-block;
+	margin-left: 47px;
+	//max-width: 150px;
+	position: relative;
 	border-radius: 25px;
-	padding: 10px;
+	padding: 5px;
 }
 .node-content {
 	display: table-cell;
@@ -81,13 +71,48 @@ li.node {
 	font-weight: bold;
 }
 
+li.node:before {
+	content: '';
+	width: 50px;
+	height: 30px;
+	position: relative;
+	display: table-cell;
+	bottom: 0;
+	top: 0;
+	left: -5px;
+	border-bottom: 5px solid green;
+	border-left: 5px solid green;
+	z-index: 1;
+}
+li.node {
+	position: relative;
+	margin: 0;
+	bottom: 0;
+	top: 0;
+	left: 5em;
+	border-left: 5px solid green;
+	list-style:none;
+	display: block;
+}
+
+li.node:last-child {
+	margin: 0;
+	position: relative;
+	bottom: 0;
+	top: 0;
+	left: 5em;
+	border-left: 5px solid white;
+	list-style: none;
+}
+
+
   </style>
 </head>
 <body>
   <h1>Lexical Change Viewer (Powered by LingPy)</h1>
   <button style="background-color:Crimson" onclick="toggleWords()">TOGGLE</button>
   <select id="selector"> 
-  <option value="a while">a while</option><option value="and">and</option><option value="aubergine">aubergine</option><option value="aunt (wife of father's elder brother)">aunt (wife of father's elder brother)</option><option value="aunt (wife of father's younger brother)">aunt (wife of father's younger brother)</option><option value="aunt (wife of mother's brother)">aunt (wife of mother's brother)</option><option value="become sick">become sick</option><option value="bedbug">bedbug</option><option value="beggar">beggar</option><option value="blow">blow</option><option value="boy">boy</option><option value="breakfast">breakfast</option><option value="broad bean">broad bean</option><option value="cabbage">cabbage</option><option value="catch a cold">catch a cold</option><option value="cheap">cheap</option><option value="chicken">chicken</option><option value="chimney">chimney</option><option value="chopsticks">chopsticks</option><option value="classifier (cow)">classifier (cow)</option><option value="classifier (pair)">classifier (pair)</option><option value="classifier (person)">classifier (person)</option><option value="classifier (pig)">classifier (pig)</option><option value="classifier (pillow)">classifier (pillow)</option><option value="classifier (vehicle)">classifier (vehicle)</option><option value="clean">clean</option><option value="cold">cold</option><option value="cook">cook</option><option value="daughter">daughter</option><option value="die">die</option><option value="dirty">dirty</option><option value="doctor">doctor</option><option value="doorsills">doorsills</option><option value="Dragon Boat Festival">Dragon Boat Festival</option><option value="dumpling won ton (Huntun)">dumpling won ton (Huntun)</option><option value="eight">eight</option><option value="eleven">eleven</option><option value="face">face</option><option value="fat">fat</option><option value="father">father</option><option value="female pig">female pig</option><option value="fingernail">fingernail</option><option value="first">first</option><option value="fist">fist</option><option value="five">five</option><option value="flat">flat</option><option value="forefinger">forefinger</option><option value="forehead">forehead</option><option value="four">four</option><option value="freeze">freeze</option><option value="from">from</option><option value="girl">girl</option><option value="go to the doctor">go to the doctor</option><option value="grandfather">grandfather</option><option value="grandmother">grandmother</option><option value="hail">hail</option><option value="have diarrhoea">have diarrhoea</option><option value="he">he</option><option value="head">head</option><option value="here">here</option><option value="hot">hot</option><option value="house">house</option><option value="how">how</option><option value="humpback">humpback</option><option value="husband">husband</option><option value="I">I</option><option value="in the middle">in the middle</option><option value="inside">inside</option><option value="instead of">instead of</option><option value="just (just appropriate)">just (just appropriate)</option><option value="just (just came)">just (just came)</option><option value="just right">just right</option><option value="kitchen">kitchen</option><option value="knee">knee</option><option value="lame person">lame person</option><option value="last year">last year</option><option value="left">left</option><option value="left hand">left hand</option><option value="leg">leg</option><option value="light">light</option><option value="lightning">lightning</option><option value="long">long</option><option value="lunch">lunch</option><option value="male pig">male pig</option><option value="man">man</option><option value="maternal grandfather">maternal grandfather</option><option value="maternal grandmother">maternal grandmother</option><option value="Mid-autumn Festival">Mid-autumn Festival</option><option value="moon">moon</option><option value="mother">mother</option><option value="mouse">mouse</option><option value="neck">neck</option><option value="New Year's Eve">New Year's Eve</option><option value="next year">next year</option><option value="nine">nine</option><option value="noodles">noodles</option><option value="nose">nose</option><option value="nurse">nurse</option><option value="old man">old man</option><option value="on">on</option><option value="on purpose">on purpose</option><option value="one">one</option><option value="one time">one time</option><option value="only">only</option><option value="outside">outside</option><option value="pig">pig</option><option value="potato">potato</option><option value="pumpkin">pumpkin</option><option value="rain">rain</option><option value="rainbow">rainbow</option><option value="right">right</option><option value="right hand">right hand</option><option value="rooster">rooster</option><option value="salt">salt</option><option value="salty">salty</option><option value="second">second</option><option value="self">self</option><option value="seven">seven</option><option value="short">short</option><option value="six">six</option><option value="snow">snow</option><option value="son">son</option><option value="sour">sour</option><option value="soya sauce">soya sauce</option><option value="sparrow">sparrow</option><option value="spinach">spinach</option><option value="spoon">spoon</option><option value="stairs">stairs</option><option value="star">star</option><option value="steamed bun (Mantou)">steamed bun (Mantou)</option><option value="steamed stuffed bun (Baozi)">steamed stuffed bun (Baozi)</option><option value="stinky">stinky</option><option value="sun">sun</option><option value="sunday">sunday</option><option value="sunflower">sunflower</option><option value="supper">supper</option><option value="sweet">sweet</option><option value="sweet potato">sweet potato</option><option value="table">table</option><option value="take">take</option><option value="ten">ten</option><option value="that">that</option><option value="there">there</option><option value="they">they</option><option value="thick">thick</option><option value="thin">thin</option><option value="this">this</option><option value="this year">this year</option><option value="thou">thou</option><option value="three">three</option><option value="thunder">thunder</option><option value="tiny">tiny</option><option value="today">today</option><option value="toilet">toilet</option><option value="tomato">tomato</option><option value="tomorrow">tomorrow</option><option value="twelve">twelve</option><option value="twenty">twenty</option><option value="twenty one">twenty one</option><option value="two">two</option><option value="two miles">two miles</option><option value="two ounces">two ounces</option><option value="uncle (father's younger brother)">uncle (father's younger brother)</option><option value="uncle (fathers's elder brother)">uncle (fathers's elder brother)</option><option value="uncle (mother's brother)">uncle (mother's brother)</option><option value="under">under</option><option value="vinegar">vinegar</option><option value="we">we</option><option value="we (inclusive)">we (inclusive)</option><option value="well smelling">well smelling</option><option value="what">what</option><option value="what kind of">what kind of</option><option value="wheat">wheat</option><option value="where">where</option><option value="who">who</option><option value="wife">wife</option><option value="window">window</option><option value="woman">woman</option><option value="yesterday">yesterday</option><option value="you">you</option>
+  <option value="ant">ant</option><option value="arrow">arrow</option><option value="ashes">ashes</option><option value="bamboo">bamboo</option><option value="banana">banana</option><option value="bear">bear</option><option value="bird">bird</option><option value="bitter">bitter</option><option value="black">black</option><option value="blood">blood</option><option value="boat">boat</option><option value="bone">bone</option><option value="bow, crossbow">bow, crossbow</option><option value="brain">brain</option><option value="branch">branch</option><option value="breast">breast</option><option value="cloud">cloud</option><option value="cold">cold</option><option value="dog">dog</option><option value="dry">dry</option><option value="ear">ear</option><option value="earth (soil)">earth (soil)</option><option value="egg">egg</option><option value="eye">eye</option><option value="finger">finger</option><option value="fire">fire</option><option value="fish">fish</option><option value="five">five</option><option value="flower">flower</option><option value="foot">foot</option><option value="four">four</option><option value="frog">frog</option><option value="fruit">fruit</option><option value="full">full</option><option value="grandchild">grandchild</option><option value="grass">grass</option><option value="green">green</option><option value="hair (head)">hair (head)</option><option value="hand">hand</option><option value="head">head</option><option value="heart">heart</option><option value="heavy">heavy</option><option value="horn">horn</option><option value="house">house</option><option value="I, me">I, me</option><option value="leaf">leaf</option><option value="leech (land)">leech (land)</option><option value="left (side)">left (side)</option><option value="light (weight)">light (weight)</option><option value="liver">liver</option><option value="long">long</option><option value="louse">louse</option><option value="man (male human)">man (male human)</option><option value="many">many</option><option value="medicine">medicine</option><option value="moon">moon</option><option value="mortar">mortar</option><option value="mountain">mountain</option><option value="mouth">mouth</option><option value="name">name</option><option value="navel">navel</option><option value="near">near</option><option value="neck">neck</option><option value="new">new</option><option value="night">night</option><option value="nose">nose</option><option value="old">old</option><option value="one">one</option><option value="palm (of hand)">palm (of hand)</option><option value="penis">penis</option><option value="person">person</option><option value="pig">pig</option><option value="rain">rain</option><option value="red">red</option><option value="rice (cooked)">rice (cooked)</option><option value="rice (unhusked)">rice (unhusked)</option><option value="right (side)">right (side)</option><option value="river">river</option><option value="root">root</option><option value="round">round</option><option value="salt">salt</option><option value="sand">sand</option><option value="seed">seed</option><option value="seven">seven</option><option value="sharp (edged)">sharp (edged)</option><option value="six">six</option><option value="sky">sky</option><option value="smoke">smoke</option><option value="snake">snake</option><option value="soft (touch)">soft (touch)</option><option value="sour">sour</option><option value="star">star</option><option value="stick of wood">stick of wood</option><option value="stone">stone</option><option value="sweet">sweet</option><option value="tail">tail</option><option value="thick (object)">thick (object)</option><option value="thin (object)">thin (object)</option><option value="thorn">thorn</option><option value="three">three</option><option value="to be born">to be born</option><option value="to bite">to bite</option><option value="to blow">to blow</option><option value="to burn (tr.)">to burn (tr.)</option><option value="to cough">to cough</option><option value="to descend">to descend</option><option value="to die">to die</option><option value="to dig">to dig</option><option value="to dream">to dream</option><option value="to drink (water)">to drink (water)</option><option value="to eat">to eat</option><option value="to fall">to fall</option><option value="to fly">to fly</option><option value="to forget">to forget</option><option value="to give">to give</option><option value="to hear">to hear</option><option value="to hunt">to hunt</option><option value="to kick">to kick</option><option value="to kill">to kill</option><option value="to know">to know</option><option value="to laugh">to laugh</option><option value="to lick">to lick</option><option value="to see">to see</option><option value="to sew">to sew</option><option value="to shoot">to shoot</option><option value="to sit">to sit</option><option value="to smell (receive odor)">to smell (receive odor)</option><option value="to spit">to spit</option><option value="to stand">to stand</option><option value="to steal">to steal</option><option value="to vomit">to vomit</option><option value="to wash (hands, things)">to wash (hands, things)</option><option value="to weave">to weave</option><option value="tongue">tongue</option><option value="tooth">tooth</option><option value="tree">tree</option><option value="two">two</option><option value="water">water</option><option value="white">white</option><option value="wing">wing</option><option value="woman">woman</option><option value="yellow">yellow</option><option value="you (pl.)">you (pl.)</option><option value="you (sing.)">you (sing.)</option>
   </select>
   <button onclick="loadConcept()">SUBMIT</button>
   <h2 id="header"></h2>
@@ -209,15 +234,18 @@ function loadConcept() {
 	  + '<div class="leaf-name loss">'
 	  + name 
 	  + '</div><div class="leaf-content">';
-	rep_string += ''
+	rep_string += ' '
 	  + '</div>'
 	  + '</div>';
       }
     }
+    rep_string += '<ul>';
     for (var j=0,child; child = children[j]; j++) {
-      rep_string += '<ul><li class="node" id="E_'+child+'">{'+child+'}</li></ul>';
+      rep_string += '<li class="node" id="E_'+child+'">{'+child+'}</li>';
     }
+    rep_string += '</ul>';
     txt = txt.replace('{'+name+'}',rep_string);
+
   }
   
   /* add concept to header line */
@@ -235,6 +263,7 @@ function loadConcept() {
   
   /* submit the display */
   display.innerHTML = txt; 
+  
 }
 
 function modifyEdge(name) {
@@ -273,6 +302,56 @@ function showAlignment(event,name,idx) {
   fakeAlert(txt);
 }
 
+function prettyfy() {
+// Select the main list and add the class "hasSubmenu" in each LI that contains an UL
+$('ul').each(function(){
+  $this = $(this);
+  $this.find("li").has("div ul").addClass("hasSubmenu");
+});
+
+// Find the last li in each level
+$('li:last-child').each(function(){
+  console.log('last child');
+  $this = $(this);
+  // Check if LI has children
+  if ($this.children('ul').length === 0){
+    // Add border-left in every UL where the last LI has not children
+    $this.closest('ul').css("border-left", "5px solid Crimson");
+  } else {
+    // Add border in child LI, except in the last one
+    $this.closest('ul').children("li").not(":last").css("border-left","5px solid Green");
+    // Add the class "addBorderBefore" to create the pseudo-element :defore in the last li
+    $this.closest('ul').children("li").last().children("a").addClass("addBorderBefore");
+    // Add margin in the first level of the list
+    $this.closest('ul').css("margin-top","20px");
+    // Add margin in other levels of the list
+    $this.closest('ul').find("li").children("ul").css("margin-top","20px");
+  };
+});
+// Add bold in li and levels above
+$('ul li').each(function(){
+  $this = $(this);
+  $this.mouseenter(function(){
+    $( this ).children("a").css({"font-weight":"bold","color":"#336b9b"});
+  });
+  $this.mouseleave(function(){
+    $( this ).children("a").css({"font-weight":"normal","color":"#428bca"});
+  });
+});
+// Add button to expand and condense - Using FontAwesome
+$('ul li.hasSubmenu').each(function(){
+  $this = $(this);
+  $this.prepend("<a href='#'><i class='fa fa-minus-circle'></i><i style='display:none;' class='fa fa-plus-circle'></i></a>");
+  $this.children("a").not(":last").removeClass().addClass("toogle");
+});
+// Actions to expand and consense
+$('ul li.hasSubmenu a.toogle').click(function(){
+  $this = $(this);
+  $this.closest("li").children("ul").toggle("slow");
+  $this.children("i").toggle();
+  return false;
+});
+}
 
   </script>
 </body>
