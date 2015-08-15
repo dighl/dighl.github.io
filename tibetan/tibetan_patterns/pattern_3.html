@@ -1,0 +1,197 @@
+<html>
+<head>
+  <title>LingPy Tree Class</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="<++>" />
+</head>
+<body>
+  <style>.node-container {
+  display: flex;
+  flex-direction: row;
+  border: 0px solid gray;
+  padding: 0px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  align-content: stretch; 
+  align-items: center;
+  background: rgba(0,0,0,0.10);
+  border-radius: 50px;
+}
+.node-label {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid CornflowerBlue;
+  padding: 10px;
+  margin-left: 5px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  flex-basis:100px;
+  background: LightBlue;
+  border-radius: 25px;
+}
+.node-content {
+  display: flex;
+  flex-direction: column;
+  border-left: 0px dotted Crimson;
+  padding: 0px;
+  margin-bottom: 0px;
+  flex-grow: 2;
+  flex-shrink: 2;
+}
+
+.node-leave {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-top: 1px dotted black;
+}
+.inner_leave {
+	float: right;
+	width: 250px;
+	display: table-cell;
+     border: 2px solid Green;
+     position: relative;
+     background: lightgreen;
+     right: 0px;
+  margin: 10px;
+  padding: 0px;
+
+
+}
+</style>
+  <script>
+var TREE = {
+  "root": "(Shigatse,(Zhongu,Purik),(Cone,Thebo))",
+  "Purik": {
+    "root": false,
+    "branch_length": "0.16666667",
+    "label": "Purik",
+    "parent": "(Zhongu,Purik)",
+    "leave": true,
+    "children": []
+  },
+  "(Zhongu,Purik)": {
+    "root": false,
+    "branch_length": "0.1388889",
+    "label": "edge_1",
+    "parent": "(Shigatse,(Zhongu,Purik),(Cone,Thebo))",
+    "leave": false,
+    "children": [
+      "Zhongu",
+      "Purik"
+    ]
+  },
+  "(Cone,Thebo)": {
+    "root": false,
+    "branch_length": "0.1388889",
+    "label": "edge_2",
+    "parent": "(Shigatse,(Zhongu,Purik),(Cone,Thebo))",
+    "leave": false,
+    "children": [
+      "Cone",
+      "Thebo"
+    ]
+  },
+  "leaves": [
+    "Shigatse",
+    "Zhongu",
+    "Purik",
+    "Cone",
+    "Thebo"
+  ],
+  "nodes": [
+    "(Shigatse,(Zhongu,Purik),(Cone,Thebo))",
+    "Shigatse",
+    "(Zhongu,Purik)",
+    "(Cone,Thebo)",
+    "Zhongu",
+    "Purik",
+    "Cone",
+    "Thebo"
+  ],
+  "Cone": {
+    "root": false,
+    "branch_length": "0.16666667",
+    "label": "Cone",
+    "parent": "(Cone,Thebo)",
+    "leave": true,
+    "children": []
+  },
+  "Shigatse": {
+    "root": false,
+    "branch_length": "0.1388889",
+    "label": "Shigatse",
+    "parent": "(Shigatse,(Zhongu,Purik),(Cone,Thebo))",
+    "leave": true,
+    "children": []
+  },
+  "Zhongu": {
+    "root": false,
+    "branch_length": "0.16666667",
+    "label": "Zhongu",
+    "parent": "(Zhongu,Purik)",
+    "leave": true,
+    "children": []
+  },
+  "Thebo": {
+    "root": false,
+    "branch_length": "0.16666667",
+    "label": "Thebo",
+    "parent": "(Cone,Thebo)",
+    "leave": true,
+    "children": []
+  },
+  "(Shigatse,(Zhongu,Purik),(Cone,Thebo))": {
+    "label": "root",
+    "root": true,
+    "leave": false,
+    "branch_length": "0",
+    "children": [
+      "Shigatse",
+      "(Zhongu,Purik)",
+      "(Cone,Thebo)"
+    ]
+  }
+};
+
+function check_change() {
+  
+  /* start from root */
+  var queue = [TREE['root']];
+  while (queue) {
+    var current = queue.pop();
+    
+    // get the children
+    var children = TREE[current]['children'];
+
+    // check for current char
+    var this_node = document.getElementById(TREE[current]['label']+':label');
+    var this_content = this_node.dataset.value;
+
+    // iterate over children
+    for (var i=0,child; child=children[i]; i++) {
+      // get child value
+      var child_node = document.getElementById(TREE[child]['label']+':label');
+      var child_content = child_node.dataset.value;
+      
+      // change border if child not equals mother
+      if (child_content != this_content) {
+	child_node.style.border = '10px double black';
+      }
+      queue.push(child);
+    }
+  }
+}
+
+
+
+</script>
+  <div><div class="node-container"><div id="root:label" data-value="ABB" class="node-label"><b>[ABB]</b> <sup>root</sup></div><div class="node-content"><div id="Shigatse:label" data-value="BBB" class="node-leave"><div class="inner_leave"><b>[BBB]</b> <sup>Shigatse</sup></div></div>
+<div class="node-container"><div id="edge_1:label" data-value="ABB" class="node-label"><b>[ABB]</b> <sup>edge_1</sup></div><div class="node-content"><div id="Zhongu:label" data-value="-" class="node-leave"><div class="inner_leave"><b>[-]</b> <sup>Zhongu</sup></div></div>
+<div id="Purik:label" data-value="ABB" class="node-leave"><div class="inner_leave"><b>[ABB]</b> <sup>Purik</sup></div></div></div></div>
+<div class="node-container"><div id="edge_2:label" data-value="ABB" class="node-label"><b>[ABB]</b> <sup>edge_2</sup></div><div class="node-content"><div id="Cone:label" data-value="ABB" class="node-leave"><div class="inner_leave"><b>[ABB]</b> <sup>Cone</sup></div></div>
+<div id="Thebo:label" data-value="ABB" class="node-leave"><div class="inner_leave"><b>[ABB]</b> <sup>Thebo</sup></div></div></div></div></div></div></div>
+  <script>check_change();</script>
+</body>
+</html>
