@@ -1,5 +1,26 @@
 /* display the datatable */
 function showTable (){
+
+  /* check for url parameter */
+  if (window.location.href.indexOf('char=') != -1) {
+    var rest=window.location.href.split('?')[1];
+    var elms = rest.split('&');
+    var parms = {};
+    for (var i=0,elm; elm=elms[i]; i++) {
+      elm12 = elm.split('=');
+      parms[elm12[0]] = elm12[1];
+    }  
+  }
+  else {
+    var parms = {};
+  }
+
+  if ('char' in parms) {
+    var searchterm = parms['char'];
+  }
+  else {
+    var searchterm = '';
+  }
   
   var txt = '<table id="datatable"></table>';
   for (var i=0,row; row=CHARS[i]; i++) {
@@ -22,7 +43,8 @@ function showTable (){
       {"title" : "POEM", "class" : "description-table"},
       {"title" : "STANZA", "class" : "description-table"},
       {"title" : "SECTION", "class" : "description-table"},
-    ]
+    ],
+    search : {search : decodeURIComponent(searchterm)}
   });
 }
 
