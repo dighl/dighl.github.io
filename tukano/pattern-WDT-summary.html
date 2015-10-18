@@ -1,0 +1,594 @@
+<html>
+<head>
+  <title>LingPy Tree Class</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="<++>" />
+</head>
+<body>
+  <style>.node-container {
+  display: flex;
+  flex-direction: row;
+  border: 0px solid gray;
+  padding: 0px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  align-content: stretch; 
+  align-items: center;
+  background: rgba(0,0,0,0.10);
+  border-radius: 50px;
+}
+.node-label {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid CornflowerBlue;
+  padding: 10px;
+  margin-left: 5px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  flex-basis:100px;
+  background: LightBlue;
+  border-radius: 25px;
+}
+.node-content {
+  display: flex;
+  flex-direction: column;
+  border-left: 0px dotted Crimson;
+  padding: 0px;
+  margin-bottom: 0px;
+  flex-grow: 2;
+  flex-shrink: 2;
+}
+
+.node-leave {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-top: 1px dotted black;
+}
+.inner_leave {
+	float: right;
+	width: 250px;
+	display: table-cell;
+     border: 2px solid Green;
+     position: relative;
+     background: lightgreen;
+     right: 0px;
+  margin: 10px;
+  padding: 0px;
+
+
+}
+
+
+#popup {
+	position: fixed;
+	top: 30;
+	right: 30;
+	background: white;
+	border: 2px solid Crimson;
+	padding: 5px;
+	display: none;
+	cursor: pointer;
+}
+#popup table {
+	border: 2px solid black;
+}
+#popup table th {
+	border: 1px solid gray;
+}
+#popup table td {
+	border: 1px solid lightgray;
+}
+</style>
+  <script>
+var TREE = {
+  "Kar": {
+    "branch_length": "0.0",
+    "label": "Kar",
+    "parent": "(Kar,(Tat,Bar))",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Mai": {
+    "branch_length": "0.0",
+    "label": "Mai",
+    "parent": "(Mai,(Kor,Kue))",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Des": {
+    "branch_length": "0.0",
+    "label": "Des",
+    "parent": "(Des,Sir)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))": {
+    "branch_length": "0.0",
+    "label": "edge_13",
+    "parent": "((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "(Tuy,Yur)",
+      "(Pis,(Kar,(Tat,Bar)))"
+    ]
+  },
+  "Sek": {
+    "branch_length": "0.0",
+    "label": "Sek",
+    "parent": "(Sek,Sio)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "(Tat,Bar)": {
+    "branch_length": "0.0",
+    "label": "edge_18",
+    "parent": "(Kar,(Tat,Bar))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Tat",
+      "Bar"
+    ]
+  },
+  "Pir": {
+    "branch_length": "0.0",
+    "label": "Pir",
+    "parent": "(Pir,Wan,Tuk)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Kue": {
+    "branch_length": "0.0",
+    "label": "Kue",
+    "parent": "(Kor,Kue)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "(Yup,(Des,Sir))": {
+    "branch_length": "0.0",
+    "label": "edge_10",
+    "parent": "((Yup,(Des,Sir)),(Bas,Mak))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Yup",
+      "(Des,Sir)"
+    ]
+  },
+  "root": "(((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))),((Sek,Sio),(Mai,(Kor,Kue))))",
+  "(Kub,Tan)": {
+    "branch_length": "0.0",
+    "label": "edge_3",
+    "parent": "((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Kub",
+      "Tan"
+    ]
+  },
+  "(Sek,Sio)": {
+    "branch_length": "0.0",
+    "label": "edge_5",
+    "parent": "((Sek,Sio),(Mai,(Kor,Kue)))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Sek",
+      "Sio"
+    ]
+  },
+  "leaves": [
+    "Kub",
+    "Tan",
+    "Sek",
+    "Sio",
+    "Mai",
+    "Kor",
+    "Kue",
+    "Yup",
+    "Bas",
+    "Mak",
+    "Pir",
+    "Wan",
+    "Tuk",
+    "Des",
+    "Sir",
+    "Tuy",
+    "Yur",
+    "Pis",
+    "Kar",
+    "Tat",
+    "Bar"
+  ],
+  "(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))": {
+    "branch_length": "0.0",
+    "label": "edge_4",
+    "parent": "((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "((Yup,(Des,Sir)),(Bas,Mak))",
+      "((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))"
+    ]
+  },
+  "Kub": {
+    "branch_length": "0.0",
+    "label": "Kub",
+    "parent": "(Kub,Tan)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Yup": {
+    "branch_length": "0.0",
+    "label": "Yup",
+    "parent": "(Yup,(Des,Sir))",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "(Pis,(Kar,(Tat,Bar)))": {
+    "branch_length": "0.0",
+    "label": "edge_16",
+    "parent": "((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Pis",
+      "(Kar,(Tat,Bar))"
+    ]
+  },
+  "Kor": {
+    "branch_length": "0.0",
+    "label": "Kor",
+    "parent": "(Kor,Kue)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))": {
+    "branch_length": "0.0",
+    "label": "edge_8",
+    "parent": "(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "(Pir,Wan,Tuk)",
+      "((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))"
+    ]
+  },
+  "Pis": {
+    "branch_length": "0.0",
+    "label": "Pis",
+    "parent": "(Pis,(Kar,(Tat,Bar)))",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Tat": {
+    "branch_length": "0.0",
+    "label": "Tat",
+    "parent": "(Tat,Bar)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Sio": {
+    "branch_length": "0.0",
+    "label": "Sio",
+    "parent": "(Sek,Sio)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Yur": {
+    "branch_length": "0.0",
+    "label": "Yur",
+    "parent": "(Tuy,Yur)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Mak": {
+    "branch_length": "0.0",
+    "label": "Mak",
+    "parent": "(Bas,Mak)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Bas": {
+    "branch_length": "0.0",
+    "label": "Bas",
+    "parent": "(Bas,Mak)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "(Kar,(Tat,Bar))": {
+    "branch_length": "0.0",
+    "label": "edge_17",
+    "parent": "(Pis,(Kar,(Tat,Bar)))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Kar",
+      "(Tat,Bar)"
+    ]
+  },
+  "((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))))": {
+    "branch_length": "0.0",
+    "label": "edge_1",
+    "parent": "(((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))),((Sek,Sio),(Mai,(Kor,Kue))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "(Kub,Tan)",
+      "(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))"
+    ]
+  },
+  "Tuy": {
+    "branch_length": "0.0",
+    "label": "Tuy",
+    "parent": "(Tuy,Yur)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "(Kor,Kue)": {
+    "branch_length": "0.0",
+    "label": "edge_9",
+    "parent": "(Mai,(Kor,Kue))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Kor",
+      "Kue"
+    ]
+  },
+  "(Des,Sir)": {
+    "branch_length": "0.0",
+    "label": "edge_14",
+    "parent": "(Yup,(Des,Sir))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Des",
+      "Sir"
+    ]
+  },
+  "Wan": {
+    "branch_length": "0.0",
+    "label": "Wan",
+    "parent": "(Pir,Wan,Tuk)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "(Tuy,Yur)": {
+    "branch_length": "0.0",
+    "label": "edge_15",
+    "parent": "((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Tuy",
+      "Yur"
+    ]
+  },
+  "Tuk": {
+    "branch_length": "0.0",
+    "label": "Tuk",
+    "parent": "(Pir,Wan,Tuk)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Bar": {
+    "branch_length": "0.0",
+    "label": "Bar",
+    "parent": "(Tat,Bar)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "((Sek,Sio),(Mai,(Kor,Kue)))": {
+    "branch_length": "0.0",
+    "label": "edge_2",
+    "parent": "(((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))),((Sek,Sio),(Mai,(Kor,Kue))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "(Sek,Sio)",
+      "(Mai,(Kor,Kue))"
+    ]
+  },
+  "(Pir,Wan,Tuk)": {
+    "branch_length": "0.0",
+    "label": "edge_12",
+    "parent": "((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Pir",
+      "Wan",
+      "Tuk"
+    ]
+  },
+  "((Yup,(Des,Sir)),(Bas,Mak))": {
+    "branch_length": "0.0",
+    "label": "edge_7",
+    "parent": "(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "(Yup,(Des,Sir))",
+      "(Bas,Mak)"
+    ]
+  },
+  "(Mai,(Kor,Kue))": {
+    "branch_length": "0.0",
+    "label": "edge_6",
+    "parent": "((Sek,Sio),(Mai,(Kor,Kue)))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Mai",
+      "(Kor,Kue)"
+    ]
+  },
+  "(((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))),((Sek,Sio),(Mai,(Kor,Kue))))": {
+    "label": "root",
+    "root": true,
+    "leave": false,
+    "children": [
+      "((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))))",
+      "((Sek,Sio),(Mai,(Kor,Kue)))"
+    ],
+    "branch_length": "0"
+  },
+  "(Bas,Mak)": {
+    "branch_length": "0.0",
+    "label": "edge_11",
+    "parent": "((Yup,(Des,Sir)),(Bas,Mak))",
+    "root": false,
+    "leave": false,
+    "children": [
+      "Bas",
+      "Mak"
+    ]
+  },
+  "nodes": [
+    "(((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))),((Sek,Sio),(Mai,(Kor,Kue))))",
+    "((Kub,Tan),(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))))",
+    "((Sek,Sio),(Mai,(Kor,Kue)))",
+    "(Kub,Tan)",
+    "(((Yup,(Des,Sir)),(Bas,Mak)),((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))))",
+    "(Sek,Sio)",
+    "(Mai,(Kor,Kue))",
+    "Kub",
+    "Tan",
+    "((Yup,(Des,Sir)),(Bas,Mak))",
+    "((Pir,Wan,Tuk),((Tuy,Yur),(Pis,(Kar,(Tat,Bar)))))",
+    "Sek",
+    "Sio",
+    "Mai",
+    "(Kor,Kue)",
+    "(Yup,(Des,Sir))",
+    "(Bas,Mak)",
+    "(Pir,Wan,Tuk)",
+    "((Tuy,Yur),(Pis,(Kar,(Tat,Bar))))",
+    "Kor",
+    "Kue",
+    "Yup",
+    "(Des,Sir)",
+    "Bas",
+    "Mak",
+    "Pir",
+    "Wan",
+    "Tuk",
+    "(Tuy,Yur)",
+    "(Pis,(Kar,(Tat,Bar)))",
+    "Des",
+    "Sir",
+    "Tuy",
+    "Yur",
+    "Pis",
+    "(Kar,(Tat,Bar))",
+    "Kar",
+    "(Tat,Bar)",
+    "Tat",
+    "Bar"
+  ],
+  "Tan": {
+    "branch_length": "0.0",
+    "label": "Tan",
+    "parent": "(Kub,Tan)",
+    "root": false,
+    "leave": true,
+    "children": []
+  },
+  "Sir": {
+    "branch_length": "0.0",
+    "label": "Sir",
+    "parent": "(Des,Sir)",
+    "root": false,
+    "leave": true,
+    "children": []
+  }
+};
+
+function check_change() {
+  
+  /* start from root */
+  var queue = [TREE['root']];
+  while (queue) {
+    var current = queue.pop();
+    
+    // get the children
+    var children = TREE[current]['children'];
+
+    // check for current char
+    var this_node = document.getElementById(TREE[current]['label']+':label');
+    var this_content = this_node.dataset.value;
+
+    // iterate over children
+    for (var i=0,child; child=children[i]; i++) {
+      // get child value
+      var child_node = document.getElementById(TREE[child]['label']+':label');
+      var child_content = child_node.dataset.value;
+      
+      // change border if child not equals mother
+      // change border if child not equals mother
+      if (child_content != this_content) {
+	if (TREE[child]['leave']) {
+	  child_node.childNodes[0].style.border = '10px double black';
+	}
+	else {
+	  child_node.style.border = '10px double black';
+	}
+      }
+
+      queue.push(child);
+    }
+  }
+}
+
+
+
+</script>
+  <div><div class="node-container"><div id="root:label" data-value="" class="node-label">Proto-Tukano</div><div class="node-content"><div class="node-container"><div id="edge_1:label" data-value="8" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_1:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>11</td><td>*m</td><td>11</td><td>m</td><td>b</td></td></tr><tr><td>12</td><td>*n</td><td>12</td><td>n</td><td>d</td></td></tr><tr><td>15</td><td>*pʔ</td><td>15</td><td>pʔ</td><td>b</td></td></tr><tr><td>18</td><td>*pʔ</td><td>18</td><td>pʔ</td><td>vʔb</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>tsʔ</td><td>dz</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>tsʔ</td><td>dz</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>tʔ</td><td>d</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>tʔ</td><td>vʔd</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_1 (8)</span></div><div class="node-content"><div class="node-container"><div id="edge_3:label" data-value="9" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_3:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>1</td><td>*h</td><td>1</td><td>h</td><td>Ø</td></td></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>kʔ</td><td>k</td></td></tr><tr><td>16</td><td>*pʔ</td><td>16</td><td>pʔ</td><td>p</td></td></tr><tr><td>19</td><td>*s</td><td>19</td><td>s</td><td>h</td></td></tr><tr><td>20</td><td>*s</td><td>20</td><td>s</td><td>h</td></td></tr><tr><td>23</td><td>*t</td><td>23</td><td>t</td><td>d</td></td></tr><tr><td>24</td><td>*ts</td><td>24</td><td>ts</td><td>h</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>h</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>h</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_3 (9)</span></div><div class="node-content"><div id="Kub:label" data-value="11" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Kub:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>7</td><td>*k</td><td>7</td><td>k</td><td>Ø</td></td></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>k</td></td></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>k</td><td>Ø</td></td></tr><tr><td>17</td><td>*pʔ</td><td>17</td><td>pʔ</td><td>b</td></td></tr><tr><td>18</td><td>*pʔ</td><td>18</td><td>vʔb</td><td>b</td></td></tr><tr><td>22</td><td>*t</td><td>22</td><td>t</td><td>d</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>dz</td><td>h</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>dz</td><td>h</td></td></tr><tr><td>30</td><td>*tʔ</td><td>30</td><td>vʔt</td><td>d</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>vʔd</td><td>d</td></td></tr><tr><td>34</td><td>*ʔ</td><td>34</td><td>ʔ</td><td>Ø</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Kub (11)</span></div></div>
+<div id="Tan:label" data-value="7" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Tan:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>Ø</td></td></tr><tr><td>17</td><td>*pʔ</td><td>17</td><td>pʔ</td><td>vʔp</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>dz</td><td>j</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>dz</td><td>r</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>d</td><td>r</td></td></tr><tr><td>30</td><td>*tʔ</td><td>30</td><td>vʔt</td><td>t</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>vʔd</td><td>vʔr</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Tan (7)</span></div></div></div></div>
+<div class="node-container"><div id="edge_4:label" data-value="3" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_4:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>16</td><td>*pʔ</td><td>16</td><td>pʔ</td><td>b</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>dz</td><td>j</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>dz</td><td>d</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_4 (3)</span></div><div class="node-content"><div class="node-container"><div id="edge_7:label" data-value="7" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_7:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>g</td></td></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>kʔ</td><td>g</td></td></tr><tr><td>17</td><td>*pʔ</td><td>17</td><td>pʔ</td><td>b</td></td></tr><tr><td>18</td><td>*pʔ</td><td>18</td><td>vʔb</td><td>b</td></td></tr><tr><td>30</td><td>*tʔ</td><td>30</td><td>vʔt</td><td>d</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>vʔd</td><td>d</td></td></tr><tr><td>34</td><td>*ʔ</td><td>34</td><td>ʔ</td><td>Ø</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_7 (7)</span></div><div class="node-content"><div class="node-container"><div id="edge_10:label" data-value="4" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_10:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>5</td><td>*k</td><td>5</td><td>k</td><td>g</td></td></tr><tr><td>7</td><td>*k</td><td>7</td><td>k</td><td>g</td></td></tr><tr><td>22</td><td>*t</td><td>22</td><td>t</td><td>d</td></td></tr><tr><td>23</td><td>*t</td><td>23</td><td>t</td><td>d</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_10 (4)</span></div><div class="node-content"><div id="Yup:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Yup:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Yup (0)</span></div></div>
+<div class="node-container"><div id="edge_14:label" data-value="3" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_14:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>24</td><td>*ts</td><td>24</td><td>ts</td><td>j</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_14 (3)</span></div><div class="node-content"><div id="Des:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Des:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Des (0)</span></div></div>
+<div id="Sir:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Sir:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Sir (0)</span></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_11:label" data-value="8" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_11:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>13</td><td>*p</td><td>13</td><td>p</td><td>h</td></td></tr><tr><td>14</td><td>*p</td><td>14</td><td>p</td><td>h</td></td></tr><tr><td>19</td><td>*s</td><td>19</td><td>s</td><td>t∫</td></td></tr><tr><td>20</td><td>*s</td><td>20</td><td>s</td><td>t∫</td></td></tr><tr><td>24</td><td>*ts</td><td>24</td><td>ts</td><td>j</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>t∫</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>d</td><td>r</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>d</td><td>r</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_11 (8)</span></div><div class="node-content"><div id="Bas:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Bas:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Bas (0)</span></div></div>
+<div id="Mak:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Mak:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Mak (0)</span></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_8:label" data-value="3" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_8:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>3</td><td>*j</td><td>3</td><td>j</td><td>t∫</td></td></tr><tr><td>24</td><td>*ts</td><td>24</td><td>ts</td><td>j</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_8 (3)</span></div><div class="node-content"><div class="node-container"><div id="edge_12:label" data-value="4" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_12:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>3</td><td>*j</td><td>3</td><td>t∫</td><td>s</td></td></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>kʔ</td><td>vʔk</td></td></tr><tr><td>17</td><td>*pʔ</td><td>17</td><td>pʔ</td><td>vʔp</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_12 (4)</span></div><div class="node-content"><div id="Pir:label" data-value="2" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Pir:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>k</td></td></tr><tr><td>34</td><td>*ʔ</td><td>34</td><td>ʔ</td><td>Ø</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Pir (2)</span></div></div>
+<div id="Wan:label" data-value="5" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Wan:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>4</td><td>*k</td><td>4</td><td>k</td><td>kh</td></td></tr><tr><td>6</td><td>*k</td><td>6</td><td>k</td><td>t∫</td></td></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>kh</td></td></tr><tr><td>13</td><td>*p</td><td>13</td><td>p</td><td>ph</td></td></tr><tr><td>21</td><td>*t</td><td>21</td><td>t</td><td>th</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Wan (5)</span></div></div>
+<div id="Tuk:label" data-value="1" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Tuk:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>Ø</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Tuk (1)</span></div></div></div></div>
+<div class="node-container"><div id="edge_13:label" data-value="7" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_13:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>1</td><td>*h</td><td>1</td><td>h</td><td>Ø</td></td></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>kʔ</td><td>k</td></td></tr><tr><td>17</td><td>*pʔ</td><td>17</td><td>pʔ</td><td>p</td></td></tr><tr><td>18</td><td>*pʔ</td><td>18</td><td>vʔb</td><td>b</td></td></tr><tr><td>30</td><td>*tʔ</td><td>30</td><td>vʔt</td><td>t</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>vʔd</td><td>d</td></td></tr><tr><td>34</td><td>*ʔ</td><td>34</td><td>ʔ</td><td>Ø</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_13 (7)</span></div><div class="node-content"><div class="node-container"><div id="edge_15:label" data-value="3" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_15:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>3</td><td>*j</td><td>3</td><td>t∫</td><td>s</td></td></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>k</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_15 (3)</span></div><div class="node-content"><div id="Tuy:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Tuy:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Tuy (0)</span></div></div>
+<div id="Yur:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Yur:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Yur (0)</span></div></div></div></div>
+<div class="node-container"><div id="edge_16:label" data-value="2" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_16:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>19</td><td>*s</td><td>19</td><td>s</td><td>h</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>s</td><td>h</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_16 (2)</span></div><div class="node-content"><div id="Pis:label" data-value="3" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Pis:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>k</td></td></tr><tr><td>20</td><td>*s</td><td>20</td><td>s</td><td>t∫</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>t∫</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Pis (3)</span></div></div>
+<div class="node-container"><div id="edge_17:label" data-value="3" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_17:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>3</td><td>*j</td><td>3</td><td>t∫</td><td>s</td></td></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>Ø</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_17 (3)</span></div><div class="node-content"><div id="Kar:label" data-value="2" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Kar:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>d</td><td>r</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>d</td><td>r</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Kar (2)</span></div></div>
+<div class="node-container"><div id="edge_18:label" data-value="3" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_18:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>3</td><td>*j</td><td>3</td><td>s</td><td>h</td></td></tr><tr><td>20</td><td>*s</td><td>20</td><td>s</td><td>h</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>s</td><td>h</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_18 (3)</span></div><div class="node-content"><div id="Tat:label" data-value="2" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Tat:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>d</td><td>r</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>d</td><td>r</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Tat (2)</span></div></div>
+<div id="Bar:label" data-value="0" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Bar:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr></table>'; document.getElementById('popup').style.display='block';">Bar (0)</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+<div class="node-container"><div id="edge_2:label" data-value="8" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_2:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>kʔ</td><td>k</td></td></tr><tr><td>13</td><td>*p</td><td>13</td><td>p</td><td>h</td></td></tr><tr><td>14</td><td>*p</td><td>14</td><td>p</td><td>h</td></td></tr><tr><td>16</td><td>*pʔ</td><td>16</td><td>pʔ</td><td>h</td></td></tr><tr><td>17</td><td>*pʔ</td><td>17</td><td>pʔ</td><td>h</td></td></tr><tr><td>18</td><td>*pʔ</td><td>18</td><td>pʔ</td><td>h</td></td></tr><tr><td>24</td><td>*ts</td><td>24</td><td>ts</td><td>s</td></td></tr><tr><td>30</td><td>*tʔ</td><td>30</td><td>vʔt</td><td>t</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_2 (8)</span></div><div class="node-content"><div class="node-container"><div id="edge_5:label" data-value="5" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_5:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>1</td><td>*h</td><td>1</td><td>h</td><td>Ø</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>tsʔ</td><td>sʔ</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>tsʔ</td><td>sʔ</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>tʔ</td><td>t</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_5 (5)</span></div><div class="node-content"><div id="Sek:label" data-value="3" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Sek:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>12</td><td>*n</td><td>12</td><td>n</td><td>d</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>tʔ</td><td>d</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Sek (3)</span></div></div>
+<div id="Sio:label" data-value="1" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Sio:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>tʔ</td><td>ɖ</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Sio (1)</span></div></div></div></div>
+<div class="node-container"><div id="edge_6:label" data-value="2" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_6:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>tsʔ</td><td>dz</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>tsʔ</td><td>dz</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_6 (2)</span></div><div class="node-content"><div id="Mai:label" data-value="11" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Mai:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>1</td><td>*h</td><td>1</td><td>h</td><td>Ø</td></td></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>g</td></td></tr><tr><td>15</td><td>*pʔ</td><td>15</td><td>pʔ</td><td>ʔb</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>dz</td><td>d</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>dz</td><td>j</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>tʔ</td><td>ʔd</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>tʔ</td><td>t</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>s</td></td></tr><tr><td>33</td><td>*w</td><td>33</td><td>w</td><td>b</td></td></tr><tr><td>34</td><td>*ʔ</td><td>34</td><td>ʔ</td><td>Ø</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Mai (11)</span></div></div>
+<div class="node-container"><div id="edge_9:label" data-value="4" class="node-label"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node edge_9:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>9</td><td>*kʔ</td><td>9</td><td>kʔ</td><td>k</td></td></tr><tr><td>15</td><td>*pʔ</td><td>15</td><td>pʔ</td><td>p</td></td></tr><tr><td>26</td><td>*tsʔ</td><td>26</td><td>dz</td><td>j</td></td></tr><tr><td>29</td><td>*tʔ</td><td>29</td><td>tʔ</td><td>r</td></td></tr></table>'; document.getElementById('popup').style.display='block';">edge_9 (4)</span></div><div class="node-content"><div id="Kor:label" data-value="16" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Kor:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>1</td><td>*h</td><td>1</td><td>h</td><td>Ø</td></td></tr><tr><td>4</td><td>*k</td><td>4</td><td>k</td><td>kh</td></td></tr><tr><td>5</td><td>*k</td><td>5</td><td>k</td><td>kh</td></td></tr><tr><td>6</td><td>*k</td><td>6</td><td>k</td><td>kh</td></td></tr><tr><td>7</td><td>*k</td><td>7</td><td>k</td><td>kh</td></td></tr><tr><td>8</td><td>*kk</td><td>8</td><td>k</td><td>kh</td></td></tr><tr><td>10</td><td>*kʔ</td><td>10</td><td>k</td><td>kh</td></td></tr><tr><td>21</td><td>*t</td><td>21</td><td>t</td><td>th</td></td></tr><tr><td>22</td><td>*t</td><td>22</td><td>t</td><td>th</td></td></tr><tr><td>23</td><td>*t</td><td>23</td><td>t</td><td>th</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>s</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>dz</td><td>j</td></td></tr><tr><td>28</td><td>*tt</td><td>28</td><td>t</td><td>th</td></td></tr><tr><td>30</td><td>*tʔ</td><td>30</td><td>t</td><td>th</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>tʔ</td><td>t</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>s</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Kor (16)</span></div></div>
+<div id="Kue:label" data-value="6" class="node-leave"><div class="inner_leave"><span style="cursor:pointer" onclick="document.getElementById('popup').innerHTML = '<b>Innovations at node Kue:</b><table><tr><th>Number</th><th>Proto-Form</th><th>Context</th><th>Parent Form</th><th>New Form</th></tr><tr><td>23</td><td>*t</td><td>23</td><td>t</td><td>n</td></td></tr><tr><td>25</td><td>*ts</td><td>25</td><td>ts</td><td>t</td></td></tr><tr><td>27</td><td>*tsʔ</td><td>27</td><td>dz</td><td>l</td></td></tr><tr><td>31</td><td>*tʔ</td><td>31</td><td>tʔ</td><td>n</td></td></tr><tr><td>32</td><td>*t∫</td><td>32</td><td>t∫</td><td>t</td></td></tr><tr><td>34</td><td>*ʔ</td><td>34</td><td>ʔ</td><td>h</td></td></tr></table>'; document.getElementById('popup').style.display='block';">Kue (6)</span></div></div></div></div></div></div></div></div></div></div></div>
+  <div id="popup" onclick="this.style.display = 'none'"></div>
+  <script>check_change();</script>
+</body>
+</html>
