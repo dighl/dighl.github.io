@@ -23,9 +23,17 @@ function showTable (){
   }
   
   var txt = '<table id="datatable"></table>';
+  var idx = 1;
+  var stanza = '0';
   for (var i=0,row; row=CHARS[i]; i++) {
+    if (row[9] != stanza) {
+      stanza = row[9];
+      idx = 1;
+    }
     /* activate change when clicking on poem */
-    CHARS[i][8] = '<span style="cursor:pointer;color:blue;" onclick="showPoem('+row[8]+')">'+row[8]+'</span>';
+    CHARS[i][10] = idx; //.push(idx);
+    CHARS[i][8] = '<span style="cursor:pointer;color:blue;" onclick="showPoem('+row[8]+',\''+row[9]+'\','+row[10]+')">'+row[8]+'</span>';
+    idx += 1
   }
   document.getElementById('data').innerHTML = txt;
 
@@ -49,7 +57,7 @@ function showTable (){
 }
 
 
-function showPoem(number) {
+function showPoem(number, this_stanza, this_idx) {
   
   var data = POEMS[number];
   var txt = '';
@@ -73,10 +81,13 @@ function showPoem(number) {
   }
   console.log('rhymes',rhymes);
 
+
+  var idx = 1;
   /* start doing the table iteration */
   var stanza = '';
   for (var i=0,row; row=data['sections'][i]; i++) {
-    txt += '<tr>';
+    
+
     var sec = row[1];
     var sta = row[0]
     var rhy = row[2];
@@ -87,10 +98,30 @@ function showPoem(number) {
     var yun = row[7];
     var chr = row[8];
 
+
     if (stanza != sta) {
-      txt += '<td colspan="9">'+sta+'</td></tr><tr>';
+      if (sta == this_stanza) {
+	txt += '<tr><td colspan="9" style="font-weight:bold;border:2px solid black;">';
+      }
+      else {
+	txt += '<tr><td colspan="9">';
+      }
+      txt += sta+'</td></tr>';
       stanza = sta;
+      var idx = 1;
     }
+
+    if (idx == this_idx && stanza == this_stanza) {
+      var this_col = '2px solid black';
+    }
+    else {
+      this_col = '1px solid lightgray';
+    }
+    
+    txt += '<tr>';
+    idx += 1;
+
+
 
     /* assemble rhymes */
     if (rhy != '') {
@@ -102,13 +133,13 @@ function showPoem(number) {
       var col = 'white';
     }
 
-    txt += '<td>'+sec+'</td>';
-    txt += '<td style="background-color:'+col+';">'+rhy+'</td>';
-    txt += '<td>'+ary+'</td>';
-    txt += '<td>'+obs+'</td>';
-    txt += '<td>'+pwy+'</td>';
-    txt += '<td>'+mch+'</td>';
-    txt += '<td>'+yun+'</td>';
+    txt += '<td style="border:'+this_col+'">'+sec+'</td>';
+    txt += '<td style="border:'+this_col+';background-color:'+col+';">'+rhy+'</td>';
+    txt += '<td style="border:'+this_col+'">'+ary+'</td>';
+    txt += '<td style="border:'+this_col+'">'+obs+'</td>';
+    txt += '<td style="border:'+this_col+'">'+pwy+'</td>';
+    txt += '<td style="border:'+this_col+'">'+mch+'</td>';
+    txt += '<td style="border:'+this_col+'">'+yun+'</td>';
 
     txt += '</tr>';
   }
