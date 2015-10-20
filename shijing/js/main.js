@@ -15,17 +15,18 @@ function showTable (){
     var parms = {};
   }
 
-  if ('char' in parms) {
-    var searchterm = parms['char'];
-  }
-  else if ('stanza' in parms) {
-    showPoem(parms['stanza'].split('.')[0], parms['stanza']);
+
+  if ('stanza' in parms) {
+    showPoem(parms['stanza'].split('.')[0], parms['stanza'], parms['char']);
     var searchterm='';
     if ('break' in parms) {
       if (parms['break']) {
 	return;
       }
     }
+  }
+  else if ('char' in parms) {
+    var searchterm = parms['char'];
   }
   else {
     var searchterm = '';
