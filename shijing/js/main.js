@@ -2,7 +2,7 @@
 function showTable (){
 
   /* check for url parameter */
-  if (window.location.href.indexOf('char=') != -1) {
+  if (window.location.href.indexOf('?') != -1) {
     var rest=window.location.href.split('?')[1];
     var elms = rest.split('&');
     var parms = {};
@@ -17,6 +17,15 @@ function showTable (){
 
   if ('char' in parms) {
     var searchterm = parms['char'];
+  }
+  else if ('stanza' in parms) {
+    showPoem(parms['stanza'].split('.')[0], parms['stanza']);
+    var searchterm='';
+    if ('break' in parms) {
+      if (parms['break']) {
+	return;
+      }
+    }
   }
   else {
     var searchterm = '';
@@ -54,6 +63,8 @@ function showTable (){
     ],
     search : {search : decodeURIComponent(searchterm)}
   });
+
+
 }
 
 

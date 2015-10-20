@@ -14,21 +14,21 @@ function filterCommunities() {
     }
     catch(e) {
       values = [];
-      for (var i=1; i<353; i++) {
+      for (var i=1; i<352; i++) {
 	values.push(i);
       }
     }
 
     if (values.length == 0 || isNaN(values[0])){
       values = [];
-      for (var i=1; i<354; i++) {
+      for (var i=1; i<352; i++) {
 	values.push(i);
       }
     }
   }
   else if (val == '') {
     values = [];
-      for (var i=1; i<354; i++) {
+      for (var i=1; i<352; i++) {
 	values.push(i);
       }
   }
@@ -36,7 +36,7 @@ function filterCommunities() {
 
     var chars = val.split(/[:=]/)[1].split(/\s*,\s*/);
     values = [];
-    for (var i=1; i < 353; i++) {
+    for (var i=1; i < 352; i++) {
       var txt = document.getElementById('community_'+i);
       for (var j=0,this_char; this_char = chars[j]; j++) {
 	if (txt.innerHTML.indexOf(this_char) != -1) {
@@ -45,11 +45,11 @@ function filterCommunities() {
       }
     }
   }
-  else if (val.indexOf('rime' != -1)) {
+  else if (val.indexOf('rime' != -1 || val.indexOf('rimes') != -1)) {
 
     var chars = val.split(/[:=]/)[1].split(/\s*,\s*/);
     values = [];
-    for (var i=1; i < 353; i++) {
+    for (var i=1; i < 352; i++) {
       var txt = document.getElementById('community_'+i);
       for (var j=0,this_char; this_char = chars[j]; j++) {
 	if (txt.innerHTML.indexOf('-'+this_char+'<') != -1) {
@@ -60,7 +60,7 @@ function filterCommunities() {
   }
 
 
-  for (var i=1;i<353; i++) {
+  for (var i=1;i<352; i++) {
     if (values.indexOf(i) == -1) {
       document.getElementById('community_'+i).style.display = 'none';
     }
@@ -69,3 +69,19 @@ function filterCommunities() {
     }
   }
 }
+
+
+function toggle_table(idx) {
+
+  var elm = document.getElementById('table_'+idx);
+  if (elm.style.display == 'none') {
+    elm.style.display = 'block';
+    document.getElementById('span_'+idx).innerHTML = 'HIDE';
+  }
+  else if (elm.style.display == 'block') {
+    elm.style.display = 'none';
+    document.getElementById('span_'+idx).innerHTML = 'SHOW';
+  }
+}
+
+
