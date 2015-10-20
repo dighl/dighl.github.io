@@ -84,4 +84,48 @@ function toggle_table(idx) {
   }
 }
 
+function sort_table (idx, idf, dir) {
 
+  if (dir == 1) {
+    var new_dir = 0;
+  }
+  else {
+    var new_dir = 1;
+  }
+  
+  var table = document.getElementById(idf);
+  var rows = [];
+  for (var i=1,row; row=table.rows[i]; i++) {
+    rows.push(row);
+  }
+  //console.log(rows);
+  rows.sort(function (x,y) {
+    console.log(x.cells[idx]);
+    console.log(x.cells[idx].innerHTML);
+    if (idx < 3) {
+    if (dir == 0) {
+      return x.cells[idx].innerHTML.localeCompare(y.cells[idx].innerHTML);
+    }
+    else {
+      return y.cells[idx].innerHTML.localeCompare(x.cells[idx].innerHTML);
+    }}
+    else {
+      if (dir == 0) {
+	return parseInt(x.cells[idx].innerHTML) - parseInt(y.cells[idx].innerHTML);
+      }
+      else {
+	return parseInt(y.cells[idx].innerHTML) - parseInt(x.cells[idx].innerHTML);
+      }
+    }
+
+  });
+  var txt = '';
+  txt += '<tr>'+table.rows[0].innerHTML+'</tr>';
+  for (var i=0,row;row=rows[i]; i++) {
+    txt += '<tr>'+rows[i].innerHTML+'</tr>';
+  }
+  
+  table.innerHTML = txt; 
+  table.rows[0].cells[idx].onclick = function() {sort_table(idx, idf, new_dir);};
+
+}
