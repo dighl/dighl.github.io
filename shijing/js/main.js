@@ -17,7 +17,7 @@ function showTable (){
 
 
   if ('stanza' in parms) {
-    showPoem(parms['stanza'].split('.')[0], parms['stanza'], parms['char']);
+    showPoem(parms['stanza'].split('.')[0], parms['stanza']);
     var searchterm='';
     if ('break' in parms) {
       if (parms['break']) {
