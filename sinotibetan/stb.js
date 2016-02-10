@@ -35,9 +35,9 @@ var sortprefs = {
 
 function makeURL() {
   
-  url = 'http://tsv.lingpy.org?remote_dbase=sinotibetan.sqlite3' 
-    + '&file=sinotibetan&preview=1000'
-    + '&basics=DOCULECT|CONCEPT|IPA|TOKENS|BORROWING|NOTE|COGID|ALIGNMENT'
+  url = 'http://tsv.lingpy.org?remote_dbase=burmish' 
+    + '&file=burmish&preview=100'
+    + '&basics=DOCULECT|CONCEPT|IPA|TOKENS|POS|NOTE|COGID|STEDT_CONCEPT'
     ;
 
   /* get selected doculects */
